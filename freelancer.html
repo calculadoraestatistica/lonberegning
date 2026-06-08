@@ -85,10 +85,6 @@
           <a href="#" aria-haspopup="true" aria-expanded="false">Mere <span aria-hidden="true">&#9662;</span></a>
           <ul class="submenu">
             <li><a href="/feriepenge.html">Feriepenge</a></li>
-            <li><a href="/">Timeløn</a></li>
-            <li><a href="/topskat-tjek.html">Kørselsfradrag</a></li>
-            <li><a href="/">Dagpenge</a></li>
-            <li><a href="/">SU-beregner</a></li>
             <li><a href="/freelancer.html" aria-current="page">Freelancer</a></li>
           </ul>
         </li>
@@ -99,6 +95,12 @@
 </header>
 
 <main id="conteudo">
+
+  <div class="container" style="margin-top:1rem">
+    <div role="alert" class="callout callout--warn" style="background:#fff3cd;border:1px solid #ffeeba;color:#664d03;padding:.9rem 1.2rem;border-radius:8px">
+      <strong>⚠ Estimat:</strong> Denne beregner er en forenklet vurdering for B-indkomst. Dækker IKKE erhvervsmæssige udgifter, moms-registrering, B-skat-parcellering eller kapitalafkast. Brug Skat.dk/TastSelv eller en revisor for det endelige.
+    </div>
+  </div>
 
   <section class="hero">
     <div class="container">
@@ -196,7 +198,8 @@
           <div class="calc-form__foot">
             <button type="button" class="btn btn--ghost" id="resetBtn">Nulstil</button>
           </div>
-        </form>
+      <button type="submit" hidden aria-hidden="true">Beregn</button>
+    </form>
 
         <!-- ============ RESULTAT ============ -->
         <aside class="calc-result" aria-live="polite" aria-atomic="true">
@@ -426,10 +429,6 @@
           <li><a href="/topskat-tjek.html">Topskat</a></li>
           <li><a href="/pensionsfradrag.html">Pension</a></li>
           <li><a href="/feriepenge.html">Feriepenge</a></li>
-          <li><a href="/">Timeløn</a></li>
-          <li><a href="/topskat-tjek.html">Kørselsfradrag</a></li>
-          <li><a href="/">Dagpenge</a></li>
-          <li><a href="/">SU-beregner</a></li>
           <li><a href="/freelancer.html">Freelancer</a></li>
           <li><a href="/sammenlign-kommuner.html">Sammenlign kommuner</a></li>
         </ul>

@@ -301,6 +301,12 @@
         baseAmBidrag: round2(baseAmBidrag),
         personligIndkomst: round2(personligIndkomst),
         kommunalBase: round2(kommunalBase),
+        skatteloftsnedslag: round2(
+          (bundskat - bundskatAjustado) +
+          (mellemskat - mellemskatAjustado) +
+          (topskat - topskatAjustado) +
+          (toptopskat - toptopskatAjustado)
+        ),
         totalSkat: round2(totalSkat),
         totalTrukket: round2(amBidrag + totalSkat + atpKr + pensionEgen)
       }
@@ -419,19 +425,21 @@
   }
 
   // ====================================================================
-  // calcFreelancerBindkomst — B-indkomst (sem AM-bidrag retido na fonte
-  // mas paga normalmente; sem ATP; sem bortseelsesret automática)
+  // calcFreelancerBindkomst — ESTIMATIVA preliminar (B-indkomst)
   // ====================================================================
+  // ATENÇÃO: B-indkomst tem regras específicas (forskudsopgørelse, B-skat
+  // em 10 parcelas, fradrag para drift, hjemmekontor, transport, moms
+  // acima de 50.000 DKK). Esta função reaproveita calcNetSalary apenas
+  // desativando ATP/pension empregador — é uma APROXIMAÇÃO. Para cálculos
+  // definitivos, freelancer deve consultar revisor ou usar skat.dk/TastSelv.
   function calcFreelancerBindkomst(input) {
     input = input || {};
-    // Freelancer/B-indkomst paga AM-bidrag igual, mas sem ATP empregado e
-    // sem pensão via empregador. Sem beskæftigelsesfradrag se for sem A-indkomst.
-    // TODO: confirmar regra exata 2026 com Skat (selvstændig vs honorar).
     const cloned = Object.assign({}, input, { atp: false });
     const r = calcNetSalary(cloned);
     return Object.assign({}, r, {
       tipo: 'B-indkomst',
-      nota: 'Freelancer paga AM-bidrag + skat via forskudsopgørelse, sem ATP/pensão via empregador.'
+      estimat: true,
+      nota: 'ESTIMATIVA preliminar. Não cobre erhvervsmæssige udgifter, moms, B-skat-parcellering. Consulte revisor para uso real.'
     });
   }
 
