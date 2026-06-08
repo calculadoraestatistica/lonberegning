@@ -62,9 +62,12 @@
   const ATP_LON_MODT_MNED = 99;        // kr/mês (parte do empregado)
   const ATP_LON_MODT_AAR = 1188;       // 12 * 99
 
-  // Skråt skatteloft (combinado, antes do kirkeskat)
-  const TAX_CEILING_TOPSKAT = 0.5207;
-  const TAX_CEILING_TOPTOPSKAT = 0.5707;
+  // Skråt skatteloft 2026 — caps sobre soma de (kommune + bund + mellem + [top] + [toptop])
+  // Kirkeskat NÃO entra no teto, fica por cima.
+  // Fonte: Skat.dk faktaark skatteloft + Skattereformen 2026
+  const TAX_CEILING_MELLEMSKAT = 0.4457;   // 44,57% — quando só bund + mellem aplicam
+  const TAX_CEILING_TOPSKAT = 0.5207;      // 52,07% — quando topskat aplica
+  const TAX_CEILING_TOPTOPSKAT = 0.5707;   // 57,07% — quando toptopskat aplica
 
   // AM-bidrag isento abaixo dessa idade a partir de 2026
   const AM_BIDRAG_EXEMPT_AGE = 18;
@@ -195,24 +198,62 @@
     const kommuneskat = kommunalBase * kommuneskatRate;
     const kirkeskat = kommunalBase * kirkeskatRate;
 
-    // ---- Aplicar skråt skatteloft (proporcionalmente em topskat/toptopskat) ----
-    // O loft real é aplicado pelo Skat sobre a soma das alíquotas estatais.
-    // Cálculo simplificado: se kommuneskat% + topskat% > 52,07%, recorta topskat.
-    // TODO: validar conforme Skat publica método definitivo 2026.
+    // ---- Aplicar skråt skatteloft 2026 (skattenedslag) ----
+    // O Skat aplica skatteloftsnedslag quando soma das alíquotas marginais
+    // (kommune + bund + mellem + top + toptop, SEM kirke) excede o teto:
+    //   - 44,57% se NÃO paga top nem toptopskat (só bund/mellem)
+    //   - 52,07% se paga topskat (bund+mellem+top)
+    //   - 57,07% se paga toptopskat (bund+mellem+top+toptop)
+    // O nedslag é aplicado proporcionalmente sobre as alíquotas STATALES (top→mellem→bund)
+    // pra não baixar abaixo de zero. Aqui simplificamos reduzindo do nível mais alto pra baixo.
     let topskatAjustado = topskat;
     let toptopskatAjustado = toptopskat;
-    const statligRate = BUNDSKAT_RATE + TOPSKAT_RATE; // bund + top quando aplicável
-    const overshootTop = (kommuneskatRate + TOPSKAT_RATE + BUNDSKAT_RATE) - TAX_CEILING_TOPSKAT;
-    if (overshootTop > 0 && topskatBase > 0) {
-      topskatAjustado = Math.max(0, topskatBase * (TOPSKAT_RATE - overshootTop));
+    let mellemskatAjustado = mellemskat;
+    let bundskatAjustado = bundskat;
+
+    // Determina qual teto aplicar (o mais alto onde a renda chega)
+    let cap = TAX_CEILING_MELLEMSKAT;
+    let baseRateSum = kommuneskatRate + BUNDSKAT_RATE;
+    if (mellemskatBase > 0) baseRateSum += MELLEMSKAT_RATE;
+    if (topskatBase > 0) {
+      cap = TAX_CEILING_TOPSKAT;
+      baseRateSum += TOPSKAT_RATE;
     }
-    const overshootTopTop = (kommuneskatRate + TOPSKAT_RATE + BUNDSKAT_RATE + TOPTOPSKAT_RATE) - TAX_CEILING_TOPTOPSKAT;
-    if (overshootTopTop > 0 && toptopskatBase > 0) {
-      toptopskatAjustado = Math.max(0, toptopskatBase * (TOPTOPSKAT_RATE - overshootTopTop));
+    if (toptopskatBase > 0) {
+      cap = TAX_CEILING_TOPTOPSKAT;
+      baseRateSum += TOPTOPSKAT_RATE;
+    }
+    const overshoot = baseRateSum - cap;
+    if (overshoot > 0) {
+      // Reduz proporcionalmente do nível mais alto pro mais baixo
+      let remaining = overshoot;
+      // 1. Tira de toptopskat
+      if (remaining > 0 && toptopskatBase > 0) {
+        const reduceRate = Math.min(remaining, TOPTOPSKAT_RATE);
+        toptopskatAjustado = Math.max(0, toptopskatBase * (TOPTOPSKAT_RATE - reduceRate));
+        remaining -= reduceRate;
+      }
+      // 2. Tira de topskat
+      if (remaining > 0 && topskatBase > 0) {
+        const reduceRate = Math.min(remaining, TOPSKAT_RATE);
+        topskatAjustado = Math.max(0, topskatBase * (TOPSKAT_RATE - reduceRate));
+        remaining -= reduceRate;
+      }
+      // 3. Tira de mellemskat
+      if (remaining > 0 && mellemskatBase > 0) {
+        const reduceRate = Math.min(remaining, MELLEMSKAT_RATE);
+        mellemskatAjustado = Math.max(0, mellemskatBase * (MELLEMSKAT_RATE - reduceRate));
+        remaining -= reduceRate;
+      }
+      // 4. Tira de bundskat (raríssimo, mas pode acontecer em kommune muito alta)
+      if (remaining > 0 && bundskatBase > 0) {
+        const reduceRate = Math.min(remaining, BUNDSKAT_RATE);
+        bundskatAjustado = Math.max(0, bundskatBase * (BUNDSKAT_RATE - reduceRate));
+      }
     }
 
     // ---- Total impostos diretos sobre salário ----
-    const totalSkat = bundskat + mellemskat + topskatAjustado + toptopskatAjustado
+    const totalSkat = bundskatAjustado + mellemskatAjustado + topskatAjustado + toptopskatAjustado
                     + kommuneskat + kirkeskat;
 
     // ---- Líquido anual ----
@@ -231,10 +272,16 @@
       amBidrag: round2(amBidrag),
       kommuneskat: round2(kommuneskat),
       kirkeskat: round2(kirkeskat),
-      bundskat: round2(bundskat),
-      mellemskat: round2(mellemskat),
+      bundskat: round2(bundskatAjustado),
+      mellemskat: round2(mellemskatAjustado),
       topskat: round2(topskatAjustado),
       toptopskat: round2(toptopskatAjustado),
+      skatteloftsnedslag: round2(
+        (bundskat - bundskatAjustado) +
+        (mellemskat - mellemskatAjustado) +
+        (topskat - topskatAjustado) +
+        (toptopskat - toptopskatAjustado)
+      ),
       pensionEgen: round2(pensionEgen),
       atpKr: round2(atpKr),
       fradrag: {
