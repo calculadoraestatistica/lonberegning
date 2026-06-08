@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  TEMPLATE DE REFERENCIA — Lonberegner.dk
+  ============================================================================
+  Este arquivo NAO vai pro deploy. Serve apenas como referencia estrutural
+  para agentes que vao criar as paginas reais do site.
+
+  Padroes obrigatorios:
+    - lang="da"
+    - Brand: "Lonberegner" / "Lonberegner.dk"
+    - Dominio: lonberegning.dk
+    - AdSense client: ca-pub-7516029395999799
+    - Theme color: #1e40af (azul)
+    - Slogan: "Lonberegner 2026 - brutto til netto, opdateret skattesatser, ingen logind"
+    - Badge "Satser opdateret for 2026" no header
+    - "Lavet i Danmark" no rodape
+
+  Procure por COPYABLE_BLOCKS abaixo para os trechos que devem ser
+  copiados ipsis litteris em cada nova pagina.
+  ============================================================================
+-->
+<html lang="da">
+<head>
+<!-- COPYABLE_BLOCKS:HEAD_COMMON_START
+     Copiar daqui ate HEAD_COMMON_END em TODAS as paginas.
+     Trocar apenas: <title>, <meta description>, <link canonical>,
+     <meta og:title>, <meta og:description>, <meta og:url>. -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7516029395999799" crossorigin="anonymous"></script>
+<title>Lonberegner 2026 — brutto til netto, gratis online</title>
+<meta name="description" content="Gratis lonberegner pa dansk. Beregn din netto-lon ud fra brutto, A-skat, AM-bidrag, ATP og kommuneskat. Opdaterede satser for 2026, ingen logind.">
+<link rel="canonical" href="https://lonberegning.dk/">
+<meta name="theme-color" content="#1e40af">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="da_DK">
+<meta property="og:site_name" content="Lonberegner.dk">
+<meta property="og:title" content="Lonberegner 2026 — brutto til netto, gratis online">
+<meta property="og:description" content="Beregn netto-lonnen ud fra brutto, A-skat, AM-bidrag, ATP og kommuneskat. Opdaterede satser for 2026.">
+<meta property="og:url" content="https://lonberegning.dk/">
+<meta property="og:image" content="https://lonberegning.dk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+<!-- COPYABLE_BLOCKS:HEAD_COMMON_END -->
+
+<!-- COPYABLE_BLOCKS:JSONLD_WEBSITE_START
+     JSON-LD WebSite — copiar somente na home (/). Em paginas internas,
+     trocar @type por WebPage e ajustar name/url/description. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Lonberegner.dk",
+  "url": "https://lonberegning.dk/",
+  "inLanguage": "da",
+  "description": "Gratis lonberegner pa dansk: brutto til netto med opdaterede skattesatser for 2026, ingen logind."
+}
+</script>
+<!-- COPYABLE_BLOCKS:JSONLD_WEBSITE_END -->
+
+<!-- COPYABLE_BLOCKS:JSONLD_FAQ_START
+     Opcional. Usar apenas em paginas com secao de FAQ visivel. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Er lonberegneren gratis?","acceptedAnswer":{"@type":"Answer","text":"Ja. Beregneren er 100% gratis, korer i browseren og kraever hverken registrering eller installation."}},
+    {"@type":"Question","name":"Er skattesatserne opdaterede?","acceptedAnswer":{"@type":"Answer","text":"Ja. Vi bruger de officielle satser for 2026 fra Skattestyrelsen, herunder AM-bidrag, bundskat, topskat og kommuneskat."}},
+    {"@type":"Question","name":"Bliver mine tal gemt?","acceptedAnswer":{"@type":"Answer","text":"Nej. Alle beregninger sker i din browser. Ingen tal sendes til en server."}}
+  ]
+}
+</script>
+<!-- COPYABLE_BLOCKS:JSONLD_FAQ_END -->
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Spring til indhold</a>
+
+<!-- COPYABLE_BLOCKS:HEADER_START
+     Copiar inteiro em TODAS as paginas. Nao editar a marca, nav, badge ou logo SVG. -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Lonberegner.dk — forsiden">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1e40af"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Lon<span>beregner</span></span>
+    </a>
+    <span class="header-badge" aria-label="Skattesatser opdateret for 2026">Satser opdateret for 2026</span>
+    <button class="nav-toggle" type="button" aria-label="Abn menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Hovedmenu">
+      <ul>
+        <li><a href="/">Lonberegner</a></li>
+        <li><a href="/bonus.html">Bonus</a></li>
+        <li><a href="/sammenlign-kommuner.html">Sammenlign kommuner</a></li>
+        <li><a href="/topskat.html">Topskat</a></li>
+        <li><a href="/pension.html">Pension</a></li>
+        <li class="has-submenu">
+          <a href="#" aria-haspopup="true" aria-expanded="false">Mere <span aria-hidden="true">&#9662;</span></a>
+          <ul class="submenu">
+            <li><a href="/feriepenge.html">Feriepenge</a></li>
+            <li><a href="/timelon.html">Timelon</a></li>
+            <li><a href="/koersel.html">Korselsfradrag</a></li>
+            <li><a href="/dagpenge.html">Dagpenge</a></li>
+            <li><a href="/su.html">SU-beregner</a></li>
+          </ul>
+        </li>
+        <li><a href="/om-os.html">Om</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<!-- COPYABLE_BLOCKS:HEADER_END -->
+
+<main id="conteudo">
+
+  <!-- COPYABLE_BLOCKS:HERO_START
+       Substituir h1, lead e botoes em cada pagina. Manter estrutura. -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero__eyebrow">100% gratis · Uden logind · Direkte i browseren</span>
+      <h1>Lonberegner 2026 — brutto til netto</h1>
+      <p class="lead"><strong>Lonberegner 2026 — brutto til netto, opdateret skattesatser, ingen logind.</strong> Skriv din brutto-lon, vaelg din kommune og se A-skat, AM-bidrag, ATP og netto-lon med det samme.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="#beregner">Beregn netto-lon</a>
+        <a class="btn btn--ghost btn--lg" href="/sammenlign-kommuner.html">Sammenlign kommuner</a>
+      </div>
+      <div class="hero__badges">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Satser opdateret for 2026</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Ingen logind</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Virker pa mobilen</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Resultat med det samme</span>
+      </div>
+    </div>
+  </section>
+  <!-- COPYABLE_BLOCKS:HERO_END -->
+
+  <!-- ====================================================================
+       CONTEUDO ESPECIFICO DA PAGINA VAI AQUI
+       Use as classes existentes: .section, .container, .card-grid,
+       .card, .feature-grid, .feature, .prose, .faq, .cta-band, etc.
+       ==================================================================== -->
+  <section class="section" id="beregner">
+    <div class="container">
+      <div class="section-title">
+        <h2>(Placeholder) Selve beregneren</h2>
+        <p>Form com brutto, kommune, kirkeskat, pensionsbidrag, frikort. Resultado: A-skat, AM-bidrag, ATP, netto.</p>
+      </div>
+      <!-- Aqui entra o componente da calculadora real. -->
+    </div>
+  </section>
+
+  <!-- COPYABLE_BLOCKS:AD_SLOT_START
+       Inserir 1-2 vezes por pagina, entre secoes. -->
+  <div class="container"><div class="ad-slot" data-ad-slot=""></div></div>
+  <!-- COPYABLE_BLOCKS:AD_SLOT_END -->
+
+  <!-- COPYABLE_BLOCKS:CTA_BAND_START
+       CTA final padrao. Trocar h2/p/link em cada pagina. -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Vil du vide, hvor meget du far udbetalt?</h2>
+        <p>Brug lonberegneren — gratis, uden logind og opdateret med 2026-satserne.</p>
+        <a class="btn btn--light btn--lg" href="/#beregner">Abn lonberegneren</a>
+      </div>
+    </div>
+  </section>
+  <!-- COPYABLE_BLOCKS:CTA_BAND_END -->
+
+</main>
+
+<!-- COPYABLE_BLOCKS:FOOTER_START
+     Copiar inteiro em TODAS as paginas. Sem Pix, sem doacoes em moeda
+     estrangeira. "Stot" e o equivalente local. -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#1e40af"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name">Lonberegner.dk</span>
+        </a>
+        <p>Gratis lonberegner pa dansk, med opdaterede skattesatser for 2026.</p>
+      </div>
+      <div>
+        <h3>Beregnere</h3>
+        <ul>
+          <li><a href="/">Lonberegner</a></li>
+          <li><a href="/bonus.html">Bonus</a></li>
+          <li><a href="/topskat.html">Topskat</a></li>
+          <li><a href="/pension.html">Pension</a></li>
+          <li><a href="/feriepenge.html">Feriepenge</a></li>
+          <li><a href="/timelon.html">Timelon</a></li>
+          <li><a href="/koersel.html">Korselsfradrag</a></li>
+          <li><a href="/dagpenge.html">Dagpenge</a></li>
+          <li><a href="/su.html">SU-beregner</a></li>
+          <li><a href="/sammenlign-kommuner.html">Sammenlign kommuner</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guides</h3>
+        <ul>
+          <li><a href="/guides/forsta-loenseddel.html">Forsta din lonseddel</a></li>
+          <li><a href="/guides/skat-2026.html">Skattesatser 2026</a></li>
+          <li><a href="/guides/forhandling.html">Forhandl lon</a></li>
+          <li><a href="/guides/freelancer.html">Freelancer og A-skat</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Hjem</a></li>
+          <li><a href="/om-os.html">Om os</a></li>
+          <li><a href="/kontakt.html">Kontakt</a></li>
+          <li><a href="/privatlivspolitik.html">Privatlivspolitik</a></li>
+          <li><a href="/vilkar.html">Vilkar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Kilder</h3>
+        <ul>
+          <li><a href="https://www.skat.dk/" rel="nofollow noopener" target="_blank">Skattestyrelsen</a></li>
+          <li><a href="https://www.borger.dk/" rel="nofollow noopener" target="_blank">Borger.dk</a></li>
+          <li><a href="https://www.atp.dk/" rel="nofollow noopener" target="_blank">ATP</a></li>
+          <li><a href="/kilder.html">Alle kilder og metode</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Stot</h3>
+        <ul>
+          <li><a href="/stot.html">Stot projektet</a></li>
+          <li><a href="/stot.html#del">Del med en kollega</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Beregneren har et informativt formal. Tjek altid dine egne tal med Skattestyrelsen eller en revisor, for du tager okonomiske beslutninger.</p>
+      <p>© <span data-year>2026</span> Lonberegner.dk · Lavet i Danmark.</p>
+    </div>
+  </div>
+</footer>
+<!-- COPYABLE_BLOCKS:FOOTER_END -->
+
+<!-- COPYABLE_BLOCKS:SCRIPTS_START
+     Copiar em TODAS as paginas. -->
+<script src="/js/config.js"></script>
+<script src="/js/app.js"></script>
+<!-- COPYABLE_BLOCKS:SCRIPTS_END -->
+</body>
+</html>

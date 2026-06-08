@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7516029395999799" crossorigin="anonymous"></script>
+<title>Topskat-tjek 2026 — betaler jeg topskat eller toptopskat?</title>
+<meta name="description" content="Find ud af om du betaler bundskat, mellemskat, topskat eller toptopskat i 2026. Tjek dine thresholds.">
+<link rel="canonical" href="https://lonberegning.dk/topskat-tjek.html">
+<meta name="theme-color" content="#1e40af">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="da_DK">
+<meta property="og:site_name" content="Lønberegner.dk">
+<meta property="og:title" content="Topskat-tjek 2026 — betaler jeg topskat eller toptopskat?">
+<meta property="og:description" content="Find ud af om du betaler bundskat, mellemskat, topskat eller toptopskat i 2026. Tjek dine thresholds.">
+<meta property="og:url" content="https://lonberegning.dk/topskat-tjek.html">
+<meta property="og:image" content="https://lonberegning.dk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Topskat-tjek 2026 — betaler jeg topskat eller toptopskat?">
+<meta name="twitter:description" content="Find ud af om du betaler bundskat, mellemskat, topskat eller toptopskat i 2026. Tjek dine thresholds.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Topskat-tjek 2026",
+  "url": "https://lonberegning.dk/topskat-tjek.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (browser)",
+  "inLanguage": "da",
+  "description": "Find ud af om du betaler bundskat, mellemskat, topskat eller toptopskat i 2026. Indtast din bruttoløn og se, hvor tæt du er på næste skattetrin.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "DKK" },
+  "publisher": { "@type": "Organization", "name": "Lønberegner.dk", "url": "https://lonberegning.dk/" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Hvornår betaler man topskat i 2026?","acceptedAnswer":{"@type":"Answer","text":"Topskat på 7,5 % betales af personlig indkomst over 777.900 kr. om året efter AM-bidrag. Det svarer til omkring 846.000 kr. i bruttoløn, hvis du ikke indbetaler til pension via lønnen."}},
+    {"@type":"Question","name":"Hvad er toptopskat?","acceptedAnswer":{"@type":"Answer","text":"Toptopskat er en ny skat fra 2026 på 5 %, der rammer personlig indkomst over 2.592.700 kr. efter AM-bidrag. Den rammer omkring 0,5 % af alle danskere — typisk topledere, specialister og personer med store bonusudbetalinger."}},
+    {"@type":"Question","name":"Kan jeg undgå topskat ved at indbetale til pension?","acceptedAnswer":{"@type":"Answer","text":"Ja. Pensionsindbetalinger via lønnen (bortseelsesret) trækkes fra din bruttoløn, før AM-bidrag og A-skat beregnes. Hvis du ligger lige over topskattegrænsen, kan en ekstra pensionsindbetaling bringe dig under grænsen og spare dig 7,5 % topskat — udover bund- og kommuneskatten."}},
+    {"@type":"Question","name":"Hvad er forskellen på bundskat, mellemskat og topskat?","acceptedAnswer":{"@type":"Answer","text":"Bundskat (12,01 %) betaler alle, der tjener over personfradraget (54.100 kr.). Mellemskat (7,5 %) starter ved 641.200 kr. efter AM-bidrag. Topskat (7,5 %) starter ved 777.900 kr. efter AM-bidrag. Toptopskat (5 %) starter ved 2.592.700 kr."}},
+    {"@type":"Question","name":"Skal jeg trække ATP og pension fra, før jeg sammenligner med grænsen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Topskat-grænsen gælder personlig indkomst efter AM-bidrag, og AM-bidraget beregnes af bruttoløn minus ATP og din egen pensionsindbetaling. Tjekkeren her gør det for dig automatisk."}},
+    {"@type":"Question","name":"Er beregningen 100 % præcis?","acceptedAnswer":{"@type":"Answer","text":"Tjekkeren bruger de officielle 2026-satser fra Skattestyrelsen, men din egen forskudsopgørelse kan indeholde fradrag eller særordninger, der flytter grænsen lidt. Læs mere på kilder-siden."}}
+  ]
+}
+</script>
+
+<style>
+/* Sidespecifik styling — termometer/threshold-visning */
+.topskat-result { text-align: center; padding: 2rem 1.5rem; }
+.topskat-result__eyebrow { font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; color: #64748b; margin: 0 0 .5rem; }
+.topskat-result__big {
+  font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+  font-weight: 800;
+  margin: 0 0 .75rem;
+  line-height: 1.2;
+}
+.topskat-result__big[data-tier="bund"]   { color: #16a34a; }
+.topskat-result__big[data-tier="mellem"] { color: #f59e0b; }
+.topskat-result__big[data-tier="top"]    { color: #ea580c; }
+.topskat-result__big[data-tier="toptop"] { color: #b91c1c; }
+.topskat-result__sub { color: #475569; margin: 0 0 1rem; }
+.topskat-result__distance {
+  display: inline-block;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  padding: .4rem 1rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-top: .25rem;
+}
+
+.thermometer {
+  position: relative;
+  margin: 1.5rem 0 .5rem;
+  background: linear-gradient(to right,
+    #16a34a 0%, #16a34a 25%,
+    #f59e0b 25%, #f59e0b 50%,
+    #ea580c 50%, #ea580c 75%,
+    #b91c1c 75%, #b91c1c 100%);
+  height: 18px;
+  border-radius: 999px;
+  overflow: visible;
+}
+.thermometer__marker {
+  position: absolute;
+  top: -6px;
+  width: 4px;
+  height: 30px;
+  background: #0f172a;
+  border-radius: 2px;
+  transform: translateX(-2px);
+  transition: left .3s ease;
+  box-shadow: 0 0 0 2px #fff;
+}
+.thermometer__marker::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 8px solid #0f172a;
+}
+.thermo-scale {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 1rem;
+  gap: .25rem;
+  font-size: .8rem;
+  color: #475569;
+}
+.thermo-scale > div { text-align: center; }
+.thermo-scale strong { display: block; color: #0f172a; }
+
+.tier-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: .5rem;
+}
+.tier-table th, .tier-table td {
+  padding: .65rem .75rem;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+  font-size: .95rem;
+}
+.tier-table th { background: #f8fafc; color: #0f172a; font-weight: 600; }
+.tier-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.tier-table tr[data-active="true"] { background: #fff7ed; font-weight: 600; }
+.tier-table .tier-dot {
+  display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+  margin-right: .4rem; vertical-align: middle;
+}
+
+.tip-box {
+  background: #ecfdf5;
+  border-left: 4px solid #16a34a;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+.tip-box h4 { margin: 0 0 .4rem; color: #15803d; }
+.tip-box p { margin: 0; color: #14532d; }
+.tip-box[data-tip-tier="hidden"] { display: none; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Spring til indhold</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Lønberegner.dk — forsiden">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1e40af"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Løn<span>beregner</span></span>
+    </a>
+    <span class="header-badge" aria-label="Skattesatser opdateret for 2026">Satser opdateret for 2026</span>
+    <button class="nav-toggle" type="button" aria-label="Åbn menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Hovedmenu">
+      <ul>
+        <li><a href="/">Lønberegner</a></li>
+        <li><a href="/bonus-efter-skat.html">Bonus</a></li>
+        <li><a href="/sammenlign-kommuner.html">Sammenlign kommuner</a></li>
+        <li><a href="/topskat-tjek.html" aria-current="page">Topskat</a></li>
+        <li><a href="/pensionsfradrag.html">Pension</a></li>
+        <li class="has-submenu">
+          <a href="#" aria-haspopup="true" aria-expanded="false">Mere <span aria-hidden="true">&#9662;</span></a>
+          <ul class="submenu">
+            <li><a href="/feriepenge.html">Feriepenge</a></li>
+            <li><a href="/">Timeløn</a></li>
+            <li><a href="/topskat-tjek.html">Kørselsfradrag</a></li>
+            <li><a href="/">Dagpenge</a></li>
+            <li><a href="/">SU-beregner</a></li>
+          </ul>
+        </li>
+        <li><a href="/om.html">Om</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <section class="hero">
+    <div class="container">
+      <span class="hero__eyebrow">100% gratis · Uden logind · Direkte i browseren</span>
+      <h1>Topskat-tjek 2026 — betaler du topskat?</h1>
+      <p class="lead">Skriv din bruttoløn og se med det samme, om du ligger i <strong>bundskat</strong>, <strong>mellemskat</strong>, <strong>topskat</strong> eller den nye <strong>toptopskat</strong>. Du får også at vide, hvor langt der er til næste skattetrin — og hvor meget du kan spare ved at indbetale til pension.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="#tjek">Tjek min skat</a>
+        <a class="btn btn--ghost btn--lg" href="/">Lønberegner</a>
+      </div>
+      <div class="hero__badges">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Satser opdateret for 2026</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Ingen logind</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Virker på mobilen</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Resultat med det samme</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       TJEKKER
+       =================================================================== -->
+  <section class="section section--calc" id="tjek">
+    <div class="container">
+      <div class="calc-layout">
+
+        <!-- ====== INPUT ====== -->
+        <form class="calc-form card" id="topskatForm" autocomplete="off" novalidate>
+          <header class="calc-form__head">
+            <h2>Din løn</h2>
+            <p>Skriv din bruttoløn og hvor stor en andel du indbetaler til pension via lønnen.</p>
+          </header>
+
+          <fieldset class="field-group">
+            <legend>Bruttoløn pr. år</legend>
+            <div class="input-row">
+              <input type="number" id="bruttoInput" name="brutto" min="0" step="1000" value="600000" inputmode="numeric" aria-label="Bruttoløn i kroner pr. år">
+              <span class="input-suffix">kr./år</span>
+            </div>
+            <input type="range" id="bruttoSlider" min="0" max="3000000" step="5000" value="600000" aria-label="Bruttoløn slider">
+            <div class="range-hint">
+              <span>0</span>
+              <span>3.000.000 kr.</span>
+            </div>
+            <p class="field-help" id="bruttoMaanedHint">≈ 50.000 kr./md.</p>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend>Egen pension <span class="badge-soft" id="pensionLabel">5 %</span></legend>
+            <input type="range" id="pensionEgen" min="0" max="25" step="0.5" value="5" aria-label="Egen pension procent">
+            <div class="range-hint"><span>0 %</span><span>25 %</span></div>
+            <p class="field-help">Trækkes af din bruttoløn før AM-bidrag og skat — sænker din personlige indkomst og kan flytte dig under topskattegrænsen.</p>
+          </fieldset>
+
+          <div class="calc-form__foot">
+            <button type="button" class="btn btn--ghost" id="resetBtn">Nulstil</button>
+          </div>
+        </form>
+
+        <!-- ====== RESULTAT ====== -->
+        <aside class="calc-result" aria-live="polite" aria-atomic="true">
+
+          <div class="result-card card topskat-result">
+            <p class="topskat-result__eyebrow">Din skattefase</p>
+            <p class="topskat-result__big" id="tierBig" data-tier="bund">Du betaler bundskat</p>
+            <p class="topskat-result__sub" id="tierSub">Personlig indkomst efter AM-bidrag: <strong id="personligIndkomst">—</strong> kr./år</p>
+            <span class="topskat-result__distance" id="distanceChip">—</span>
+
+            <div class="thermometer" aria-hidden="true">
+              <span class="thermometer__marker" id="thermoMarker" style="left: 0%;"></span>
+            </div>
+            <div class="thermo-scale">
+              <div><strong>Bund</strong>0 kr.</div>
+              <div><strong>Mellem</strong>641.200 kr.</div>
+              <div><strong>Top</strong>777.900 kr.</div>
+              <div><strong>Toptop</strong>2.592.700 kr.</div>
+            </div>
+          </div>
+
+          <div class="card tip-box" id="tipBox" data-tip-tier="hidden">
+            <h4 id="tipTitle">Tip — indbetal til pension</h4>
+            <p id="tipText">—</p>
+          </div>
+
+          <div class="card">
+            <h3 class="result-h3">De fire skattetrin i 2026</h3>
+            <div class="table-wrap">
+              <table class="tier-table" id="tierTable">
+                <thead>
+                  <tr>
+                    <th scope="col">Trin</th>
+                    <th scope="col">Sats</th>
+                    <th scope="col" class="num">Starter ved (efter AM-bidrag)</th>
+                    <th scope="col" class="num">≈ Bruttoløn</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-row="bund" data-active="false">
+                    <td><span class="tier-dot" style="background:#16a34a"></span>Bundskat</td>
+                    <td>12,01 %</td>
+                    <td class="num">54.100 kr.</td>
+                    <td class="num">≈ 58.804 kr.</td>
+                  </tr>
+                  <tr data-row="mellem" data-active="false">
+                    <td><span class="tier-dot" style="background:#f59e0b"></span>Mellemskat</td>
+                    <td>+ 7,5 %</td>
+                    <td class="num">641.200 kr.</td>
+                    <td class="num">≈ 696.957 kr.</td>
+                  </tr>
+                  <tr data-row="top" data-active="false">
+                    <td><span class="tier-dot" style="background:#ea580c"></span>Topskat</td>
+                    <td>+ 7,5 %</td>
+                    <td class="num">777.900 kr.</td>
+                    <td class="num">≈ 845.543 kr.</td>
+                  </tr>
+                  <tr data-row="toptop" data-active="false">
+                    <td><span class="tier-dot" style="background:#b91c1c"></span>Toptopskat</td>
+                    <td>+ 5 %</td>
+                    <td class="num">2.592.700 kr.</td>
+                    <td class="num">≈ 2.818.152 kr.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="result-foot">Bruttoløns-kolonnen forudsætter ingen pension via lønnen. Indbetaler du fx 5 % til pension, flytter alle bruttoløns-grænserne ca. 5,3 % op.</p>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-slot" data-ad-slot=""></div></div>
+
+  <!-- ===================================================================
+       Hvorfor er beregningen et estimate?
+       =================================================================== -->
+  <section class="section">
+    <div class="container prose">
+      <div class="section-title">
+        <h2>Hvorfor er beregningen et estimate?</h2>
+        <p>Tjekkeren bruger de officielle 2026-satser direkte fra Skattestyrelsen, men din egen situation kan se lidt anderledes ud.</p>
+      </div>
+
+      <p>Topskat-grænsen gælder din <strong>personlige indkomst efter AM-bidrag</strong>, og din personlige indkomst er ikke altid den samme som din bruttoløn. Den påvirkes blandt andet af:</p>
+      <ul>
+        <li><strong>Pensionsindbetalinger via lønnen.</strong> Pension med bortseelsesret trækkes ud, før AM-bidrag og A-skat beregnes — det er den hurtigste måde at falde under en grænse på.</li>
+        <li><strong>ATP-bidrag.</strong> 99 kr./md. for de fleste lønmodtagere, trækkes også før AM-bidrag.</li>
+        <li><strong>Honorar, B-indkomst og kapitalindkomst.</strong> Tjekkeren her ser kun på lønindkomst. Har du B-indkomst eller kapitalindkomst over personfradraget, kan du ramme grænsen tidligere.</li>
+        <li><strong>Særordninger.</strong> Er du på forskerskatteordningen (27 %-ordningen), seniornedslag eller har frikort, gælder andre regler.</li>
+      </ul>
+      <p>Tjekkeren er et hurtigt overslag. Se den fulde metode og kilderne på vores <a href="/kilder.html">kilder og metode-side</a>, eller tjek din egen forskudsopgørelse på <a href="https://www.skat.dk/" rel="nofollow noopener" target="_blank">skat.dk</a> for endelig præcision.</p>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       FAQ
+       =================================================================== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-title">
+        <h2>Ofte stillede spørgsmål</h2>
+        <p>Det danskerne plejer at undre sig over, når de tjekker om de betaler topskat.</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Hvornår betaler man topskat i 2026?</summary>
+          <p>Topskat på 7,5 % betales af personlig indkomst over 777.900 kr. om året efter AM-bidrag. Det svarer til omkring 846.000 kr. i bruttoløn, hvis du ikke indbetaler til pension via lønnen.</p>
+        </details>
+        <details>
+          <summary>Hvad er toptopskat?</summary>
+          <p>Toptopskat er en ny skat fra 2026 på 5 %, der rammer personlig indkomst over 2.592.700 kr. efter AM-bidrag. Den rammer omkring 0,5 % af alle danskere — typisk topledere, specialister og personer med store bonusudbetalinger. Sammen med bundskat, topskat og kommuneskat rammer den det skrå skatteloft på 57,07 %.</p>
+        </details>
+        <details>
+          <summary>Kan jeg undgå topskat ved at indbetale til pension?</summary>
+          <p>Ja. Pensionsindbetalinger via lønnen (bortseelsesret) trækkes fra din bruttoløn, før AM-bidrag og A-skat beregnes. Hvis du ligger lige over topskattegrænsen, kan en ekstra pensionsindbetaling bringe dig under grænsen og spare dig 7,5 % topskat — udover bund- og kommuneskatten du sparer på det samme beløb.</p>
+        </details>
+        <details>
+          <summary>Hvad er forskellen på bundskat, mellemskat og topskat?</summary>
+          <p>Bundskat (12,01 %) betaler alle, der tjener over personfradraget på 54.100 kr. Mellemskat (7,5 %) starter ved 641.200 kr. efter AM-bidrag. Topskat (7,5 %) starter ved 777.900 kr. Toptopskat (5 %) starter ved 2.592.700 kr. Bemærk at mellemskat blev genindført i 2026.</p>
+        </details>
+        <details>
+          <summary>Skal jeg trække ATP og pension fra, før jeg sammenligner med grænsen?</summary>
+          <p>Ja. Topskat-grænsen gælder personlig indkomst efter AM-bidrag, og AM-bidraget beregnes af bruttoløn minus ATP og din egen pensionsindbetaling. Tjekkeren her gør det for dig automatisk — du behøver kun at skrive bruttoløn og pensionsprocent.</p>
+        </details>
+        <details>
+          <summary>Er beregningen 100 % præcis?</summary>
+          <p>Tjekkeren bruger de officielle 2026-satser fra Skattestyrelsen, men din egen forskudsopgørelse kan indeholde fradrag eller særordninger, der flytter grænsen lidt. Brug <a href="/">lønberegneren</a> for en fuld breakdown, eller se din egen forskudsopgørelse på skat.dk for det endelige tal.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Cross-links — minimum 4 andre beregnere
+       =================================================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Andre beregnere</h2>
+        <p>Hvis du vil grave dybere ned i din løn og skat for 2026.</p>
+      </div>
+      <div class="card-grid card-grid--3">
+        <a class="card link-card" href="/">
+          <h3>Lønberegner — brutto til netto</h3>
+          <p>Komplet beregner med kommune, kirkeskat og alle fradrag. Se hele opdelingen af din løn i kroner og ører.</p>
+        </a>
+        <a class="card link-card" href="/pensionsfradrag.html">
+          <h3>Pensionsfradrag</h3>
+          <p>Hvor meget sparer du i skat ved at lægge ekstra i pension? Beregn effekten af bortseelsesretten — særligt vigtig hvis du betaler topskat.</p>
+        </a>
+        <a class="card link-card" href="/bonus-efter-skat.html">
+          <h3>Bonus efter skat</h3>
+          <p>Bonus rammer ofte topskat. Se hvor meget du reelt får, og hvor meget du kan vinde ved at sende bonusen direkte i pension.</p>
+        </a>
+        <a class="card link-card" href="/sammenlign-kommuner.html">
+          <h3>Sammenlign kommuner</h3>
+          <p>Samme bruttoløn i alle 98 kommuner. Se hvor stor forskel kommuneskatten gør på din nettoløn.</p>
+        </a>
+        <a class="card link-card" href="/topskat-tjek.html">
+          <h3>Topskat — fuld beregner</h3>
+          <p>Se nøjagtigt hvor mange kroner du betaler i topskat, og hvor stor effekt det har på din marginalskat.</p>
+        </a>
+        <a class="card link-card" href="/feriepenge.html">
+          <h3>Feriepenge</h3>
+          <p>12,5 % af lønnen — men hvad bliver det efter skat? Se din feriepenge-udbetaling før den lander.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Vil du se din fulde nettoløn?</h2>
+        <p>Brug lønberegneren — gratis, uden logind og opdateret med 2026-satserne.</p>
+        <a class="btn btn--light btn--lg" href="/">Åbn lønberegneren</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#1e40af"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name">Lønberegner.dk</span>
+        </a>
+        <p>Gratis lønberegner på dansk, med opdaterede skattesatser for 2026.</p>
+      </div>
+      <div>
+        <h3>Beregnere</h3>
+        <ul>
+          <li><a href="/">Lønberegner</a></li>
+          <li><a href="/bonus-efter-skat.html">Bonus</a></li>
+          <li><a href="/topskat-tjek.html">Topskat</a></li>
+          <li><a href="/topskat-tjek.html">Topskat-tjek</a></li>
+          <li><a href="/pensionsfradrag.html">Pension</a></li>
+          <li><a href="/feriepenge.html">Feriepenge</a></li>
+          <li><a href="/">Timeløn</a></li>
+          <li><a href="/topskat-tjek.html">Kørselsfradrag</a></li>
+          <li><a href="/">Dagpenge</a></li>
+          <li><a href="/">SU-beregner</a></li>
+          <li><a href="/sammenlign-kommuner.html">Sammenlign kommuner</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guides</h3>
+        <ul>
+          <li><a href="/kilder.html">Forstå din lønseddel</a></li>
+          <li><a href="/topskat-2026.html">Skattesatser 2026</a></li>
+          <li><a href="/lonforhojelse.html">Forhandl løn</a></li>
+          <li><a href="/freelancer.html">Freelancer og A-skat</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Hjem</a></li>
+          <li><a href="/om.html">Om os</a></li>
+          <li><a href="/kontakt.html">Kontakt</a></li>
+          <li><a href="/privatlivspolitik.html">Privatlivspolitik</a></li>
+          <li><a href="/vilkar.html">Vilkår</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Kilder</h3>
+        <ul>
+          <li><a href="https://www.skat.dk/" rel="nofollow noopener" target="_blank">Skattestyrelsen</a></li>
+          <li><a href="https://www.borger.dk/" rel="nofollow noopener" target="_blank">Borger.dk</a></li>
+          <li><a href="https://www.atp.dk/" rel="nofollow noopener" target="_blank">ATP</a></li>
+          <li><a href="/kilder.html">Alle kilder og metode</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Støt</h3>
+        <ul>
+          <li><a href="/stot.html">Støt projektet</a></li>
+          <li><a href="/stot.html#del">Del med en kollega</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Beregneren har et informativt formål. Tjek altid dine egne tal med Skattestyrelsen eller en revisor, før du tager økonomiske beslutninger.</p>
+      <p>© <span data-year>2026</span> Lønberegner.dk · Lavet i Danmark.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/tax-2026.js"></script>
+
+<script>
+/* =====================================================================
+ * Topskat-tjek — UI logic (inline, bruger window.TAX)
+ * ===================================================================== */
+(function () {
+  'use strict';
+  if (!window.TAX) {
+    console.error('window.TAX ikke indlæst — kontroller /js/tax-2026.js');
+    return;
+  }
+
+  var T = window.TAX;
+  var $ = function (id) { return document.getElementById(id); };
+
+  var bruttoInput   = $('bruttoInput');
+  var bruttoSlider  = $('bruttoSlider');
+  var bruttoMaaned  = $('bruttoMaanedHint');
+  var pensionEgen   = $('pensionEgen');
+  var pensionLabel  = $('pensionLabel');
+  var resetBtn      = $('resetBtn');
+
+  var tierBig       = $('tierBig');
+  var tierSub       = $('tierSub');
+  var personligEl   = $('personligIndkomst');
+  var distanceChip  = $('distanceChip');
+  var thermoMarker  = $('thermoMarker');
+  var tipBox        = $('tipBox');
+  var tipTitle      = $('tipTitle');
+  var tipText       = $('tipText');
+  var tierTable     = $('tierTable');
+
+  var STORAGE_KEY = 'lonberegner.topskat-tjek.v1';
+
+  // ---------- core calc — bruger window.TAX direkte ----------
+  function compute() {
+    var bruttoAr = Number(bruttoInput.value) || 0;
+    var pPct = Number(pensionEgen.value) || 0;
+
+    // Replikerer rækkefølgen i TAX.calcNetSalary: ATP -> pension -> AM
+    var atpKr = T.ATP_LON_MODT_AAR;
+    var pensionEgenKr = bruttoAr * (pPct / 100);
+    var baseAm = Math.max(0, bruttoAr - atpKr - pensionEgenKr);
+    var amBidrag = baseAm * T.AM_BIDRAG_RATE;
+    var personligIndkomst = baseAm - amBidrag;
+
+    var tier = 'bund';
+    if (personligIndkomst > T.TOPTOPSKAT_THRESHOLD)      tier = 'toptop';
+    else if (personligIndkomst > T.TOPSKAT_THRESHOLD)    tier = 'top';
+    else if (personligIndkomst > T.MELLEMSKAT_THRESHOLD) tier = 'mellem';
+
+    // Distance to next threshold (i personlig indkomst)
+    var nextThreshold = null;
+    var nextLabel = null;
+    if (tier === 'bund')        { nextThreshold = T.MELLEMSKAT_THRESHOLD; nextLabel = 'mellemskat'; }
+    else if (tier === 'mellem') { nextThreshold = T.TOPSKAT_THRESHOLD;    nextLabel = 'topskat'; }
+    else if (tier === 'top')    { nextThreshold = T.TOPTOPSKAT_THRESHOLD; nextLabel = 'toptopskat'; }
+
+    var distancePI = nextThreshold ? Math.max(0, nextThreshold - personligIndkomst) : null;
+    // Konverter til brutto: PI = (brutto - ATP - pension) * 0,92
+    // => Δbrutto = ΔPI / (0,92 * (1 - p))
+    var pFrac = pPct / 100;
+    var bruttoFactor = (1 - T.AM_BIDRAG_RATE) * (1 - pFrac);
+    var distanceBrutto = (distancePI != null && bruttoFactor > 0)
+      ? distancePI / bruttoFactor
+      : null;
+
+    // Distance ned til topskat (hvis ramt af topskat, hvor meget under grænsen er man IKKE)
+    var aboveTopBrutto = null;
+    if (tier === 'top' || tier === 'toptop') {
+      var overskydPI = personligIndkomst - T.TOPSKAT_THRESHOLD;
+      aboveTopBrutto = bruttoFactor > 0 ? overskydPI / bruttoFactor : 0;
+    }
+
+    return {
+      bruttoAr: bruttoAr,
+      pensionPct: pPct,
+      personligIndkomst: personligIndkomst,
+      tier: tier,
+      distancePI: distancePI,
+      distanceBrutto: distanceBrutto,
+      nextLabel: nextLabel,
+      aboveTopBrutto: aboveTopBrutto
+    };
+  }
+
+  // ---------- render ----------
+  var TIER_TEXT = {
+    bund:   { label: 'Du betaler bundskat',   sub: 'Du er under mellemskat- og topskat-grænserne.' },
+    mellem: { label: 'Du betaler mellemskat', sub: 'Du betaler mellemskat (7,5 %), men er stadig under topskat.' },
+    top:    { label: 'Du betaler topskat',    sub: 'Du betaler topskat (7,5 %) oven i mellemskat og bundskat.' },
+    toptop: { label: 'Du betaler toptopskat', sub: 'Du rammer det skrå skatteloft på 57,07 %.' }
+  };
+
+  function render(r) {
+    // Big label
+    tierBig.textContent = TIER_TEXT[r.tier].label;
+    tierBig.dataset.tier = r.tier;
+    personligEl.textContent = T.formatKr(r.personligIndkomst).replace(' kr.', '');
+
+    // Distance chip
+    if (r.tier === 'toptop') {
+      distanceChip.textContent = 'Du er over alle trin — toptopskat aktiv';
+    } else if (r.distanceBrutto != null) {
+      distanceChip.textContent = 'Du er ' + T.formatKr(r.distanceBrutto) + ' fra ' + r.nextLabel + ' (brutto)';
+    } else {
+      distanceChip.textContent = '—';
+    }
+
+    // Thermometer: scale 0..3.000.000 kr brutto → 0..100%
+    var MAX_BRUTTO_VIZ = 3000000;
+    var pct = Math.max(0, Math.min(100, (r.bruttoAr / MAX_BRUTTO_VIZ) * 100));
+    thermoMarker.style.left = pct.toFixed(2) + '%';
+
+    // Tier table — highlight active rows (alle indtil og med aktuelt trin)
+    var tiers = ['bund', 'mellem', 'top', 'toptop'];
+    var activeIdx = tiers.indexOf(r.tier);
+    tiers.forEach(function (t, i) {
+      var row = tierTable.querySelector('tr[data-row="' + t + '"]');
+      if (row) row.setAttribute('data-active', i === activeIdx ? 'true' : 'false');
+    });
+
+    // Tip box
+    renderTip(r);
+  }
+
+  function renderTip(r) {
+    if (r.tier === 'bund') {
+      tipBox.dataset.tipTier = 'hidden';
+      return;
+    }
+    tipBox.dataset.tipTier = r.tier;
+
+    if (r.tier === 'mellem') {
+      tipTitle.textContent = 'Tip — du er på vej mod topskat';
+      var brutto = r.bruttoAr;
+      // Hvor meget brutto til topskat?
+      var pFrac = r.pensionPct / 100;
+      var bruttoFactor = (1 - T.AM_BIDRAG_RATE) * (1 - pFrac);
+      var bruttoForTop = (T.TOPSKAT_THRESHOLD / bruttoFactor) + T.ATP_LON_MODT_AAR;
+      // Egentlig: PI = (brutto - ATP) * (1-p) * 0,92 = T.TOPSKAT_THRESHOLD
+      // => brutto = T.TOPSKAT_THRESHOLD / ((1-p)*0,92) + ATP
+      var headroom = Math.max(0, bruttoForTop - brutto);
+      tipText.innerHTML = 'Du har ca. <strong>' + T.formatKr(headroom) +
+        '</strong> i bruttoløn tilbage, før topskat rammer. ' +
+        'Hvis du øger din pensionsindbetaling med 1 procentpoint, flytter grænsen ca. ' +
+        T.formatKr(brutto * 0.01) + ' op.';
+      return;
+    }
+
+    if (r.tier === 'top') {
+      tipTitle.textContent = 'Tip — indbetal til pension og slip uden om topskat';
+      // Beløb til pension for at lige rame topskat-grænsen
+      // Vi vil have PI = THRESHOLD, dvs. (brutto - ATP - pension) * 0,92 = THRESHOLD
+      // => pension = brutto - ATP - THRESHOLD/0,92
+      var targetPension = Math.max(0,
+        r.bruttoAr - T.ATP_LON_MODT_AAR - (T.TOPSKAT_THRESHOLD / (1 - T.AM_BIDRAG_RATE)));
+      var currentPension = r.bruttoAr * (r.pensionPct / 100);
+      var extraNeeded = Math.max(0, targetPension - currentPension);
+      // Topskat sparet ≈ overskydende PI × 7,5 %
+      var topskatSparet = (r.personligIndkomst - T.TOPSKAT_THRESHOLD) * T.TOPSKAT_RATE;
+      tipText.innerHTML = 'Du er ca. <strong>' + T.formatKr(r.aboveTopBrutto) +
+        '</strong> over topskat-grænsen (brutto). Indbetaler du yderligere ca. <strong>' +
+        T.formatKr(extraNeeded) + '</strong> til pension via lønnen, slipper du for topskatten — ' +
+        'det sparer dig op til <strong>' + T.formatKr(topskatSparet) +
+        '</strong> i topskat, og pengene står i din egen pension.';
+      return;
+    }
+
+    if (r.tier === 'toptop') {
+      tipTitle.textContent = 'Tip — du rammer det skrå skatteloft';
+      tipText.innerHTML = 'Hver ekstra krone i bruttoløn beskattes med ca. <strong>60,5 %</strong> ' +
+        '(AM-bidrag + skatteloft 57,07 % på resten). ' +
+        'Pension via lønnen og bonus direkte i pension er de mest effektive måder at flytte indkomst på.';
+      return;
+    }
+  }
+
+  // ---------- IO ----------
+  function updateLabels() {
+    pensionLabel.textContent = (Number(pensionEgen.value) || 0).toString().replace('.', ',') + ' %';
+    var b = Number(bruttoInput.value) || 0;
+    bruttoMaaned.textContent = '≈ ' + T.formatKr(b / 12) + '/md.';
+  }
+
+  function run() {
+    updateLabels();
+    var r = compute();
+    render(r);
+    save();
+  }
+
+  var t = null;
+  function scheduleRun() {
+    if (t) clearTimeout(t);
+    t = setTimeout(run, 150);
+  }
+
+  // ---------- localStorage ----------
+  function save() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        brutto: Number(bruttoInput.value) || 0,
+        pensionEgen: Number(pensionEgen.value) || 0
+      }));
+    } catch (e) { /* ignore */ }
+  }
+  function load() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      var d = JSON.parse(raw);
+      if (typeof d.brutto === 'number') bruttoInput.value = d.brutto;
+      if (typeof d.pensionEgen === 'number') pensionEgen.value = d.pensionEgen;
+      bruttoSlider.value = Math.min(Number(bruttoInput.value) || 0, Number(bruttoSlider.max));
+    } catch (e) { /* ignore */ }
+  }
+  function resetAll() {
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+    bruttoInput.value = 600000;
+    bruttoSlider.value = 600000;
+    pensionEgen.value = 5;
+    run();
+  }
+
+  // ---------- wiring ----------
+  bruttoInput.addEventListener('input', function () {
+    bruttoSlider.value = Math.min(Number(bruttoInput.value) || 0, Number(bruttoSlider.max));
+    scheduleRun();
+  });
+  bruttoSlider.addEventListener('input', function () {
+    bruttoInput.value = bruttoSlider.value;
+    scheduleRun();
+  });
+  pensionEgen.addEventListener('input', scheduleRun);
+  resetBtn.addEventListener('click', resetAll);
+
+  // ---------- init ----------
+  load();
+  run();
+})();
+</script>
+</body>
+</html>

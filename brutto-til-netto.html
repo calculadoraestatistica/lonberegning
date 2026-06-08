@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brutto til netto 2026 — hvad betyder min løn reelt? | lonberegning.dk</title>
+<meta name="description" content="Brutto til netto i Danmark 2026: forstå AM-bidrag (8%), bundskat (12,01%), mellemskat (7,5%), topskat (7,5%) og kommuneskat. Tabel, eksempler og beregner.">
+<meta name="keywords" content="brutto til netto, nettoløn 2026, lønberegner, AM-bidrag, bundskat, topskat, mellemskat, personfradrag 2026">
+<link rel="canonical" href="https://lonberegning.dk/brutto-til-netto.html">
+<meta property="og:title" content="Brutto til netto 2026 — hvad betyder min løn reelt?">
+<meta property="og:description" content="Sådan går du fra brutto til netto i 2026: alle satser, thresholds og tre fuldt regnede eksempler.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://lonberegning.dk/brutto-til-netto.html">
+<meta property="og:locale" content="da_DK">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+<style>
+  :root {
+    --bg: #f7f8fb;
+    --card: #ffffff;
+    --text: #1a2332;
+    --muted: #5a6577;
+    --accent: #0b5cad;
+    --accent-light: #e7f0fa;
+    --border: #e2e6ee;
+    --good: #1e8a4a;
+    --warn: #b8530a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  header.site {
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+  }
+  header.site .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;}
+  header.site a.logo { font-weight: 700; color: var(--accent); text-decoration: none; font-size: 1.15em; }
+  header.site nav a { color: var(--text); text-decoration: none; margin-left: 18px; font-size: 0.95em; }
+  header.site nav a:hover { color: var(--accent); }
+  main { max-width: 880px; margin: 0 auto; padding: 30px 20px 60px; }
+  h1 { font-size: 2em; margin: 0 0 18px; line-height: 1.25; }
+  h2 { font-size: 1.45em; margin: 40px 0 14px; border-bottom: 2px solid var(--accent-light); padding-bottom: 6px; }
+  h3 { font-size: 1.15em; margin: 24px 0 10px; color: var(--accent); }
+  p { margin: 12px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; background: var(--card); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.95em; }
+  th { background: var(--accent-light); font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin: 20px 0; }
+  .example { background: var(--accent-light); border-left: 4px solid var(--accent); padding: 16px 18px; margin: 18px 0; border-radius: 4px;}
+  .example h4 { margin: 0 0 8px; color: var(--accent); }
+  .example ol { margin: 8px 0 0 18px; }
+  .example li { margin: 4px 0; }
+  .result-line { font-weight: 600; color: var(--good); display: block; margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border); }
+  .ad-slot { background: #f0f2f6; border: 1px dashed #c5cbd6; text-align: center; padding: 14px; margin: 24px 0; color: var(--muted); font-size: 0.85em; border-radius: 4px;}
+  details { margin: 10px 0; background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; }
+  details summary { cursor: pointer; font-weight: 600; }
+  details[open] summary { color: var(--accent); }
+  .calc-mini { background: var(--card); border: 2px solid var(--accent); border-radius: 8px; padding: 22px; margin: 24px 0; }
+  .calc-mini h3 { margin-top: 0; }
+  .calc-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 10px 0; }
+  .calc-row label { min-width: 180px; font-size: 0.95em; }
+  .calc-row input, .calc-row select { padding: 8px 10px; border: 1px solid var(--border); border-radius: 4px; font-size: 1em; flex: 1; min-width: 130px;}
+  button.calc-btn { background: var(--accent); color: white; border: none; padding: 10px 22px; border-radius: 5px; font-size: 1em; cursor: pointer; font-weight: 600;}
+  button.calc-btn:hover { background: #094a8c; }
+  #miniResult { margin-top: 16px; padding: 14px; background: var(--accent-light); border-radius: 5px; display: none; }
+  #miniResult.show { display: block; }
+  #miniResult .big { font-size: 1.5em; font-weight: 700; color: var(--good); }
+  .cross-links { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 18px; margin: 30px 0; }
+  .cross-links h3 { margin-top: 0; }
+  .cross-links ul { margin: 8px 0 0 18px; padding: 0; }
+  .cross-links li { margin: 6px 0; }
+  .cross-links a { color: var(--accent); text-decoration: none; }
+  .cross-links a:hover { text-decoration: underline; }
+  footer { background: #1a2332; color: #b8c1d0; padding: 30px 20px; margin-top: 60px; }
+  footer .wrap { max-width: 1080px; margin: 0 auto; }
+  footer a { color: #9fc4ed; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  footer .disclaimer { font-size: 0.85em; margin-top: 16px; color: #7c8699; }
+  .muted { color: var(--muted); font-size: 0.9em; }
+  .pill { display: inline-block; background: var(--accent-light); color: var(--accent); padding: 3px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600; }
+</style>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7516029395999799" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a href="/" class="logo">lonberegning.dk</a>
+    <nav>
+      <a href="/">Beregner</a>
+      <a href="/topskat-2026.html">Skattesatser 2026</a>
+      <a href="/sammenlign-kommuner.html">Kommuner</a>
+      <a href="/om.html">Om</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <span class="pill">Opdateret juni 2026</span>
+  <h1>Brutto til netto — hvad betyder min løn reelt?</h1>
+
+  <p>Når arbejdsgiveren skriver et tal i kontrakten, er det <strong>bruttolønnen</strong>. Den løn, du faktisk får ind på kontoen, kaldes <strong>nettoløn</strong> — og forskellen kan let være 35–55 %. I 2026 går vejen fra brutto til netto gennem ATP, AM-bidrag, bundskat, mellemskat, eventuel topskat, kommuneskat og en række fradrag, der reducerer beskatningsgrundlaget. Her forklarer vi rækkefølgen og viser, hvor mange kroner du reelt har tilbage.</p>
+
+  <p>Reformen for 2026 ændrede en del: <strong>mellemskat</strong> blev genindført med 7,5 %, <strong>topskat</strong> blev halveret fra 15 % til 7,5 %, og en ny <strong>toptopskat</strong> på 5 % rammer indkomster over 2.592.700 kr. Samtidig blev personfradraget harmoniseret til 54.100 kr. for alle uanset alder, og unge under 18 år blev fritaget for AM-bidrag. Det betyder, at den klassiske tommelfingerregel "halvdelen ryger i skat" ikke længere holder for de fleste — beregningen er mere finmasket end før.</p>
+
+  <p>På denne side viser vi <strong>de officielle satser for 2026</strong>, hvordan de stables ovenpå hinanden, og tre fuldt regnede eksempler så du kan se præcis hvor pengene forsvinder hen — og hvad du har tilbage til husleje, mad og opsparing.</p>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="1111111111"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <h2>Satser og thresholds 2026</h2>
+
+  <p>Alle tal nedenfor er de officielle, og bruges direkte i vores <a href="/">lønberegner</a>. Thresholds for mellemskat, topskat og toptopskat gælder den <em>personlige indkomst efter AM-bidrag</em> — ikke bruttolønnen.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Komponent</th>
+        <th>Sats 2026</th>
+        <th>Threshold / regel</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>ATP (medarbejder)</td><td>99 kr./md.</td><td>1.188 kr./år — trækkes før AM-bidrag</td></tr>
+      <tr><td>AM-bidrag</td><td>8,00 %</td><td>Af brutto minus ATP og egen pension. Fritaget under 18 år</td></tr>
+      <tr><td>Bundskat</td><td>12,01 %</td><td>Af personlig indkomst efter AM-bidrag minus personfradrag</td></tr>
+      <tr><td>Mellemskat</td><td>7,50 %</td><td>Af det, der overstiger 641.200 kr.</td></tr>
+      <tr><td>Topskat</td><td>7,50 %</td><td>Af det, der overstiger 777.900 kr.</td></tr>
+      <tr><td>Toptopskat</td><td>5,00 %</td><td>Af det, der overstiger 2.592.700 kr.</td></tr>
+      <tr><td>Personfradrag</td><td>54.100 kr.</td><td>Samme for alle aldre fra 2026</td></tr>
+      <tr><td>Kommuneskat (snit)</td><td>25,43 %</td><td>Varierer mellem ~22 % og ~27 % afhængigt af kommune</td></tr>
+      <tr><td>Kirkeskat (snit)</td><td>0,93 %</td><td>Kun hvis medlem af folkekirken</td></tr>
+      <tr><td>Beskæftigelsesfradrag</td><td>12,75 %</td><td>Max 63.300 kr./år</td></tr>
+      <tr><td>Jobfradrag</td><td>4,50 %</td><td>Af løn over 235.200 kr., max 3.100 kr./år</td></tr>
+      <tr><td>Skråt skatteloft (med topskat)</td><td>52,07 %</td><td>Loft over kommune + bund + mellem + top</td></tr>
+      <tr><td>Skråt skatteloft (med toptopskat)</td><td>57,07 %</td><td>Loft inkl. toptopskat</td></tr>
+    </tbody>
+  </table>
+
+  <div class="calc-mini">
+    <h3>Mini-beregner: brutto til netto</h3>
+    <p class="muted">Hurtig estimering baseret på gennemsnitskommune (25,43 %) og ingen kirkeskat. Brug <a href="/">fuld beregner</a> for præcise tal pr. kommune.</p>
+    <div class="calc-row">
+      <label for="bruttoMd">Bruttoløn pr. måned:</label>
+      <input type="number" id="bruttoMd" value="42000" min="0" step="1000">
+    </div>
+    <div class="calc-row">
+      <label for="atpYes">ATP:</label>
+      <select id="atpYes">
+        <option value="ja" selected>Ja (99 kr./md.)</option>
+        <option value="nej">Nej</option>
+      </select>
+    </div>
+    <div class="calc-row">
+      <label for="pensionPct">Egen pension (% af brutto):</label>
+      <input type="number" id="pensionPct" value="0" min="0" max="50" step="0.5">
+    </div>
+    <button class="calc-btn" onclick="beregn()">Beregn netto</button>
+
+    <div id="miniResult">
+      <div>Estimeret nettoløn pr. måned:</div>
+      <div class="big" id="nettoOut">—</div>
+      <div class="muted" id="detailsOut" style="margin-top:8px;"></div>
+    </div>
+  </div>
+
+  <h2>Sådan regner du fra brutto til netto — trin for trin</h2>
+
+  <ol>
+    <li><strong>Træk ATP fra</strong> bruttolønnen (99 kr./md., hvis du betaler).</li>
+    <li><strong>Træk egen pensionsindbetaling fra</strong> (typisk 4–6 % via bortseelsesret — ikke AM-pligtig).</li>
+    <li><strong>Beregn AM-bidrag</strong>: 8 % af det, der er tilbage.</li>
+    <li>Resten er din <em>personlige indkomst efter AM-bidrag</em>.</li>
+    <li><strong>Træk personfradrag</strong> (54.100 kr.) — du betaler ikke bundskat/kommuneskat af de første 54.100 kr.</li>
+    <li><strong>Læg statslige skatter på</strong>: bundskat 12,01 % + mellemskat 7,5 % over 641.200 kr. + topskat 7,5 % over 777.900 kr. + toptopskat 5 % over 2.592.700 kr.</li>
+    <li><strong>Læg kommuneskat + evt. kirkeskat på</strong>, efter ligningsmæssige fradrag (beskæftigelsesfradrag, jobfradrag, fagforening, A-kasse).</li>
+    <li><strong>Trække skatten fra bruttoen</strong> — det, der er tilbage, er din nettoløn.</li>
+  </ol>
+
+  <h2>Tre regnede eksempler 2026</h2>
+
+  <p class="muted">Alle eksempler bruger Aarhus Kommune (kommuneskat 24,52 %, kirkeskat 0,74 %), uden kirkeskat, uden egen pension, med ATP, og en 35-årig.</p>
+
+  <div class="example">
+    <h4>Eksempel 1 — 30.000 kr./md. (360.000 kr./år)</h4>
+    <ol>
+      <li>Bruttoløn: 360.000 kr.</li>
+      <li>ATP: −1.188 kr. → base AM-bidrag: 358.812 kr.</li>
+      <li>AM-bidrag 8 %: −28.705 kr. → personlig indkomst: 330.107 kr.</li>
+      <li>Personfradrag: −54.100 kr.</li>
+      <li>Bundskat 12,01 % af 276.007: 33.149 kr.</li>
+      <li>Beskæftigelsesfradrag 12,75 % af 358.812 = 45.749 kr. Jobfradrag 4,5 % af (358.812 − 235.200) = 5.563 kr. → cap 3.100 kr.</li>
+      <li>Kommunalbase: 330.107 − (45.749 + 3.100) − 54.100 = 227.158 kr.</li>
+      <li>Kommuneskat 24,52 %: 55.700 kr. Mellemskat/topskat: 0 kr.</li>
+      <li>Total skat + AM: ~117.500 kr.</li>
+      <span class="result-line">Netto ca. 241.000 kr./år → ~20.100 kr./md.</span>
+    </ol>
+  </div>
+
+  <div class="example">
+    <h4>Eksempel 2 — 55.000 kr./md. (660.000 kr./år)</h4>
+    <ol>
+      <li>Bruttoløn: 660.000 kr.</li>
+      <li>ATP: −1.188 → base AM: 658.812 kr.</li>
+      <li>AM-bidrag 8 %: −52.705 → personlig indkomst: 606.107 kr.</li>
+      <li>Bundskat 12,01 % af (606.107 − 54.100): 66.317 kr.</li>
+      <li>Mellemskat: personlig indkomst (606.107) er <em>under</em> 641.200 kr. → 0 kr.</li>
+      <li>Topskat: 0 kr.</li>
+      <li>Beskæftigelsesfradrag: 12,75 % af 658.812 = 84.000 → cap 63.300 kr. Jobfradrag: 3.100 kr.</li>
+      <li>Kommunalbase: 606.107 − 66.400 − 54.100 = 485.607 kr.</li>
+      <li>Kommuneskat 24,52 %: 119.071 kr.</li>
+      <li>Total skat + AM: ~238.000 kr.</li>
+      <span class="result-line">Netto ca. 421.000 kr./år → ~35.100 kr./md.</span>
+    </ol>
+  </div>
+
+  <div class="example">
+    <h4>Eksempel 3 — 85.000 kr./md. (1.020.000 kr./år)</h4>
+    <ol>
+      <li>Bruttoløn: 1.020.000 kr.</li>
+      <li>ATP: −1.188 → base AM: 1.018.812 kr.</li>
+      <li>AM-bidrag 8 %: −81.505 → personlig indkomst: 937.307 kr.</li>
+      <li>Bundskat 12,01 % af (937.307 − 54.100): 106.038 kr.</li>
+      <li>Mellemskat 7,5 % af (937.307 − 641.200) = 22.208 kr.</li>
+      <li>Topskat 7,5 % af (937.307 − 777.900) = 11.956 kr.</li>
+      <li>Toptopskat: 0 kr.</li>
+      <li>Kommunalbase efter fradrag: ~813.200 kr.</li>
+      <li>Kommuneskat 24,52 %: ~199.400 kr.</li>
+      <li>Total skat + AM: ~421.000 kr.</li>
+      <span class="result-line">Netto ca. 599.000 kr./år → ~49.900 kr./md.</span>
+    </ol>
+  </div>
+
+  <p class="muted">Hver krone over 777.900 kr. (personlig indkomst) giver kun ~46–48 øre netto — det er derfor topskattepunktet er så ofte et samtaleemne ved lønforhandling.</p>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="2222222222"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <h2>Sådan ændres brutto til netto sig over årene</h2>
+
+  <p>Reglerne for brutto til netto har bevæget sig markant siden 2023, hvor topskatten stadig var 15 % og der ikke fandtes nogen mellem- eller toptopskat. Tabellen viser de centrale satser år for år.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>År</th>
+        <th>AM-bidrag</th>
+        <th>Bundskat</th>
+        <th>Mellemskat</th>
+        <th>Topskat</th>
+        <th>Toptopskat</th>
+        <th>Personfradrag</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>2023</td><td>8,00 %</td><td>12,09 %</td><td>—</td><td>15,00 % &gt; 568.900</td><td>—</td><td>48.000 kr.</td></tr>
+      <tr><td>2024</td><td>8,00 %</td><td>12,01 %</td><td>—</td><td>15,00 % &gt; 588.900</td><td>—</td><td>49.700 kr.</td></tr>
+      <tr><td>2025</td><td>8,00 %</td><td>12,01 %</td><td>—</td><td>15,00 % &gt; 611.800</td><td>—</td><td>51.600 kr.</td></tr>
+      <tr><td><strong>2026</strong></td><td><strong>8,00 %</strong></td><td><strong>12,01 %</strong></td><td><strong>7,5 % &gt; 641.200</strong></td><td><strong>7,5 % &gt; 777.900</strong></td><td><strong>5 % &gt; 2.592.700</strong></td><td><strong>54.100 kr.</strong></td></tr>
+    </tbody>
+  </table>
+
+  <p>Reformen 2026 betyder konkret, at en almindelig topskatteyder med ~800.000 kr. bruttoløn betaler markant mindre statsskat end før, mens helt høje indkomster (over ~2,6 mio. kr.) rammes af den nye toptopskat. For lønninger under 641.200 kr. har personfradraget alene givet en lille stigning i nettolønnen.</p>
+
+  <h2>FAQ — brutto til netto</h2>
+
+  <details>
+    <summary>Hvad er forskellen på brutto og netto?</summary>
+    <p>Bruttoløn er hele beløbet, før noget trækkes — det tal, der står i kontrakten. Nettoløn er, hvad du faktisk har på kontoen efter ATP, AM-bidrag, statsskatter og kommuneskat.</p>
+  </details>
+
+  <details>
+    <summary>Hvor meget af min løn går i skat i 2026?</summary>
+    <p>Det varierer kraftigt med indkomstniveau og kommune. Som tommelfingerregel: 33–38 % for indkomster op til ca. 500.000 kr., 40–45 % for 500.000–800.000 kr., og 50–55 % for kroner over topskattegrænsen. Den absolutte maks. (marginalskat på allerhøjeste niveau) ligger på ca. 60,5 %.</p>
+  </details>
+
+  <details>
+    <summary>Hvad er AM-bidrag og hvorfor trækkes det først?</summary>
+    <p>AM-bidrag er 8 % af din løn og finansierer arbejdsmarkedet (dagpenge, ferie m.m.). Det trækkes før alle andre skatter, og det beregningsgrundlag, som bund-, mellem- og topskat bruger, er <em>efter</em> AM-bidrag. Under 18 år er fritaget i 2026.</p>
+  </details>
+
+  <details>
+    <summary>Hvorfor bliver der mindre netto, jo mere jeg tjener?</summary>
+    <p>Det danske system er progressivt: jo højere du tjener, jo flere skattelag rammer du. Over 641.200 kr. (efter AM) kommer mellemskatten på, over 777.900 kr. kommer topskatten, og over 2.592.700 kr. kommer toptopskatten. Det skråt skatteloft sikrer dog, at ingen indkomstkrone beskattes med mere end 52,07 % (eller 57,07 % for toptopskatteydere) — eksklusive AM og kirkeskat.</p>
+  </details>
+
+  <details>
+    <summary>Kan jeg gøre noget for at få mere netto?</summary>
+    <p>Ja: indbetal til pension via arbejdsgiver (bortseelsesret betyder at pensionsindbetalinger ikke beskattes nu), tjek om din kommune har lavere kommuneskat, gør krav på beskæftigelsesfradrag/jobfradrag/kørselsfradrag, og meld dig ud af folkekirken hvis du ikke bruger den. Den største gevinst sker dog typisk ved at flytte topskatteyder-løn til pension.</p>
+  </details>
+
+  <div class="cross-links">
+    <h3>Læs også</h3>
+    <ul>
+      <li><a href="/">Fuld lønberegner 2026</a> — vælg din kommune og se præcis nettoløn</li>
+      <li><a href="/topskat-2026.html">Alle skattesatser 2026</a> — komplet oversigt</li>
+      <li><a href="/topskat-2026.html">Topskat 2026</a> — hvornår rammer den dig?</li>
+      <li><a href="/mellemskat-2026.html">Mellemskat 2026</a> — den genindførte mellemtrins-skat</li>
+      <li><a href="/am-bidrag-2026.html">AM-bidrag forklaret</a> — hvorfor 8 % trækkes først</li>
+      <li><a href="/personfradrag-2026.html">Personfradrag 2026</a> — 54.100 kr. for alle</li>
+      <li><a href="/sammenlign-kommuner.html">Sammenlign kommuner</a> — samme løn, forskellig netto</li>
+      <li><a href="/pensionsfradrag.html">Pension og skattefordel</a> — sådan får du mere netto via opsparing</li>
+    </ul>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>lonberegning.dk</strong> — uafhængig lønberegner for Danmark 2026. Alle beregninger sker direkte i din browser; vi gemmer ikke dine tal.</p>
+    <p>
+      <a href="/">Forside</a> ·
+      <a href="/om.html">Om os</a> ·
+      <a href="/privatlivspolitik.html">Privatlivspolitik</a> ·
+      <a href="/kontakt.html">Kontakt</a>
+    </p>
+    <p class="disclaimer">Satser baseret på officielle tal fra skat.dk og Skatteministeriet for indkomståret 2026. Beregneren er vejledende — kontakt Skattestyrelsen eller en revisor for bindende rådgivning. © 2026 lonberegning.dk · Lavet i Danmark.</p>
+  </div>
+</footer>
+
+<script>
+// Mini-beregner — bruger samme regneregler som hovedberegneren
+function beregn() {
+  var bruttoMd = parseFloat(document.getElementById('bruttoMd').value) || 0;
+  var atp = document.getElementById('atpYes').value === 'ja';
+  var pensionPct = parseFloat(document.getElementById('pensionPct').value) || 0;
+
+  var bruttoAr = bruttoMd * 12;
+  var atpAr = atp ? 1188 : 0;
+  var pensionEgen = bruttoAr * (pensionPct / 100);
+  var baseAm = Math.max(0, bruttoAr - atpAr - pensionEgen);
+  var amBidrag = baseAm * 0.08;
+  var personligIndkomst = baseAm - amBidrag;
+
+  var personfradrag = 54100;
+  var bundskat = Math.max(0, personligIndkomst - personfradrag) * 0.1201;
+  var mellemskat = Math.max(0, personligIndkomst - 641200) * 0.075;
+  var topskat = Math.max(0, personligIndkomst - 777900) * 0.075;
+  var toptopskat = Math.max(0, personligIndkomst - 2592700) * 0.05;
+
+  // Beskæftigelsesfradrag + jobfradrag
+  var beskaeft = Math.min(63300, baseAm * 0.1275);
+  var jobfradrag = Math.min(3100, Math.max(0, baseAm - 235200) * 0.045);
+
+  // Kommune snit 25,43 %, ingen kirkeskat
+  var kommunalBase = Math.max(0, personligIndkomst - beskaeft - jobfradrag - personfradrag);
+  var kommuneskat = kommunalBase * 0.2543;
+
+  var totalSkat = bundskat + mellemskat + topskat + toptopskat + kommuneskat;
+  var netto = bruttoAr - atpAr - pensionEgen - amBidrag - totalSkat;
+  var nettoMd = netto / 12;
+
+  function fmt(n) {
+    return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' kr.';
+  }
+
+  document.getElementById('nettoOut').textContent = fmt(nettoMd);
+  document.getElementById('detailsOut').innerHTML =
+    'Brutto pr. år: <strong>' + fmt(bruttoAr) + '</strong> · ' +
+    'AM-bidrag: ' + fmt(amBidrag) + ' · ' +
+    'Indkomstskat: ' + fmt(totalSkat) + ' · ' +
+    'Netto pr. år: <strong>' + fmt(netto) + '</strong>';
+  document.getElementById('miniResult').classList.add('show');
+}
+</script>
+
+</body>
+</html>

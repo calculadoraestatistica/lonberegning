@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7516029395999799" crossorigin="anonymous"></script>
+<title>Lønforhøjelse-beregner — hvad får du reelt udbetalt?</title>
+<meta name="description" content="Få et reelt billede af din lønforhøjelse efter skat. Marginalskat vises pr. krone af stigningen.">
+<link rel="canonical" href="https://lonberegning.dk/lonforhojelse.html">
+<meta name="theme-color" content="#1e40af">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="da_DK">
+<meta property="og:site_name" content="Lønberegner.dk">
+<meta property="og:title" content="Lønforhøjelse-beregner — hvad får du reelt udbetalt?">
+<meta property="og:description" content="Få et reelt billede af din lønforhøjelse efter skat. Marginalskat vises pr. krone af stigningen.">
+<meta property="og:url" content="https://lonberegning.dk/lonforhojelse.html">
+<meta property="og:image" content="https://lonberegning.dk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lønforhøjelse-beregner — hvad får du reelt udbetalt?">
+<meta name="twitter:description" content="Få et reelt billede af din lønforhøjelse efter skat. Marginalskat vises pr. krone af stigningen.">
+<meta name="twitter:image" content="https://lonberegning.dk/og-image.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Lønforhøjelse-beregner 2026",
+  "url": "https://lonberegning.dk/lonforhojelse.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (browser)",
+  "inLanguage": "da",
+  "description": "Beregn hvor meget af din lønforhøjelse du reelt får udbetalt efter AM-bidrag, bundskat, kommune- og evt. topskat. Marginalskat pr. krone af stigningen.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "DKK" },
+  "publisher": { "@type": "Organization", "name": "Lønberegner.dk", "url": "https://lonberegning.dk/" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Hvor meget af en lønforhøjelse får jeg reelt udbetalt?","acceptedAnswer":{"@type":"Answer","text":"Det afhænger af, om stigningen rammer topskattegrænsen. Under topskat ligger marginalskatten typisk på 38-43 %, så du beholder ca. 57-62 % af stigningen. Krydser du topskat, stiger marginalskatten til ca. 49-52 %, og du beholder kun omkring halvdelen af hver ekstra krone."}},
+    {"@type":"Question","name":"Hvad er marginalskat, og hvorfor er den vigtig?","acceptedAnswer":{"@type":"Answer","text":"Marginalskatten er det, du betaler af den næste krone, du tjener — ikke gennemsnittet. Den er afgørende ved lønforhandling, fordi en stigning på fx 3.000 kr./md. kan give meget mindre netto, hvis du krydser topskattegrænsen på 777.900 kr. (efter AM-bidrag) i 2026."}},
+    {"@type":"Question","name":"Hvornår krydser jeg topskat i 2026?","acceptedAnswer":{"@type":"Answer","text":"Topskat (7,5 % i 2026) betales af personlig indkomst over 777.900 kr./år efter AM-bidrag. Det svarer til ca. 846.000 kr. bruttoløn — eller ca. 70.500 kr./md. Beregneren markerer det automatisk, hvis din lønforhøjelse krydser grænsen."}},
+    {"@type":"Question","name":"Kan jeg undgå topskat på lønforhøjelsen?","acceptedAnswer":{"@type":"Answer","text":"Ja — ved at lægge hele eller dele af stigningen ind i din arbejdsgiverpension (bortseelsesret). Pengene skattes først, når de bliver udbetalt fra pensionen, typisk efter pension hvor marginalskatten er lavere. Tal med HR eller din pensionsrådgiver, før du forhandler."}},
+    {"@type":"Question","name":"Hvordan påvirker pension lønforhøjelsens netto-effekt?","acceptedAnswer":{"@type":"Answer","text":"Egen pension trækkes af bruttoløn før AM-bidrag og skat. Hvis du øger pensionsprocenten samtidig med stigningen, sparer du både AM-bidrag (8 %) og A-skat nu — men din direkte nettoløn stiger mindre. Det er en afvejning mellem cash i dag og opsparing til senere."}},
+    {"@type":"Question","name":"Er beregneren præcis nok til lønforhandling?","acceptedAnswer":{"@type":"Answer","text":"Beregneren bruger officielle 2026-satser fra Skattestyrelsen og rammer typisk inden for få hundrede kroner pr. måned. Den dækker dog ikke alle individuelle fradrag fra din forskudsopgørelse. Brug den som et solidt estimat — ikke som juridisk grundlag."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Spring til indhold</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Lønberegner.dk — forsiden">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1e40af"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Løn<span>beregner</span></span>
+    </a>
+    <span class="header-badge" aria-label="Skattesatser opdateret for 2026">Satser opdateret for 2026</span>
+    <button class="nav-toggle" type="button" aria-label="Åbn menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Hovedmenu">
+      <ul>
+        <li><a href="/">Lønberegner</a></li>
+        <li><a href="/bonus-efter-skat.html">Bonus</a></li>
+        <li><a href="/sammenlign-kommuner.html">Sammenlign kommuner</a></li>
+        <li><a href="/topskat-tjek.html">Topskat</a></li>
+        <li><a href="/pensionsfradrag.html">Pension</a></li>
+        <li class="has-submenu">
+          <a href="#" aria-haspopup="true" aria-expanded="false">Mere <span aria-hidden="true">&#9662;</span></a>
+          <ul class="submenu">
+            <li><a href="/feriepenge.html">Feriepenge</a></li>
+            <li><a href="/">Timeløn</a></li>
+            <li><a href="/topskat-tjek.html">Kørselsfradrag</a></li>
+            <li><a href="/">Dagpenge</a></li>
+            <li><a href="/">SU-beregner</a></li>
+          </ul>
+        </li>
+        <li><a href="/om.html">Om</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <section class="hero">
+    <div class="container">
+      <span class="hero__eyebrow">100% gratis · Uden logind · Direkte i browseren</span>
+      <h1>Lønforhøjelse-beregner — hvad får du reelt udbetalt?</h1>
+      <p class="lead">Du fik tilbudt en stigning på 2.000 kr. om måneden — men hvor mange af dem ender på din konto? Indtast din nuværende månedsløn og forhøjelsen, og se den reelle netto-effekt sammen med marginalskatten pr. krone af stigningen. Opdateret med 2026-satserne.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="#beregner">Beregn lønforhøjelse</a>
+        <a class="btn btn--ghost btn--lg" href="/topskat-tjek.html">Læs om topskat</a>
+      </div>
+      <div class="hero__badges">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Satser opdateret for 2026</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Marginalskat pr. krone</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Topskat-advarsel</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Brutto vs. netto-graf</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       BEREGNER (form + resultat)
+       ===================================================================== -->
+  <section class="section section--calc" id="beregner">
+    <div class="container">
+      <div class="calc-layout">
+
+        <!-- ============ FORM ============ -->
+        <form class="calc-form card" id="raiseForm" autocomplete="off" novalidate>
+          <header class="calc-form__head">
+            <h2>Din lønforhøjelse</h2>
+            <p>Udfyld felterne — resultatet opdateres automatisk.</p>
+          </header>
+
+          <!-- Nuværende månedsløn -->
+          <fieldset class="field-group">
+            <legend>Nuværende månedsløn (brutto)</legend>
+            <div class="input-row">
+              <input type="number" id="currentInput" name="current" min="0" step="100" value="42000" inputmode="numeric" aria-label="Nuværende månedsløn">
+              <span class="input-suffix">kr./md.</span>
+            </div>
+            <input type="range" id="currentSlider" min="0" max="120000" step="500" value="42000" aria-label="Nuværende månedsløn slider">
+            <div class="range-hint"><span>0</span><span>120.000 kr./md.</span></div>
+          </fieldset>
+
+          <!-- Forhøjelse -->
+          <fieldset class="field-group">
+            <legend>Lønforhøjelse</legend>
+            <div class="input-row">
+              <input type="number" id="raiseInput" name="raise" min="0" step="100" value="2000" inputmode="numeric" aria-label="Forhøjelse pr. måned">
+              <span class="input-suffix">kr./md.</span>
+            </div>
+            <input type="range" id="raiseSlider" min="0" max="20000" step="100" value="2000" aria-label="Forhøjelse slider">
+            <div class="range-hint"><span>0</span><span>20.000 kr./md.</span></div>
+            <p class="field-help" id="raisePctHelp">— af nuværende løn</p>
+          </fieldset>
+
+          <!-- Kommune -->
+          <fieldset class="field-group">
+            <legend>Kommune</legend>
+            <div class="input-row">
+              <select id="kommuneSelect" aria-label="Vælg kommune">
+                <option value="">Indlæser kommuner …</option>
+              </select>
+            </div>
+            <p class="field-help" id="kommuneInfo">—</p>
+          </fieldset>
+
+          <!-- Folkekirken -->
+          <fieldset class="field-group">
+            <label class="check-row">
+              <input type="checkbox" id="folkekirke">
+              <span>Medlem af folkekirken (betaler kirkeskat)</span>
+            </label>
+          </fieldset>
+
+          <!-- Egen pension -->
+          <fieldset class="field-group">
+            <legend>Egen pension <span class="badge-soft" id="pensionEgenLabel">5 %</span></legend>
+            <input type="range" id="pensionEgen" min="0" max="25" step="0.5" value="5" aria-label="Egen pension procent">
+            <div class="range-hint"><span>0 %</span><span>25 %</span></div>
+            <p class="field-help">Trækkes af din bruttoløn før AM-bidrag og skat — gælder for både nuværende løn og forhøjelse.</p>
+          </fieldset>
+
+          <div class="calc-form__foot">
+            <button type="button" class="btn btn--ghost" id="resetBtn">Nulstil</button>
+          </div>
+        </form>
+
+        <!-- ============ RESULTAT ============ -->
+        <aside class="calc-result" aria-live="polite" aria-atomic="true">
+
+          <div class="result-card card">
+            <p class="result-card__label">Du får reelt udbetalt af stigningen</p>
+            <p class="result-card__big"><span id="nettoStigningMaaned">—</span> <span class="unit">kr. pr. måned</span></p>
+            <p class="result-card__sub"><span id="nettoStigningAar">—</span> kr./år ekstra netto · ud af <span id="bruttoStigningAar">—</span> kr./år brutto</p>
+
+            <div class="chips">
+              <span class="chip chip--purple">Marginalskat <strong id="marginalPct">—</strong></span>
+              <span class="chip chip--blue">Du beholder <strong id="keepPct">—</strong></span>
+            </div>
+          </div>
+
+          <div class="card" id="topskatWarning" hidden>
+            <h3 class="result-h3" style="color:#b91c1c;">Pas på — du krydser topskattegrænsen</h3>
+            <p id="topskatWarningText">Med denne forhøjelse rammer du topskat. Det betyder, at marginalskatten på den del af stigningen, der ligger over grænsen, er markant højere. Overvej at lægge dele af stigningen ind i pensionsordningen via bortseelsesret — så undgår du både AM-bidrag og A-skat på den del.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="result-h3">Brutto vs. netto — før og efter</h3>
+            <div class="raise-chart" id="raiseChart" aria-label="Søjlediagram med brutto og netto før og efter lønforhøjelsen"></div>
+            <ul class="legend" id="chartLegend">
+              <li><span class="dot" style="background:#1e40af"></span><span class="legend__label">Bruttoløn</span></li>
+              <li><span class="dot" style="background:#16a34a"></span><span class="legend__label">Nettoløn</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 class="result-h3">Detaljer (kr./måned)</h3>
+            <div class="table-wrap">
+              <table class="breakdown-table">
+                <thead>
+                  <tr><th scope="col">Post</th><th scope="col">Før</th><th scope="col">Efter</th><th scope="col">Forskel</th></tr>
+                </thead>
+                <tbody id="detailsBody">
+                  <tr><td colspan="4">—</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="result-foot">Beregneren bruger officielle 2026-satser fra Skattestyrelsen. Tjek altid din egen <a href="/kilder.html">forskudsopgørelse</a> for endelig præcision.</p>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-slot" data-ad-slot=""></div></div>
+
+  <!-- =====================================================================
+       Hvorfor er beregningen et estimate?
+       ===================================================================== -->
+  <section class="section">
+    <div class="container prose">
+      <div class="section-title">
+        <h2>Hvorfor er beregningen et estimate?</h2>
+        <p>Beregneren rammer typisk inden for et par hundrede kroner pr. måned, men dit eget tal kan afvige. Det er der tre gode grunde til.</p>
+      </div>
+
+      <h3>1. Din forskudsopgørelse indeholder dine personlige fradrag</h3>
+      <p>Skattestyrelsen kender dine renteudgifter, dit kørselsfradrag, dine fagforeningskontingenter og indbetalinger til private pensioner. Vi bruger nul som standard, så hvis du har fradrag, vil din faktiske marginalskat på en lønforhøjelse være en smule lavere, end vi viser. Forskellen er typisk få procentpoint — ikke nok til at ændre den overordnede beslutning, men nok til at flytte et par hundrede kroner om måneden.</p>
+
+      <h3>2. Pension og bortseelsesret skubber til marginalskatten</h3>
+      <p>Hvis du sender hele eller dele af lønforhøjelsen direkte ind i din arbejdsgiverpension, betaler du <em>hverken</em> AM-bidrag eller A-skat på den del nu. Det skifter regnestykket markant: en stigning på 3.000 kr./md. kan give 0 kr. ekstra i lønningsposen, men 36.000 kr./år ekstra i pensionsdepot. Beregneren her viser <strong>direkte løn</strong> — ikke pensionsvalget. Læs vores <a href="/pensionsfradrag.html">pensions-side</a> for at sammenligne.</p>
+
+      <h3>3. Topskattegrænsen flytter alt</h3>
+      <p>I 2026 begynder topskat (7,5 %) ved en personlig indkomst på 777.900 kr. om året <em>efter</em> AM-bidrag — det svarer til ca. 846.000 kr. bruttoløn eller ca. 70.500 kr./md. Lige under grænsen beholder du måske 60 % af en stigning. Lige over beholder du kun ca. 48 %. Beregneren markerer det automatisk, hvis din nye løn krydser grænsen.</p>
+
+      <p>For en fuld gennemgang af kilder, antagelser og kendte begrænsninger, se <a href="/kilder.html">kilder og metode</a>.</p>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       Sådan virker lønforhøjelses-skatten — 3 cards
+       ===================================================================== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-title">
+        <h2>Sådan beskattes en lønforhøjelse</h2>
+        <p>Den vigtigste indsigt: stigningen beskattes ikke som dit gennemsnit, men som din næste krone — altså marginalskat.</p>
+      </div>
+      <div class="card-grid card-grid--3">
+
+        <article class="card feature">
+          <div class="feature__num">1</div>
+          <h3>Hver krone af stigningen mødes af AM-bidrag</h3>
+          <p>Først ryger 8 % af stigningen i AM-bidrag (efter ATP og egen pension er trukket). Det sker uanset om du tjener 30.000 eller 90.000 om måneden. Derefter går resten ind i A-skat-trappen — og det er der, det virkelig gør forskel.</p>
+        </article>
+
+        <article class="card feature">
+          <div class="feature__num">2</div>
+          <h3>Topskat-grænsen er det afgørende kryds</h3>
+          <p>Under topskat ligger din samlede marginalskat typisk på 38-43 % afhængigt af kommune. Krydser stigningen 777.900 kr./år (efter AM-bidrag), springer marginalskatten op på ca. 49-52 %. Det er derfor en stigning på 2.000 kr./md. kan give meget mindre netto, hvis du lige passerer grænsen.</p>
+        </article>
+
+        <article class="card feature">
+          <div class="feature__num">3</div>
+          <h3>Pension kan ændre regnestykket</h3>
+          <p>Lægger du stigningen ind i arbejdsgiverpensionen via bortseelsesret, slipper du AM-bidrag og A-skat <em>nu</em>. Pengene beskattes først ved udbetaling, hvor marginalskatten typisk er lavere. Det er værd at overveje, hvis du allerede er over topskattegrænsen.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       FAQ
+       ===================================================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Ofte stillede spørgsmål</h2>
+        <p>Korte svar på det, folk plejer at undre sig over, når de regner på en lønforhøjelse.</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Hvor meget af en lønforhøjelse får jeg reelt udbetalt?</summary>
+          <p>Det afhænger af, om stigningen rammer topskattegrænsen. Under topskat ligger marginalskatten typisk på 38-43 %, så du beholder ca. 57-62 % af stigningen. Krydser du topskat, stiger marginalskatten til ca. 49-52 %, og du beholder kun omkring halvdelen af hver ekstra krone.</p>
+        </details>
+        <details>
+          <summary>Hvad er marginalskat, og hvorfor er den vigtig?</summary>
+          <p>Marginalskatten er det, du betaler af den næste krone, du tjener — ikke gennemsnittet. Den er afgørende ved lønforhandling, fordi en stigning på fx 3.000 kr./md. kan give meget mindre netto, hvis du krydser topskattegrænsen på 777.900 kr. (efter AM-bidrag) i 2026.</p>
+        </details>
+        <details>
+          <summary>Hvornår krydser jeg topskat i 2026?</summary>
+          <p>Topskat (7,5 % i 2026) betales af personlig indkomst over 777.900 kr./år efter AM-bidrag. Det svarer til ca. 846.000 kr. bruttoløn — eller ca. 70.500 kr./md. Beregneren markerer det automatisk, hvis din lønforhøjelse krydser grænsen. Læs mere på <a href="/topskat-tjek.html">vores topskat-side</a>.</p>
+        </details>
+        <details>
+          <summary>Kan jeg undgå topskat på lønforhøjelsen?</summary>
+          <p>Ja — ved at lægge hele eller dele af stigningen ind i din arbejdsgiverpension (bortseelsesret). Pengene skattes først, når de bliver udbetalt fra pensionen, typisk efter pension hvor marginalskatten er lavere. Tal med HR eller din pensionsrådgiver, før du forhandler. Se også <a href="/pensionsfradrag.html">pensions-beregneren</a>.</p>
+        </details>
+        <details>
+          <summary>Hvordan påvirker pension lønforhøjelsens netto-effekt?</summary>
+          <p>Egen pension trækkes af bruttoløn før AM-bidrag og skat. Hvis du øger pensionsprocenten samtidig med stigningen, sparer du både AM-bidrag (8 %) og A-skat nu — men din direkte nettoløn stiger mindre. Det er en afvejning mellem cash i dag og opsparing til senere.</p>
+        </details>
+        <details>
+          <summary>Er beregneren præcis nok til lønforhandling?</summary>
+          <p>Beregneren bruger officielle 2026-satser fra Skattestyrelsen og rammer typisk inden for få hundrede kroner pr. måned. Den dækker dog ikke alle individuelle fradrag fra din forskudsopgørelse. Brug den som et solidt estimat — ikke som juridisk grundlag.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       Cross-links
+       ===================================================================== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-title">
+        <h2>Andre beregnere</h2>
+        <p>Specialiserede beregnere til de typiske situationer omkring din løn.</p>
+      </div>
+      <div class="card-grid card-grid--3">
+        <a class="card link-card" href="/">
+          <h3>Lønberegner — brutto til netto</h3>
+          <p>Skriv din bruttoløn, vælg kommune og se hele opdelingen i AM-bidrag, A-skat, kommune- og kirkeskat.</p>
+        </a>
+        <a class="card link-card" href="/bonus-efter-skat.html">
+          <h3>Bonus efter skat</h3>
+          <p>Se hvor meget du reelt får af en bonus, og hvor meget du kan vinde ved at sende den direkte i pensionen.</p>
+        </a>
+        <a class="card link-card" href="/topskat-tjek.html">
+          <h3>Topskat-tjek</h3>
+          <p>Er du tæt på topskattegrænsen? Se hvor meget du kan tjene mere, før topskatten rammer.</p>
+        </a>
+        <a class="card link-card" href="/pensionsfradrag.html">
+          <h3>Pensionsfradrag</h3>
+          <p>Hvor meget sparer du i skat ved at lægge ekstra i pension? Beregn effekten af bortseelsesretten.</p>
+        </a>
+        <a class="card link-card" href="/sammenlign-kommuner.html">
+          <h3>Sammenlign kommuner</h3>
+          <p>Samme bruttoløn i alle 98 kommuner. Se hvor stor forskel kommuneskatten gør på din nettoløn.</p>
+        </a>
+        <a class="card link-card" href="/feriepenge.html">
+          <h3>Feriepenge</h3>
+          <p>12,5 % af lønnen — men hvad bliver det efter skat? Se din feriepenge-udbetaling før den lander.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Klar til lønforhandlingen?</h2>
+        <p>Tag tallene med til samtalen — gratis, uden logind og opdateret med 2026-satserne.</p>
+        <a class="btn btn--light btn--lg" href="#beregner">Åbn lønforhøjelses-beregneren</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#1e40af"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name">Lønberegner.dk</span>
+        </a>
+        <p>Gratis lønberegner på dansk, med opdaterede skattesatser for 2026.</p>
+      </div>
+      <div>
+        <h3>Beregnere</h3>
+        <ul>
+          <li><a href="/">Lønberegner</a></li>
+          <li><a href="/bonus-efter-skat.html">Bonus</a></li>
+          <li><a href="/topskat-tjek.html">Topskat</a></li>
+          <li><a href="/pensionsfradrag.html">Pension</a></li>
+          <li><a href="/feriepenge.html">Feriepenge</a></li>
+          <li><a href="/">Timeløn</a></li>
+          <li><a href="/topskat-tjek.html">Kørselsfradrag</a></li>
+          <li><a href="/">Dagpenge</a></li>
+          <li><a href="/">SU-beregner</a></li>
+          <li><a href="/sammenlign-kommuner.html">Sammenlign kommuner</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guides</h3>
+        <ul>
+          <li><a href="/kilder.html">Forstå din lønseddel</a></li>
+          <li><a href="/topskat-2026.html">Skattesatser 2026</a></li>
+          <li><a href="/lonforhojelse.html">Forhandl løn</a></li>
+          <li><a href="/freelancer.html">Freelancer og A-skat</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Hjem</a></li>
+          <li><a href="/om.html">Om os</a></li>
+          <li><a href="/kontakt.html">Kontakt</a></li>
+          <li><a href="/privatlivspolitik.html">Privatlivspolitik</a></li>
+          <li><a href="/vilkar.html">Vilkår</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Kilder</h3>
+        <ul>
+          <li><a href="https://www.skat.dk/" rel="nofollow noopener" target="_blank">Skattestyrelsen</a></li>
+          <li><a href="https://www.borger.dk/" rel="nofollow noopener" target="_blank">Borger.dk</a></li>
+          <li><a href="https://www.atp.dk/" rel="nofollow noopener" target="_blank">ATP</a></li>
+          <li><a href="/kilder.html">Alle kilder og metode</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Støt</h3>
+        <ul>
+          <li><a href="/stot.html">Støt projektet</a></li>
+          <li><a href="/stot.html#del">Del med en kollega</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Beregneren har et informativt formål. Tjek altid dine egne tal med Skattestyrelsen eller en revisor, før du tager økonomiske beslutninger.</p>
+      <p>© <span data-year>2026</span> Lønberegner.dk · Lavet i Danmark.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/tax-2026.js"></script>
+
+<script>
+/* =====================================================================
+ * Lønforhøjelse — UI logic
+ * ===================================================================== */
+(function () {
+  'use strict';
+  if (!window.TAX) {
+    console.error('window.TAX ikke indlæst — kontroller /js/tax-2026.js');
+    return;
+  }
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  // form refs
+  var form          = $('raiseForm');
+  var currentInput  = $('currentInput');
+  var currentSlider = $('currentSlider');
+  var raiseInput    = $('raiseInput');
+  var raiseSlider   = $('raiseSlider');
+  var raisePctHelp  = $('raisePctHelp');
+  var kommuneSelect = $('kommuneSelect');
+  var kommuneInfo   = $('kommuneInfo');
+  var folkekirke    = $('folkekirke');
+  var pensionEgen   = $('pensionEgen');
+  var pensionEgenLabel = $('pensionEgenLabel');
+  var resetBtn      = $('resetBtn');
+
+  // result refs
+  var nettoStigningMaaned = $('nettoStigningMaaned');
+  var nettoStigningAar    = $('nettoStigningAar');
+  var bruttoStigningAar   = $('bruttoStigningAar');
+  var marginalPct         = $('marginalPct');
+  var keepPct             = $('keepPct');
+  var topskatWarning      = $('topskatWarning');
+  var topskatWarningText  = $('topskatWarningText');
+  var raiseChart          = $('raiseChart');
+  var detailsBody         = $('detailsBody');
+
+  var STORAGE_KEY = 'lonberegner.raise.v1';
+  var kommuner = [];
+
+  // ---------- kommuner ----------
+  function populateKommuner(list) {
+    kommuner = list.slice().sort(function (a, b) { return a.navn.localeCompare(b.navn, 'da'); });
+    kommuneSelect.innerHTML = '';
+    var ph = document.createElement('option');
+    ph.value = ''; ph.textContent = 'Vælg kommune …';
+    kommuneSelect.appendChild(ph);
+    kommuner.forEach(function (k) {
+      var o = document.createElement('option');
+      o.value = k.slug;
+      o.textContent = k.navn + ' (' + k.kommuneskat.toString().replace('.', ',') + ' %)';
+      kommuneSelect.appendChild(o);
+    });
+  }
+  function selectedKommune() {
+    var slug = kommuneSelect.value;
+    if (!slug) return null;
+    for (var i = 0; i < kommuner.length; i++) if (kommuner[i].slug === slug) return kommuner[i];
+    return null;
+  }
+  function updateKommuneInfo() {
+    var k = selectedKommune();
+    if (!k) {
+      kommuneInfo.textContent = 'Vælg en kommune for præcis beregning. Indtil da bruges DK-gennemsnit (25,43 %).';
+      return;
+    }
+    kommuneInfo.innerHTML = '<strong>' + k.navn + '</strong> — kommuneskat ' +
+      k.kommuneskat.toString().replace('.', ',') + ' %, kirkeskat ' +
+      k.kirkeskat.toString().replace('.', ',') + ' %. Region: ' + k.region + '.';
+  }
+
+  // ---------- input collect ----------
+  function collectInput() {
+    var k = selectedKommune();
+    var currentMaaned = Number(currentInput.value) || 0;
+    var raiseMaaned   = Number(raiseInput.value) || 0;
+    return {
+      currentBruttoAr: currentMaaned * 12,
+      raiseAr: raiseMaaned * 12,
+      kommune: k ? { kommuneskat: k.kommuneskat, kirkeskat: k.kirkeskat } : { kommuneskat: 25.43, kirkeskat: 0.93 },
+      medlemFolkekirke: !!folkekirke.checked,
+      pensionEgenPct: Number(pensionEgen.value) || 0,
+      pensionArbejdsgiverPct: 0,
+      atp: true,
+      alder: 35
+    };
+  }
+
+  // ---------- render ----------
+  function render(input, r) {
+    var brutto = input.currentBruttoAr;
+    var raise  = input.raiseAr;
+
+    // big numbers
+    nettoStigningMaaned.textContent = TAX.formatKr(r.deltaNetto / 12).replace(' kr.', '');
+    nettoStigningAar.textContent    = TAX.formatKr(r.deltaNetto).replace(' kr.', '');
+    bruttoStigningAar.textContent   = TAX.formatKr(raise).replace(' kr.', '');
+
+    var marginal = r.pctRetido;
+    var kept     = r.pctRecebido;
+    marginalPct.textContent = TAX.formatPct(marginal, 1);
+    keepPct.textContent     = TAX.formatPct(kept, 1);
+
+    // raise pct of current
+    if (brutto > 0) {
+      var pct = raise / brutto;
+      raisePctHelp.textContent = TAX.formatPct(pct, 1) + ' af nuværende løn';
+    } else {
+      raisePctHelp.textContent = '— af nuværende løn';
+    }
+
+    // topskat warning — krydses, hvis efter personlig indkomst > 777.900 og før <= 777.900
+    var before = r.before;
+    var after  = r.after;
+    var thresholdTop = window.TAX.TOPSKAT_THRESHOLD;
+    var beforePI = before.breakdown.personligIndkomst;
+    var afterPI  = after.breakdown.personligIndkomst;
+
+    if (beforePI < thresholdTop && afterPI > thresholdTop) {
+      topskatWarning.hidden = false;
+      var afStigning = afterPI - thresholdTop;
+      topskatWarningText.textContent = 'Med denne forhøjelse krydser du topskattegrænsen på 777.900 kr./år (efter AM-bidrag). Ca. ' +
+        TAX.formatKr(afStigning) + ' af stigningen ligger over grænsen og beskattes med marginal ' +
+        TAX.formatPct(0.5, 0) + '+. Overvej at lægge dele af stigningen ind i arbejdsgiverpension via bortseelsesret — så undgår du både AM-bidrag og A-skat på den del.';
+    } else if (beforePI > thresholdTop) {
+      topskatWarning.hidden = false;
+      topskatWarningText.textContent = 'Du er allerede i topskat. Hele lønforhøjelsen beskattes med ca. ' +
+        TAX.formatPct(marginal, 1) + ' marginalskat. Overvej at lægge hele stigningen ind i arbejdsgiverpension via bortseelsesret — så slipper du både AM-bidrag og A-skat nu.';
+    } else {
+      topskatWarning.hidden = true;
+    }
+
+    // chart — 4 søjler: brutto før, brutto efter, netto før, netto efter (kr./md.)
+    var bruttoFor   = brutto / 12;
+    var bruttoEfter = (brutto + raise) / 12;
+    var nettoFor    = before.netto / 12;
+    var nettoEfter  = after.netto / 12;
+    var maxVal = Math.max(bruttoFor, bruttoEfter, nettoFor, nettoEfter, 1);
+
+    var bars = [
+      { label: 'Brutto før',   val: bruttoFor,   color: '#1e40af' },
+      { label: 'Brutto efter', val: bruttoEfter, color: '#2563eb' },
+      { label: 'Netto før',    val: nettoFor,    color: '#16a34a' },
+      { label: 'Netto efter',  val: nettoEfter,  color: '#22c55e' }
+    ];
+
+    var chartHTML = '';
+    bars.forEach(function (b) {
+      var h = Math.max(2, (b.val / maxVal) * 100);
+      chartHTML +=
+        '<div class="raise-bar">' +
+          '<div class="raise-bar__col" style="height:180px;display:flex;align-items:flex-end;">' +
+            '<div class="raise-bar__fill" style="height:' + h.toFixed(2) + '%;background:' + b.color + ';width:100%;border-radius:6px 6px 0 0;" title="' + b.label + ': ' + TAX.formatKr(b.val) + '/md."></div>' +
+          '</div>' +
+          '<div class="raise-bar__val">' + TAX.formatKr(b.val).replace(' kr.', '') + '</div>' +
+          '<div class="raise-bar__label">' + b.label + '</div>' +
+        '</div>';
+    });
+    raiseChart.innerHTML = chartHTML;
+
+    // detailed table (kr./md.)
+    var rows = [
+      { name: 'Bruttoløn',     foer: brutto / 12,                              efter: (brutto + raise) / 12 },
+      { name: 'AM-bidrag',     foer: before.amBidrag / 12,                     efter: after.amBidrag / 12 },
+      { name: 'Egen pension',  foer: before.pensionEgen / 12,                  efter: after.pensionEgen / 12 },
+      { name: 'Bundskat',      foer: before.bundskat / 12,                     efter: after.bundskat / 12 },
+      { name: 'Mellemskat',    foer: before.mellemskat / 12,                   efter: after.mellemskat / 12 },
+      { name: 'Topskat',       foer: before.topskat / 12,                      efter: after.topskat / 12 },
+      { name: 'Kommuneskat',   foer: before.kommuneskat / 12,                  efter: after.kommuneskat / 12 },
+      { name: 'Kirkeskat',     foer: before.kirkeskat / 12,                    efter: after.kirkeskat / 12 },
+      { name: 'Nettoløn',      foer: before.netto / 12,                        efter: after.netto / 12, bold: true }
+    ];
+
+    var html = '';
+    rows.forEach(function (row) {
+      if (row.foer <= 0 && row.efter <= 0) return;
+      var diff = row.efter - row.foer;
+      var diffSign = diff > 0 ? '+' : (diff < 0 ? '−' : '');
+      var diffAbs  = Math.abs(diff);
+      var nameCell = row.bold ? '<strong>' + row.name + '</strong>' : row.name;
+      var diffCell = row.bold
+        ? '<strong>' + diffSign + TAX.formatKr(diffAbs) + '</strong>'
+        : diffSign + TAX.formatKr(diffAbs);
+      html += '<tr>' +
+                '<td>' + nameCell + '</td>' +
+                '<td>' + TAX.formatKr(row.foer) + '</td>' +
+                '<td>' + TAX.formatKr(row.efter) + '</td>' +
+                '<td>' + diffCell + '</td>' +
+              '</tr>';
+    });
+    detailsBody.innerHTML = html || '<tr><td colspan="4">Ingen poster at vise.</td></tr>';
+  }
+
+  // ---------- run ----------
+  function run() {
+    var input = collectInput();
+    pensionEgenLabel.textContent = (Number(pensionEgen.value) || 0).toString().replace('.', ',') + ' %';
+    var res = TAX.calcRaiseImpact(input);
+    render(input, res);
+    save();
+  }
+
+  // ---------- debounce ----------
+  var t = null;
+  function scheduleRun() {
+    if (t) clearTimeout(t);
+    t = setTimeout(run, 200);
+  }
+
+  // ---------- localStorage ----------
+  function save() {
+    try {
+      var data = {
+        current:     Number(currentInput.value) || 0,
+        raise:       Number(raiseInput.value) || 0,
+        kommune:     kommuneSelect.value || '',
+        folkekirke:  !!folkekirke.checked,
+        pensionEgen: Number(pensionEgen.value) || 0
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    } catch (e) { /* ignore */ }
+  }
+  function load() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      var d = JSON.parse(raw);
+      if (typeof d.current === 'number')     currentInput.value = d.current;
+      if (typeof d.raise === 'number')       raiseInput.value   = d.raise;
+      if (typeof d.folkekirke === 'boolean') folkekirke.checked = d.folkekirke;
+      if (typeof d.pensionEgen === 'number') pensionEgen.value  = d.pensionEgen;
+      if (d.kommune) kommuneSelect.dataset.pendingSlug = d.kommune;
+    } catch (e) { /* ignore */ }
+  }
+  function resetAll() {
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+    currentInput.value = 42000;
+    raiseInput.value   = 2000;
+    kommuneSelect.value = '';
+    folkekirke.checked = false;
+    pensionEgen.value  = 5;
+    currentSlider.value = currentInput.value;
+    raiseSlider.value   = raiseInput.value;
+    updateKommuneInfo();
+    run();
+  }
+
+  // ---------- wiring ----------
+  currentInput.addEventListener('input', function () {
+    currentSlider.value = Math.min(Number(currentInput.value) || 0, Number(currentSlider.max));
+    scheduleRun();
+  });
+  currentSlider.addEventListener('input', function () {
+    currentInput.value = currentSlider.value;
+    scheduleRun();
+  });
+  raiseInput.addEventListener('input', function () {
+    raiseSlider.value = Math.min(Number(raiseInput.value) || 0, Number(raiseSlider.max));
+    scheduleRun();
+  });
+  raiseSlider.addEventListener('input', function () {
+    raiseInput.value = raiseSlider.value;
+    scheduleRun();
+  });
+  kommuneSelect.addEventListener('change', function () {
+    updateKommuneInfo();
+    scheduleRun();
+  });
+  folkekirke.addEventListener('change', scheduleRun);
+  pensionEgen.addEventListener('input', scheduleRun);
+  resetBtn.addEventListener('click', resetAll);
+  form.addEventListener('submit', function (e) { e.preventDefault(); run(); });
+
+  // ---------- init ----------
+  load();
+  currentSlider.value = Math.min(Number(currentInput.value) || 0, Number(currentSlider.max));
+  raiseSlider.value   = Math.min(Number(raiseInput.value) || 0, Number(raiseSlider.max));
+
+  fetch('/data/kommuner-2026.json')
+    .then(function (res) {
+      if (!res.ok) throw new Error('kommune fetch fejl ' + res.status);
+      return res.json();
+    })
+    .then(function (j) {
+      populateKommuner(j.kommuner || []);
+      var pending = kommuneSelect.dataset.pendingSlug;
+      if (pending) {
+        kommuneSelect.value = pending;
+        delete kommuneSelect.dataset.pendingSlug;
+      }
+      updateKommuneInfo();
+      run();
+    })
+    .catch(function (err) {
+      console.error('Kunne ikke indlæse kommuner:', err);
+      kommuneSelect.innerHTML = '<option value="">Kunne ikke indlæse kommuner</option>';
+      kommuneInfo.textContent = 'Bruger DK-gennemsnit (25,43 %) som fallback.';
+      run();
+    });
+})();
+</script>
+
+<style>
+.raise-chart {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  align-items: end;
+  margin: 1rem 0;
+}
+.raise-bar { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+.raise-bar__col { width: 100%; max-width: 80px; }
+.raise-bar__val { font-weight: 600; font-size: 0.9rem; }
+.raise-bar__label { font-size: 0.8rem; color: #475569; text-align: center; }
+</style>
+</body>
+</html>

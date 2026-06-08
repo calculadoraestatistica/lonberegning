@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7516029395999799" crossorigin="anonymous"></script>
+<title>Sammenlign kommuneskat — hvor sparer du mest? | Lønberegner.dk</title>
+<meta name="description" content="Sammenlign din nettoløn mellem op til 5 kommuner. Se hvor meget mere du får i Gentofte vs København på 2026-satser.">
+<link rel="canonical" href="https://lonberegning.dk/sammenlign-kommuner.html">
+<meta name="theme-color" content="#1e40af">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="da_DK">
+<meta property="og:site_name" content="Lønberegner.dk">
+<meta property="og:title" content="Sammenlign kommuneskat — hvor sparer du mest?">
+<meta property="og:description" content="Sammenlign din nettoløn mellem op til 5 kommuner. Se hvor meget mere du får i Gentofte vs København på 2026-satser.">
+<meta property="og:url" content="https://lonberegning.dk/sammenlign-kommuner.html">
+<meta property="og:image" content="https://lonberegning.dk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sammenlign kommuneskat — hvor sparer du mest?">
+<meta name="twitter:description" content="Sammenlign din nettoløn mellem op til 5 kommuner. Se hvor meget mere du får i Gentofte vs København.">
+<meta name="twitter:image" content="https://lonberegning.dk/og-image.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Sammenlign kommuneskat 2026",
+  "url": "https://lonberegning.dk/sammenlign-kommuner.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (browser)",
+  "inLanguage": "da",
+  "description": "Sammenlign din nettoløn mellem op til 5 danske kommuner med opdaterede 2026-satser. Se hvor meget mere du får i lommen ved at vælge en kommune med lavere skat.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "DKK" },
+  "publisher": { "@type": "Organization", "name": "Lønberegner.dk", "url": "https://lonberegning.dk/" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Kan jeg virkelig spare penge ved at flytte kommune?","acceptedAnswer":{"@type":"Answer","text":"Ja, men forskellen er ofte mindre end folk tror. På en bruttoløn på 500.000 kr. er forskellen mellem den billigste og den dyreste kommune typisk 10-15.000 kr. om året i nettoløn. Det skal vejes op mod boligpriser, transport og dagligdag — Gentofte har lav skat, men dyre boliger."}},
+    {"@type":"Question","name":"Hvilken kommune har lavest skat i 2026?","acceptedAnswer":{"@type":"Answer","text":"I 2026 har Rudersdal, Gentofte og Hørsholm de laveste kommuneskatter (under 24 %). Gladsaxe og Herlev følger lige efter. Til sammenligning ligger Brønderslev, Haderslev og Langeland højest med 26,30 %."}},
+    {"@type":"Question","name":"Hvorfor er København dyrere end Gentofte i skat?","acceptedAnswer":{"@type":"Answer","text":"København opkræver 23,80 % i kommuneskat, mens Gentofte ligger på 24,14 % — men Københavns kirkeskat er højere (0,80 % mod 0,38 %). Forskellen er dog lille sammenlignet med boligpriser og pendlingsomkostninger."}},
+    {"@type":"Question","name":"Tæller kirkeskatten med i sammenligningen?","acceptedAnswer":{"@type":"Answer","text":"Kun hvis du sætter flueben i \"Medlem af folkekirken\". Kirkeskatten varierer fra 0,38 % (Gentofte) til 1,30 % og opkræves kun af folkekirkemedlemmer. Ikke-medlemmer skal alene se på kommuneskatten."}},
+    {"@type":"Question","name":"Hvad med ejendomsskat og boligpriser?","acceptedAnswer":{"@type":"Answer","text":"Denne sammenligning dækker kun løn-skat. Ejendomsværdiskat, grundskyld og forskelle i boligpriser kan vende billedet helt om — en kommune med lav indkomstskat har ofte dyrere boliger. Vi viser kun, hvad du får udbetalt på lønsedlen."}},
+    {"@type":"Question","name":"Hvorfor ses forskellen først på årsbasis?","acceptedAnswer":{"@type":"Answer","text":"Forskellen pr. måned virker ofte beskeden — typisk 500-1.500 kr. Men over et helt år bliver det 6.000-18.000 kr. ekstra, og over et arbejdsliv kan det løbe op i hundredtusinder. Derfor viser vi både månedlige og årlige tal samt den samlede forskel mellem din bedste og dårligste kommune."}}
+  ]
+}
+</script>
+
+<style>
+.cmp-form { margin-bottom: 1.5rem; }
+.cmp-form__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.cmp-multiselect { position: relative; }
+.cmp-multiselect__chips { display: flex; flex-wrap: wrap; gap: .4rem; min-height: 2.4rem; padding: .4rem; border: 1px solid #cbd5e1; border-radius: .5rem; background: #fff; cursor: text; }
+.cmp-multiselect__chips:focus-within { border-color: #1e40af; box-shadow: 0 0 0 3px rgba(30,64,175,.15); }
+.cmp-chip { display: inline-flex; align-items: center; gap: .3rem; background: #dbeafe; color: #1e3a8a; padding: .2rem .55rem; border-radius: 999px; font-size: .85rem; font-weight: 600; }
+.cmp-chip__rm { background: none; border: 0; color: #1e3a8a; cursor: pointer; font-size: 1rem; line-height: 1; padding: 0 .1rem; }
+.cmp-chip__rm:hover { color: #b91c1c; }
+.cmp-multiselect__input { flex: 1; min-width: 8rem; border: 0; outline: 0; padding: .25rem .3rem; font: inherit; background: transparent; }
+.cmp-multiselect__list { position: absolute; top: 100%; left: 0; right: 0; z-index: 10; max-height: 240px; overflow-y: auto; background: #fff; border: 1px solid #cbd5e1; border-top: 0; border-radius: 0 0 .5rem .5rem; box-shadow: 0 4px 12px rgba(0,0,0,.08); display: none; }
+.cmp-multiselect__list[data-open="true"] { display: block; }
+.cmp-multiselect__opt { padding: .55rem .8rem; cursor: pointer; display: flex; justify-content: space-between; gap: 1rem; font-size: .92rem; }
+.cmp-multiselect__opt:hover, .cmp-multiselect__opt[aria-selected="true"] { background: #eff6ff; }
+.cmp-multiselect__opt--disabled { opacity: .4; cursor: not-allowed; }
+.cmp-multiselect__opt .pct { color: #475569; font-variant-numeric: tabular-nums; }
+.cmp-hint { font-size: .85rem; color: #475569; margin-top: .3rem; }
+
+.cmp-table-wrap { overflow-x: auto; }
+.cmp-table { width: 100%; border-collapse: collapse; min-width: 640px; }
+.cmp-table th, .cmp-table td { padding: .65rem .8rem; text-align: left; border-bottom: 1px solid #e5e7eb; font-variant-numeric: tabular-nums; }
+.cmp-table th { background: #f1f5f9; font-size: .85rem; text-transform: uppercase; letter-spacing: .03em; color: #475569; }
+.cmp-table td.num, .cmp-table th.num { text-align: right; }
+.cmp-table tr.is-top td { background: #ecfdf5; font-weight: 600; }
+.cmp-table tr.is-bottom td { background: #fef2f2; }
+.cmp-bar { display: block; height: 8px; background: #1e40af; border-radius: 999px; margin-top: .35rem; min-width: 4px; }
+.cmp-bar--low { background: #dc2626; }
+.cmp-diff-pos { color: #047857; font-weight: 600; }
+.cmp-diff-neg { color: #b91c1c; font-weight: 600; }
+
+.cmp-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.cmp-summary__card { background: #1e40af; color: #fff; padding: 1rem 1.2rem; border-radius: .75rem; }
+.cmp-summary__card--alt { background: #0f766e; }
+.cmp-summary__card--warn { background: #b91c1c; }
+.cmp-summary__label { font-size: .8rem; opacity: .85; text-transform: uppercase; letter-spacing: .04em; margin: 0 0 .2rem; }
+.cmp-summary__value { font-size: 1.6rem; font-weight: 700; margin: 0; }
+.cmp-summary__sub { font-size: .85rem; opacity: .9; margin: .2rem 0 0; }
+
+.cmp-toplist { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .8rem; }
+.cmp-toplist__card { background: #fff; border: 1px solid #e5e7eb; border-left: 4px solid #1e40af; border-radius: .6rem; padding: .9rem 1rem; }
+.cmp-toplist__rank { font-size: .75rem; color: #475569; text-transform: uppercase; letter-spacing: .05em; margin: 0 0 .15rem; }
+.cmp-toplist__name { font-size: 1.05rem; font-weight: 700; margin: 0 0 .15rem; color: #1e293b; }
+.cmp-toplist__pct { font-size: .9rem; color: #475569; margin: 0; }
+.cmp-toplist__net { font-size: .95rem; color: #047857; margin: .35rem 0 0; font-weight: 600; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Spring til indhold</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Lønberegner.dk — forsiden">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1e40af"/>
+        <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+        <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+        <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+      </svg>
+      <span class="brand__name">Løn<span>beregner</span></span>
+    </a>
+    <span class="header-badge" aria-label="Skattesatser opdateret for 2026">Satser opdateret for 2026</span>
+    <button class="nav-toggle" type="button" aria-label="Åbn menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Hovedmenu">
+      <ul>
+        <li><a href="/">Lønberegner</a></li>
+        <li><a href="/bonus-efter-skat.html">Bonus</a></li>
+        <li><a href="/sammenlign-kommuner.html" aria-current="page">Sammenlign kommuner</a></li>
+        <li><a href="/topskat-tjek.html">Topskat</a></li>
+        <li><a href="/pensionsfradrag.html">Pension</a></li>
+        <li class="has-submenu">
+          <a href="#" aria-haspopup="true" aria-expanded="false">Mere <span aria-hidden="true">&#9662;</span></a>
+          <ul class="submenu">
+            <li><a href="/feriepenge.html">Feriepenge</a></li>
+            <li><a href="/">Timeløn</a></li>
+            <li><a href="/topskat-tjek.html">Kørselsfradrag</a></li>
+            <li><a href="/">Dagpenge</a></li>
+            <li><a href="/">SU-beregner</a></li>
+          </ul>
+        </li>
+        <li><a href="/om.html">Om</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <section class="hero">
+    <div class="container">
+      <span class="hero__eyebrow">100% gratis · Uden logind · Direkte i browseren</span>
+      <h1>Sammenlign kommuneskat — hvor sparer du mest?</h1>
+      <p class="lead">Sæt din bruttoløn op imod op til 5 kommuner ad gangen, og se sort på hvidt, hvor meget mere du får udbetalt i lommen, hvis du flytter til en kommune med lavere skat. Vi bruger de officielle 2026-satser fra Skatteministeriet for alle 98 kommuner.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="#beregner">Start sammenligning</a>
+        <a class="btn btn--ghost btn--lg" href="/">Almindelig lønberegner</a>
+      </div>
+      <div class="hero__badges">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Satser opdateret for 2026</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Alle 98 kommuner</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Op til 5 ad gangen</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Visuelle bjælker</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       SAMMENLIGNING (form + resultat)
+       ===================================================================== -->
+  <section class="section section--calc" id="beregner">
+    <div class="container">
+
+      <form class="calc-form card cmp-form" id="cmpForm" autocomplete="off" novalidate>
+        <header class="calc-form__head">
+          <h2>Din løn og dine kommuner</h2>
+          <p>Skriv din bruttoløn, vælg op til 5 kommuner — resultatet opdateres automatisk.</p>
+        </header>
+
+        <div class="cmp-form__grid">
+          <!-- Bruttoløn årlig -->
+          <fieldset class="field-group">
+            <legend>Bruttoløn (kr./år)</legend>
+            <div class="input-row">
+              <input type="number" id="bruttoArInput" min="0" step="1000" value="500000" inputmode="numeric" aria-label="Bruttoløn pr. år">
+              <span class="input-suffix">kr./år</span>
+            </div>
+            <input type="range" id="bruttoArSlider" min="100000" max="2000000" step="5000" value="500000" aria-label="Bruttoløn slider">
+            <div class="range-hint">
+              <span>100.000</span>
+              <span>2.000.000 kr.</span>
+            </div>
+          </fieldset>
+
+          <!-- Pension egen -->
+          <fieldset class="field-group">
+            <legend>Egen pension <span class="badge-soft" id="pensionLabel">5 %</span></legend>
+            <input type="range" id="pensionEgen" min="0" max="25" step="0.5" value="5" aria-label="Egen pension procent">
+            <div class="range-hint"><span>0 %</span><span>25 %</span></div>
+            <p class="field-help">Trækkes før AM-bidrag (bortseelsesret).</p>
+          </fieldset>
+
+          <!-- Folkekirken -->
+          <fieldset class="field-group">
+            <legend>Folkekirken</legend>
+            <label class="check-row">
+              <input type="checkbox" id="folkekirke">
+              <span>Medlem (betaler kirkeskat)</span>
+            </label>
+            <p class="field-help">Kirkeskat varierer fra 0,38 % til 1,30 %.</p>
+          </fieldset>
+
+          <!-- ATP -->
+          <fieldset class="field-group">
+            <legend>ATP-bidrag</legend>
+            <label class="check-row">
+              <input type="checkbox" id="atp" checked>
+              <span>ATP (99 kr./md.)</span>
+            </label>
+            <p class="field-help">Trækkes af alle lønmodtagere.</p>
+          </fieldset>
+        </div>
+
+        <!-- Kommuner multi-select -->
+        <fieldset class="field-group">
+          <legend>Vælg kommuner (op til 5)</legend>
+          <div class="cmp-multiselect" id="kommuneMS">
+            <div class="cmp-multiselect__chips" id="kommuneChips" tabindex="0" aria-label="Valgte kommuner">
+              <input type="text" class="cmp-multiselect__input" id="kommuneSearch" placeholder="Søg efter kommune …" aria-label="Søg efter kommune" aria-autocomplete="list" aria-controls="kommuneList">
+            </div>
+            <div class="cmp-multiselect__list" id="kommuneList" role="listbox" aria-label="Forslag til kommuner"></div>
+          </div>
+          <p class="cmp-hint" id="kommuneHint">Standard: København, Aarhus, Odense, Aalborg, Gentofte. Klik på × for at fjerne.</p>
+        </fieldset>
+      </form>
+
+      <!-- Resultattabel -->
+      <div class="card" id="resultCard">
+        <h3 class="result-h3">Sammenligning — sorteret efter netto-løn</h3>
+        <div class="cmp-table-wrap">
+          <table class="cmp-table" id="cmpTable">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Kommune</th>
+                <th class="num" scope="col">Kommuneskat</th>
+                <th class="num" scope="col">Netto pr. md.</th>
+                <th class="num" scope="col">Netto pr. år</th>
+                <th class="num" scope="col">Forskel fra topplaceringen</th>
+              </tr>
+            </thead>
+            <tbody id="cmpTableBody">
+              <tr><td colspan="6">Indlæser kommuner …</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="cmp-summary" id="cmpSummary"></div>
+      </div>
+
+      <!-- Top 5 lavest -->
+      <div class="card" style="margin-top:1rem;">
+        <h3 class="result-h3">Top 5 kommuner med lavest skat i 2026</h3>
+        <p class="cmp-hint">Beregnet på din nuværende bruttoløn — uafhængigt af de kommuner du har valgt ovenfor.</p>
+        <div class="cmp-toplist" id="topList">
+          <p>Indlæser …</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-slot" data-ad-slot=""></div></div>
+
+  <!-- =====================================================================
+       Hvorfor er beregningen et estimate?
+       ===================================================================== -->
+  <section class="section">
+    <div class="container prose">
+      <div class="section-title">
+        <h2>Hvorfor er beregningen et estimate?</h2>
+        <p>Sammenligningen viser den rene forskel i kommune- og kirkeskat — alt andet holdes lige. Tre ting kan flytte tallet i din virkelige situation.</p>
+      </div>
+
+      <h3>1. Vi bruger officielle satser, ikke din forskudsopgørelse</h3>
+      <p>Beregneren tager de officielle 2026-satser direkte fra Skatteministeriets oversigt og kombinerer dem med standardfradrag (personfradrag, beskæftigelsesfradrag, jobfradrag). Din egen forskudsopgørelse kan indeholde individuelle fradrag som renteudgifter, befordring eller donationer, der trækker dit faktiske skattetræk lidt ned. Du kan tilføje dem manuelt i den almindelige <a href="/">lønberegner</a>.</p>
+
+      <h3>2. Kun løn-skat — ikke ejendoms- eller forbrugsskat</h3>
+      <p>Vi sammenligner udelukkende det, der ryger af på din lønseddel. Ejendomsværdiskat, grundskyld, dækningsafgift og dagtilbudspriser varierer også mellem kommuner — ofte mere end indkomstskatten. En kommune med lav indkomstskat har typisk dyrere boliger, så regnestykket vender hurtigt, hvis du faktisk flytter.</p>
+
+      <h3>3. Skråt skatteloft påvirker høje indkomster</h3>
+      <p>For lønninger over topskattegrænsen rammer skråt skatteloft (52,07 % i 2026) ind. Det betyder, at forskellen mellem en høj- og lav-skattekommune mindskes på den øverste del af din indkomst — staten skærer topskatten ned, så summen ikke overstiger loftet. Sammenligningen tager højde for det automatisk.</p>
+
+      <p>Læs detaljerne om vores metode og kilder på <a href="/kilder.html">kilder og metode-siden</a>.</p>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       FAQ
+       ===================================================================== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-title">
+        <h2>Ofte stillede spørgsmål</h2>
+        <p>De typiske spørgsmål omkring kommuneskat og flytning.</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Kan jeg virkelig spare penge ved at flytte kommune?</summary>
+          <p>Ja, men forskellen er ofte mindre end folk tror. På en bruttoløn på 500.000 kr. er forskellen mellem den billigste og den dyreste kommune typisk 10-15.000 kr. om året i nettoløn. Det skal vejes op mod boligpriser, transport og dagligdag — Gentofte har lav skat, men dyre boliger.</p>
+        </details>
+        <details>
+          <summary>Hvilken kommune har lavest skat i 2026?</summary>
+          <p>I 2026 har Rudersdal, Gentofte og Hørsholm de laveste kommuneskatter (under 24 %). Gladsaxe og Herlev følger lige efter. Til sammenligning ligger Brønderslev, Haderslev og Langeland højest med 26,30 %.</p>
+        </details>
+        <details>
+          <summary>Hvorfor er København dyrere end Gentofte i skat?</summary>
+          <p>København opkræver 23,80 % i kommuneskat, mens Gentofte ligger på 24,14 % — men Københavns kirkeskat er højere (0,80 % mod 0,38 %). For folkekirkemedlemmer ender Gentofte derfor billigere alligevel. Forskellen er dog lille sammenlignet med boligpriser og pendlingsomkostninger.</p>
+        </details>
+        <details>
+          <summary>Tæller kirkeskatten med i sammenligningen?</summary>
+          <p>Kun hvis du sætter flueben i "Medlem af folkekirken". Kirkeskatten varierer fra 0,38 % (Gentofte) til 1,30 % og opkræves kun af folkekirkemedlemmer. Er du ikke medlem, skal du alene se på kommuneskatten.</p>
+        </details>
+        <details>
+          <summary>Hvad med ejendomsskat og boligpriser?</summary>
+          <p>Denne sammenligning dækker kun løn-skat. Ejendomsværdiskat, grundskyld og forskelle i boligpriser kan vende billedet helt om — en kommune med lav indkomstskat har ofte dyrere boliger. Vi viser kun, hvad du får udbetalt på lønsedlen.</p>
+        </details>
+        <details>
+          <summary>Hvorfor ses forskellen først på årsbasis?</summary>
+          <p>Forskellen pr. måned virker ofte beskeden — typisk 500-1.500 kr. Men over et helt år bliver det 6.000-18.000 kr. ekstra, og over et arbejdsliv kan det løbe op i hundredtusinder. Derfor viser vi både månedlige og årlige tal samt den samlede forskel mellem din bedste og dårligste kommune.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       Cross-links — andre beregnere
+       ===================================================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Andre lønberegnere</h2>
+        <p>Specialiserede værktøjer til de typiske situationer omkring din løn.</p>
+      </div>
+      <div class="card-grid card-grid--3">
+        <a class="card link-card" href="/">
+          <h3>Lønberegner — brutto til netto</h3>
+          <p>Den klassiske beregner med fuld breakdown af AM-bidrag, bundskat, mellemskat, topskat og kommuneskat.</p>
+        </a>
+        <a class="card link-card" href="/bonus-efter-skat.html">
+          <h3>Bonus efter skat</h3>
+          <p>Se hvor meget du reelt får af en bonus, og hvor meget du kan vinde ved at sende den direkte i pensionsordningen.</p>
+        </a>
+        <a class="card link-card" href="/topskat-tjek.html">
+          <h3>Topskat-tjek</h3>
+          <p>Er du tæt på topskattegrænsen? Se hvor meget du kan tjene mere, før topskatten rammer.</p>
+        </a>
+        <a class="card link-card" href="/pensionsfradrag.html">
+          <h3>Pensionsfradrag</h3>
+          <p>Hvor meget sparer du i skat ved at lægge ekstra i pension? Beregn effekten af bortseelsesretten.</p>
+        </a>
+        <a class="card link-card" href="/feriepenge.html">
+          <h3>Feriepenge efter skat</h3>
+          <p>12,5 % af lønnen — men hvad bliver det efter skat? Se din feriepenge-udbetaling før den lander.</p>
+        </a>
+        <a class="card link-card" href="/topskat-tjek.html">
+          <h3>Kørselsfradrag</h3>
+          <p>Beregn dit befordringsfradrag baseret på afstand til arbejde og antallet af arbejdsdage.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Vil du se hele dit lønbillede?</h2>
+        <p>Brug den fulde lønberegner med detaljeret breakdown af alle skatter og fradrag for din valgte kommune.</p>
+        <a class="btn btn--light btn--lg" href="/#beregner">Åbn lønberegneren</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#1e40af"/>
+            <rect x="13" y="33" width="9" height="17" rx="2.5" fill="#fff"/>
+            <rect x="27.5" y="22" width="9" height="28" rx="2.5" fill="#fff"/>
+            <rect x="42" y="13" width="9" height="37" rx="2.5" fill="#bfdbfe"/>
+          </svg>
+          <span class="brand__name">Lønberegner.dk</span>
+        </a>
+        <p>Gratis lønberegner på dansk, med opdaterede skattesatser for 2026.</p>
+      </div>
+      <div>
+        <h3>Beregnere</h3>
+        <ul>
+          <li><a href="/">Lønberegner</a></li>
+          <li><a href="/bonus-efter-skat.html">Bonus</a></li>
+          <li><a href="/topskat-tjek.html">Topskat</a></li>
+          <li><a href="/pensionsfradrag.html">Pension</a></li>
+          <li><a href="/feriepenge.html">Feriepenge</a></li>
+          <li><a href="/">Timeløn</a></li>
+          <li><a href="/topskat-tjek.html">Kørselsfradrag</a></li>
+          <li><a href="/">Dagpenge</a></li>
+          <li><a href="/">SU-beregner</a></li>
+          <li><a href="/sammenlign-kommuner.html">Sammenlign kommuner</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Guides</h3>
+        <ul>
+          <li><a href="/kilder.html">Forstå din lønseddel</a></li>
+          <li><a href="/topskat-2026.html">Skattesatser 2026</a></li>
+          <li><a href="/lonforhojelse.html">Forhandl løn</a></li>
+          <li><a href="/freelancer.html">Freelancer og A-skat</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/">Hjem</a></li>
+          <li><a href="/om.html">Om os</a></li>
+          <li><a href="/kontakt.html">Kontakt</a></li>
+          <li><a href="/privatlivspolitik.html">Privatlivspolitik</a></li>
+          <li><a href="/vilkar.html">Vilkår</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Kilder</h3>
+        <ul>
+          <li><a href="https://www.skat.dk/" rel="nofollow noopener" target="_blank">Skattestyrelsen</a></li>
+          <li><a href="https://www.borger.dk/" rel="nofollow noopener" target="_blank">Borger.dk</a></li>
+          <li><a href="https://www.atp.dk/" rel="nofollow noopener" target="_blank">ATP</a></li>
+          <li><a href="/kilder.html">Alle kilder og metode</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Støt</h3>
+        <ul>
+          <li><a href="/stot.html">Støt projektet</a></li>
+          <li><a href="/stot.html#del">Del med en kollega</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Beregneren har et informativt formål. Tjek altid dine egne tal med Skattestyrelsen eller en revisor, før du tager økonomiske beslutninger.</p>
+      <p>© <span data-year>2026</span> Lønberegner.dk · Lavet i Danmark.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/config.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/tax-2026.js"></script>
+
+<script>
+/* =====================================================================
+ * Sammenlign kommuner — UI logic
+ * ===================================================================== */
+(function () {
+  'use strict';
+  if (!window.TAX) {
+    console.error('window.TAX ikke indlæst — kontroller /js/tax-2026.js');
+    return;
+  }
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  var bruttoArInput  = $('bruttoArInput');
+  var bruttoArSlider = $('bruttoArSlider');
+  var pensionEgen    = $('pensionEgen');
+  var pensionLabel   = $('pensionLabel');
+  var folkekirke     = $('folkekirke');
+  var atp            = $('atp');
+  var kommuneSearch  = $('kommuneSearch');
+  var kommuneChips   = $('kommuneChips');
+  var kommuneList    = $('kommuneList');
+  var cmpTableBody   = $('cmpTableBody');
+  var cmpSummary     = $('cmpSummary');
+  var topList        = $('topList');
+
+  var STORAGE_KEY = 'lonberegner.cmp.v1';
+  var MAX_PICKS = 5;
+  var DEFAULT_SLUGS = ['koebenhavn', 'aarhus', 'odense', 'aalborg', 'gentofte'];
+
+  var allKommuner = [];
+  var picked = []; // array af slug
+  var listOpen = false;
+
+  // ---------- load/save ----------
+  function save() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        bruttoAr: Number(bruttoArInput.value) || 0,
+        pensionEgen: Number(pensionEgen.value) || 0,
+        folkekirke: !!folkekirke.checked,
+        atp: !!atp.checked,
+        picked: picked
+      }));
+    } catch (e) {}
+  }
+  function loadSaved() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return null;
+      return JSON.parse(raw);
+    } catch (e) { return null; }
+  }
+
+  // ---------- helpers ----------
+  function bySlug(slug) {
+    for (var i = 0; i < allKommuner.length; i++) {
+      if (allKommuner[i].slug === slug) return allKommuner[i];
+    }
+    return null;
+  }
+  function normalize(s) {
+    return (s || '').toLowerCase()
+      .replace(/æ/g, 'ae').replace(/ø/g, 'oe').replace(/å/g, 'aa');
+  }
+
+  function baseInput() {
+    return {
+      bruttoAr: Number(bruttoArInput.value) || 0,
+      medlemFolkekirke: !!folkekirke.checked,
+      pensionEgenPct: Number(pensionEgen.value) || 0,
+      pensionArbejdsgiverPct: 0,
+      atp: !!atp.checked,
+      alder: 35,
+      fagforeningKr: 0,
+      akasseKr: 0,
+      korselsfradragKr: 0,
+      renteUdgifterKr: 0
+    };
+  }
+
+  // ---------- chips ----------
+  function renderChips() {
+    // remove existing chips (keep the input element)
+    var chips = kommuneChips.querySelectorAll('.cmp-chip');
+    chips.forEach(function (c) { c.remove(); });
+
+    picked.forEach(function (slug) {
+      var k = bySlug(slug);
+      if (!k) return;
+      var chip = document.createElement('span');
+      chip.className = 'cmp-chip';
+      chip.innerHTML = '<span>' + k.navn + '</span>';
+      var rm = document.createElement('button');
+      rm.type = 'button';
+      rm.className = 'cmp-chip__rm';
+      rm.setAttribute('aria-label', 'Fjern ' + k.navn);
+      rm.textContent = '×';
+      rm.addEventListener('click', function (e) {
+        e.stopPropagation();
+        picked = picked.filter(function (s) { return s !== slug; });
+        renderChips();
+        renderResults();
+        save();
+      });
+      chip.appendChild(rm);
+      kommuneChips.insertBefore(chip, kommuneSearch);
+    });
+    kommuneSearch.placeholder = picked.length >= MAX_PICKS
+      ? 'Maks ' + MAX_PICKS + ' kommuner valgt — fjern en for at tilføje'
+      : 'Søg efter kommune …';
+    kommuneSearch.disabled = picked.length >= MAX_PICKS;
+  }
+
+  // ---------- dropdown ----------
+  function openList() { kommuneList.dataset.open = 'true'; listOpen = true; }
+  function closeList() { kommuneList.dataset.open = 'false'; listOpen = false; }
+
+  function renderList(query) {
+    var q = normalize(query);
+    var matches = allKommuner.filter(function (k) {
+      if (picked.indexOf(k.slug) !== -1) return false;
+      if (!q) return true;
+      return normalize(k.navn).indexOf(q) !== -1 || k.slug.indexOf(q) !== -1;
+    }).slice(0, 50);
+
+    if (matches.length === 0) {
+      kommuneList.innerHTML = '<div class="cmp-multiselect__opt cmp-multiselect__opt--disabled">Ingen kommuner fundet.</div>';
+      return;
+    }
+    var html = '';
+    matches.forEach(function (k) {
+      html += '<div class="cmp-multiselect__opt" role="option" data-slug="' + k.slug + '">' +
+                '<span>' + k.navn + '</span>' +
+                '<span class="pct">' + k.kommuneskat.toString().replace('.', ',') + ' %</span>' +
+              '</div>';
+    });
+    kommuneList.innerHTML = html;
+
+    var opts = kommuneList.querySelectorAll('.cmp-multiselect__opt');
+    opts.forEach(function (el) {
+      el.addEventListener('mousedown', function (ev) {
+        ev.preventDefault();
+        var slug = el.dataset.slug;
+        if (!slug) return;
+        if (picked.length >= MAX_PICKS) return;
+        if (picked.indexOf(slug) === -1) picked.push(slug);
+        kommuneSearch.value = '';
+        renderChips();
+        renderList('');
+        renderResults();
+        save();
+      });
+    });
+  }
+
+  // ---------- main rendering ----------
+  function renderResults() {
+    if (!allKommuner.length) return;
+    var input = baseInput();
+    if (!input.bruttoAr || input.bruttoAr <= 0) {
+      cmpTableBody.innerHTML = '<tr><td colspan="6">Indtast en bruttoløn for at se sammenligningen.</td></tr>';
+      cmpSummary.innerHTML = '';
+      renderTopList(input);
+      return;
+    }
+    if (picked.length === 0) {
+      cmpTableBody.innerHTML = '<tr><td colspan="6">Vælg mindst én kommune for at sammenligne.</td></tr>';
+      cmpSummary.innerHTML = '';
+      renderTopList(input);
+      return;
+    }
+
+    var pickedObjs = picked.map(bySlug).filter(Boolean);
+    var result = TAX.compareKommuner(pickedObjs, input);
+
+    var top = result[0];
+    var bottom = result[result.length - 1];
+    var maxNetto = top.netto;
+    var minNetto = bottom.netto;
+
+    // tabel
+    var html = '';
+    result.forEach(function (r, i) {
+      var diff = r.netto - top.netto; // negativ for alle uden top
+      var diffMd = diff / 12;
+      var barPct = maxNetto > 0 ? (r.netto / maxNetto * 100) : 0;
+      var rowCls = i === 0 ? 'is-top' : (i === result.length - 1 && result.length > 1 ? 'is-bottom' : '');
+      var barCls = i === result.length - 1 && result.length > 1 ? 'cmp-bar--low' : '';
+      var diffTxt;
+      if (i === 0) {
+        diffTxt = '<span class="cmp-diff-pos">— (bedst)</span>';
+      } else {
+        diffTxt = '<span class="cmp-diff-neg">' + TAX.formatKr(diff) + '/år</span>' +
+                  '<br><small>' + TAX.formatKr(diffMd) + '/md.</small>';
+      }
+      html += '<tr class="' + rowCls + '">' +
+                '<td>' + (i + 1) + '</td>' +
+                '<td><strong>' + r.navn + '</strong><br>' +
+                  '<span class="cmp-bar ' + barCls + '" style="width:' + Math.max(4, barPct).toFixed(1) + '%;"></span>' +
+                '</td>' +
+                '<td class="num">' + r.kommuneskat.toString().replace('.', ',') + ' %</td>' +
+                '<td class="num">' + TAX.formatKr(r.nettoMaaned) + '</td>' +
+                '<td class="num">' + TAX.formatKr(r.netto) + '</td>' +
+                '<td class="num">' + diffTxt + '</td>' +
+              '</tr>';
+    });
+    cmpTableBody.innerHTML = html;
+
+    // summary cards
+    var totalDiff = maxNetto - minNetto;
+    var totalDiffMd = totalDiff / 12;
+    var summaryHtml = '';
+    summaryHtml +=
+      '<div class="cmp-summary__card">' +
+        '<p class="cmp-summary__label">Bedste kommune</p>' +
+        '<p class="cmp-summary__value">' + top.navn + '</p>' +
+        '<p class="cmp-summary__sub">' + TAX.formatKr(top.nettoMaaned) + '/md · ' + top.kommuneskat.toString().replace('.', ',') + ' % skat</p>' +
+      '</div>';
+    if (result.length > 1) {
+      summaryHtml +=
+        '<div class="cmp-summary__card cmp-summary__card--warn">' +
+          '<p class="cmp-summary__label">Dyreste kommune</p>' +
+          '<p class="cmp-summary__value">' + bottom.navn + '</p>' +
+          '<p class="cmp-summary__sub">' + TAX.formatKr(bottom.nettoMaaned) + '/md · ' + bottom.kommuneskat.toString().replace('.', ',') + ' % skat</p>' +
+        '</div>' +
+        '<div class="cmp-summary__card cmp-summary__card--alt">' +
+          '<p class="cmp-summary__label">Forskel pr. år</p>' +
+          '<p class="cmp-summary__value">' + TAX.formatKr(totalDiff) + '</p>' +
+          '<p class="cmp-summary__sub">' + TAX.formatKr(totalDiffMd) + ' mere pr. måned</p>' +
+        '</div>';
+    }
+    cmpSummary.innerHTML = summaryHtml;
+
+    renderTopList(input);
+  }
+
+  // ---------- top 5 lavest skat ----------
+  function renderTopList(input) {
+    if (!allKommuner.length) return;
+    if (!input.bruttoAr || input.bruttoAr <= 0) {
+      topList.innerHTML = '<p>Indtast en bruttoløn for at se top 5.</p>';
+      return;
+    }
+    // sortér efter kommuneskat (lavest) — eller kør hele beregningen
+    var sorted = allKommuner.slice().sort(function (a, b) {
+      return a.kommuneskat - b.kommuneskat;
+    });
+    var top5 = sorted.slice(0, 5);
+    var top5Calc = TAX.compareKommuner(top5, input);
+
+    var html = '';
+    top5Calc.forEach(function (r, i) {
+      html +=
+        '<div class="cmp-toplist__card">' +
+          '<p class="cmp-toplist__rank">#' + (i + 1) + ' lavest</p>' +
+          '<p class="cmp-toplist__name">' + r.navn + '</p>' +
+          '<p class="cmp-toplist__pct">' + r.kommuneskat.toString().replace('.', ',') + ' % kommuneskat</p>' +
+          '<p class="cmp-toplist__net">' + TAX.formatKr(r.nettoMaaned) + ' /md.</p>' +
+        '</div>';
+    });
+    topList.innerHTML = html;
+  }
+
+  // ---------- debounce ----------
+  var t = null;
+  function scheduleRender() {
+    if (t) clearTimeout(t);
+    t = setTimeout(function () {
+      renderResults();
+      save();
+    }, 200);
+  }
+
+  // ---------- wiring ----------
+  bruttoArInput.addEventListener('input', function () {
+    bruttoArSlider.value = Math.min(Number(bruttoArInput.value) || 0, Number(bruttoArSlider.max));
+    scheduleRender();
+  });
+  bruttoArSlider.addEventListener('input', function () {
+    bruttoArInput.value = bruttoArSlider.value;
+    scheduleRender();
+  });
+  pensionEgen.addEventListener('input', function () {
+    pensionLabel.textContent = (Number(pensionEgen.value) || 0).toString().replace('.', ',') + ' %';
+    scheduleRender();
+  });
+  folkekirke.addEventListener('change', scheduleRender);
+  atp.addEventListener('change', scheduleRender);
+
+  kommuneSearch.addEventListener('focus', function () {
+    renderList(kommuneSearch.value);
+    openList();
+  });
+  kommuneSearch.addEventListener('input', function () {
+    renderList(kommuneSearch.value);
+    openList();
+  });
+  kommuneSearch.addEventListener('blur', function () {
+    setTimeout(closeList, 120);
+  });
+  kommuneSearch.addEventListener('keydown', function (e) {
+    if (e.key === 'Backspace' && kommuneSearch.value === '' && picked.length > 0) {
+      picked.pop();
+      renderChips();
+      renderResults();
+      save();
+    } else if (e.key === 'Escape') {
+      closeList();
+    }
+  });
+  kommuneChips.addEventListener('click', function (e) {
+    if (e.target === kommuneChips) kommuneSearch.focus();
+  });
+
+  // ---------- init ----------
+  fetch('/data/kommuner-2026.json')
+    .then(function (res) {
+      if (!res.ok) throw new Error('kommune fetch fejl ' + res.status);
+      return res.json();
+    })
+    .then(function (j) {
+      allKommuner = (j.kommuner || []).slice().sort(function (a, b) {
+        return a.navn.localeCompare(b.navn, 'da');
+      });
+
+      var saved = loadSaved();
+      if (saved) {
+        if (typeof saved.bruttoAr === 'number' && saved.bruttoAr > 0) {
+          bruttoArInput.value = saved.bruttoAr;
+          bruttoArSlider.value = Math.min(saved.bruttoAr, Number(bruttoArSlider.max));
+        }
+        if (typeof saved.pensionEgen === 'number') {
+          pensionEgen.value = saved.pensionEgen;
+          pensionLabel.textContent = saved.pensionEgen.toString().replace('.', ',') + ' %';
+        }
+        if (typeof saved.folkekirke === 'boolean') folkekirke.checked = saved.folkekirke;
+        if (typeof saved.atp === 'boolean') atp.checked = saved.atp;
+        if (Array.isArray(saved.picked) && saved.picked.length > 0) {
+          picked = saved.picked.filter(function (s) { return !!bySlug(s); }).slice(0, MAX_PICKS);
+        }
+      }
+      if (picked.length === 0) {
+        picked = DEFAULT_SLUGS.filter(function (s) { return !!bySlug(s); }).slice(0, MAX_PICKS);
+      }
+      renderChips();
+      renderResults();
+    })
+    .catch(function (err) {
+      console.error('Kunne ikke indlæse kommuner:', err);
+      cmpTableBody.innerHTML = '<tr><td colspan="6">Kunne ikke indlæse kommunedata. Prøv at genindlæse siden.</td></tr>';
+      topList.innerHTML = '<p>Kunne ikke indlæse data.</p>';
+    });
+
+})();
+</script>
+</body>
+</html>

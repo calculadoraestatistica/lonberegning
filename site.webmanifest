@@ -1,0 +1,19 @@
+{
+  "name": "Lønberegner",
+  "short_name": "Lønberegner",
+  "description": "Online lønberegner — beregn løn efter skat, ATP og AM-bidrag i Danmark.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e40af",
+  "lang": "da-DK",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
