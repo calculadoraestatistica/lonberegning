@@ -1298,6 +1298,13 @@ table.data th {
   background: var(--c-paper-alt);
   padding: 10px 12px;
   border-bottom: 1px solid var(--c-border);
+}
+/* Sticky thead apenas em tabelas longas dentro do calculador.
+   Sammenlign-kommuner mostra no max 5 linhas — fica sob o form em scroll
+   quando sticky com top:0; portanto NAO aplica sticky em .cmp-table. */
+.breakdown-table th,
+.tier-table th,
+table.data th {
   position: sticky;
   top: 0;
   z-index: 1;

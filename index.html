@@ -553,6 +553,7 @@
   }
   function bruttoAar() {
     var v = Number(bruttoInput.value) || 0;
+    if (v < 0) v = 0; // bruttoløn negativa não faz sentido — clampa
     var p = getPeriode();
     if (p === 'aar') return v;
     if (p === 'time') {
@@ -814,16 +815,45 @@
 
   // ---------- wiring ----------
   bruttoInput.addEventListener('input', function () {
+    // Clamp negativo a 0 (mesmo com min="0" no input, browser permite digitar -)
+    if (Number(bruttoInput.value) < 0) bruttoInput.value = 0;
     bruttoSlider.value = Math.min(Number(bruttoInput.value) || 0, Number(bruttoSlider.max));
     scheduleRun();
+  });
+  bruttoInput.addEventListener('blur', function () {
+    if (Number(bruttoInput.value) < 0 || bruttoInput.value === '') bruttoInput.value = 0;
   });
   bruttoSlider.addEventListener('input', function () {
     bruttoInput.value = bruttoSlider.value;
     scheduleRun();
   });
+  // Acompanha a periode anterior para converter o valor ao trocar entre måned/år/time.
+  var _prevPeriode = getPeriode();
+  function convertBruttoBetweenPeriodes(from, to) {
+    var v = Number(bruttoInput.value) || 0;
+    if (v <= 0 || from === to) return v;
+    var t = Number(timerPrUge.value) || 37;
+    // 1) Normaliza pra valor anual
+    var ar;
+    if (from === 'aar') ar = v;
+    else if (from === 'time') ar = v * t * TIMER_AAR;
+    else ar = v * 12; // måned
+    // 2) Converte do anual pra periode-alvo
+    var out;
+    if (to === 'aar') out = ar;
+    else if (to === 'time') out = ar / (t * TIMER_AAR);
+    else out = ar / 12;
+    // Arredonda pra step coerente: time -> 5, måned -> 100, år -> 1000
+    var step = (to === 'time') ? 5 : (to === 'aar' ? 1000 : 100);
+    return Math.max(0, Math.round(out / step) * step);
+  }
   document.querySelectorAll('input[name="periode"]').forEach(function (r) {
     r.addEventListener('change', function () {
-      setSliderRangeFor(getPeriode());
+      var to = getPeriode();
+      var converted = convertBruttoBetweenPeriodes(_prevPeriode, to);
+      bruttoInput.value = converted;
+      _prevPeriode = to;
+      setSliderRangeFor(to);
       scheduleRun();
     });
   });

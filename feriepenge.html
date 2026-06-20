@@ -88,12 +88,7 @@
         <li><a href="/sammenlign-kommuner.html">Sammenlign kommuner</a></li>
         <li><a href="/topskat-tjek.html">Topskat</a></li>
         <li><a href="/pensionsfradrag.html">Pension</a></li>
-        <li class="has-submenu">
-          <a href="#" aria-haspopup="true" aria-expanded="false">Mere <span aria-hidden="true">&#9662;</span></a>
-          <ul class="submenu">
-            <li><a href="/feriepenge.html" aria-current="page">Feriepenge</a></li>
-          </ul>
-        </li>
+        <li><a href="/feriepenge.html" aria-current="page">Feriepenge</a></li>
         <li><a href="/om.html">Om</a></li>
       </ul>
     </nav>
@@ -528,6 +523,7 @@
   }
   function bruttoAar() {
     var v = Number(bruttoInput.value) || 0;
+    if (v < 0) v = 0;
     return getPeriode() === 'aar' ? v : v * 12;
   }
   function setSliderRangeFor(p) {
@@ -804,8 +800,12 @@
 
   // Wiring
   bruttoInput.addEventListener('input', function () {
+    if (Number(bruttoInput.value) < 0) bruttoInput.value = 0;
     bruttoSlider.value = Math.min(Number(bruttoInput.value) || 0, Number(bruttoSlider.max));
     scheduleRun();
+  });
+  bruttoInput.addEventListener('blur', function () {
+    if (Number(bruttoInput.value) < 0 || bruttoInput.value === '') bruttoInput.value = 0;
   });
   bruttoSlider.addEventListener('input', function () {
     bruttoInput.value = bruttoSlider.value;

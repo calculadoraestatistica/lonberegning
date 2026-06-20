@@ -132,7 +132,34 @@
    */
   function calcNetSalary(p) {
     p = p || {};
-    const bruttoAr = num(p.bruttoAr, 0);
+    const bruttoArRaw = num(p.bruttoAr, 0);
+    // Clamp negativo a zero — entrada inválida não deve render valores absurdos
+    const bruttoAr = Math.max(0, bruttoArRaw);
+
+    // Saída antecipada: sem bruto não há ATP, AM-bidrag, marginal nem netto.
+    // Retorna um resultado totalmente zerado mantendo a forma do objeto.
+    if (bruttoAr <= 0) {
+      return {
+        netto: 0, nettoMaaned: 0,
+        amBidrag: 0,
+        kommuneskat: 0, kirkeskat: 0,
+        bundskat: 0, mellemskat: 0, topskat: 0, toptopskat: 0,
+        skatteloftsnedslag: 0,
+        pensionEgen: 0, atpKr: 0,
+        fradrag: {
+          beskaeftigelsesfradrag: 0, jobfradrag: 0,
+          personfradrag: PERSONFRADRAG_ADULT,
+          fagforening: 0, akasse: 0, korselsfradrag: 0, renteUdgifter: 0,
+          total: 0
+        },
+        marginalskat: 0,
+        effektivskat: 0,
+        breakdown: {
+          bruttoAr: 0, baseAmBidrag: 0, personligIndkomst: 0, kommunalBase: 0,
+          skatteloftsnedslag: 0, totalSkat: 0, totalTrukket: 0
+        }
+      };
+    }
 
     // ---- kommune skat (% pode vir como objeto ou número) ----
     let kommuneskatPct = 25.43; // média DK 2026

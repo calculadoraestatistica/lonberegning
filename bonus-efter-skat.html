@@ -714,16 +714,24 @@
 
   // ---------- wiring ----------
   bonusInput.addEventListener('input', function () {
+    if (Number(bonusInput.value) < 0) bonusInput.value = 0;
     bonusSlider.value = Math.min(Number(bonusInput.value) || 0, Number(bonusSlider.max));
     scheduleRun();
+  });
+  bonusInput.addEventListener('blur', function () {
+    if (Number(bonusInput.value) < 0 || bonusInput.value === '') bonusInput.value = 0;
   });
   bonusSlider.addEventListener('input', function () {
     bonusInput.value = bonusSlider.value;
     scheduleRun();
   });
   manedslonInput.addEventListener('input', function () {
+    if (Number(manedslonInput.value) < 0) manedslonInput.value = 0;
     manedslonSlider.value = Math.min(Number(manedslonInput.value) || 0, Number(manedslonSlider.max));
     scheduleRun();
+  });
+  manedslonInput.addEventListener('blur', function () {
+    if (Number(manedslonInput.value) < 0 || manedslonInput.value === '') manedslonInput.value = 0;
   });
   manedslonSlider.addEventListener('input', function () {
     manedslonInput.value = manedslonSlider.value;

@@ -700,16 +700,24 @@
 
   // ---------- wiring ----------
   currentInput.addEventListener('input', function () {
+    if (Number(currentInput.value) < 0) currentInput.value = 0;
     currentSlider.value = Math.min(Number(currentInput.value) || 0, Number(currentSlider.max));
     scheduleRun();
+  });
+  currentInput.addEventListener('blur', function () {
+    if (Number(currentInput.value) < 0 || currentInput.value === '') currentInput.value = 0;
   });
   currentSlider.addEventListener('input', function () {
     currentInput.value = currentSlider.value;
     scheduleRun();
   });
   raiseInput.addEventListener('input', function () {
+    if (Number(raiseInput.value) < 0) raiseInput.value = 0;
     raiseSlider.value = Math.min(Number(raiseInput.value) || 0, Number(raiseSlider.max));
     scheduleRun();
+  });
+  raiseInput.addEventListener('blur', function () {
+    if (Number(raiseInput.value) < 0 || raiseInput.value === '') raiseInput.value = 0;
   });
   raiseSlider.addEventListener('input', function () {
     raiseInput.value = raiseSlider.value;

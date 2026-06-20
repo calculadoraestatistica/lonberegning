@@ -88,13 +88,7 @@
         <li><a href="/sammenlign-kommuner.html">Sammenlign kommuner</a></li>
         <li><a href="/topskat-tjek.html">Topskat</a></li>
         <li><a href="/pensionsfradrag.html">Pension</a></li>
-        <li class="has-submenu">
-          <a href="#" aria-haspopup="true" aria-expanded="false">Mere <span aria-hidden="true">&#9662;</span></a>
-          <ul class="submenu">
-            <li><a href="/feriepenge.html">Feriepenge</a></li>
-            <li><a href="/freelancer.html" aria-current="page">Freelancer</a></li>
-          </ul>
-        </li>
+        <li><a href="/feriepenge.html">Feriepenge</a></li>
         <li><a href="/om.html">Om</a></li>
       </ul>
     </nav>
@@ -742,8 +736,12 @@
 
   // ---------- wiring ----------
   honorarInput.addEventListener('input', function () {
+    if (Number(honorarInput.value) < 0) honorarInput.value = 0;
     honorarSlider.value = Math.min(val(honorarInput, 0), Number(honorarSlider.max));
     scheduleRun();
+  });
+  honorarInput.addEventListener('blur', function () {
+    if (Number(honorarInput.value) < 0 || honorarInput.value === '') honorarInput.value = 0;
   });
   honorarSlider.addEventListener('input', function () {
     honorarInput.value = honorarSlider.value;
