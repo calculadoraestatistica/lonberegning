@@ -602,15 +602,24 @@
     for (var i = 0; i < kommuner.length; i++) if (kommuner[i].slug === slug) return kommuner[i];
     return null;
   }
+  // Escape defensivo: navn/region kommer fra data/kommuner-2026.json.
+  // Kilden er intern i dag, men escaping goer koden robust hvis den
+  // nogensinde skifter til en ekstern kilde.
+  function escHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
   function updateKommuneInfo() {
     var k = selectedKommune();
     if (!k) {
       kommuneInfo.textContent = 'Vælg en kommune for præcis beregning. Indtil da bruges DK-gennemsnit (25,43 %).';
       return;
     }
-    kommuneInfo.innerHTML = '<strong>' + k.navn + '</strong> — kommuneskat ' +
+    kommuneInfo.innerHTML = '<strong>' + escHtml(k.navn) + '</strong> — kommuneskat ' +
       k.kommuneskat.toString().replace('.', ',') + ' %, kirkeskat ' +
-      k.kirkeskat.toString().replace('.', ',') + ' %. Region: ' + k.region + '.';
+      k.kirkeskat.toString().replace('.', ',') + ' %. Region: ' + escHtml(k.region) + '.';
   }
 
   // ---------- input collect ----------
