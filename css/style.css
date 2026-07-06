@@ -1,13 +1,11 @@
 /* ==========================================================================
    Lonberegning.dk - style.css
-   Generated: 2026-06-10
-   Personality: Nordic banking-grade calm. Confident navy authority paired with
-   crisp generous whitespace and tabular precision. Inspired by Danske Bank's
-   mobile app, Linear's product surface, Stripe dashboards and Cron's display
-   numerals. Serious, trustworthy, modern - never bureaucratic or tax-office grey.
+   Redesign: 2026-07-06 — "Lønseddel" (payslip) identity.
+   Personality: a payslip lying on a desk. Muted blue-grey desk, white paper
+   sheets with a crisp 1px rule and a hard 2px paper edge, payroll-blue
+   letterhead band, monospaced tabular figures, dotted leaders, stamped
+   outline badges. No gradients, no soft shadows. System fonts only.
    ========================================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap');
 
 /* ============================================================
    Design tokens
@@ -15,25 +13,27 @@
 :root {
   /* --- Colour palette ------------------------------------- */
   --c-primary:        #1e40af;
-  --c-primary-hover:  #2347b8;
+  --c-primary-hover:  #1a379a;
   --c-primary-dark:   #1a2e6e;
   --c-primary-darker: #15235a;
-  --c-primary-soft:   #e8effb;
-  --c-primary-soft2:  #d4e0f6;
-  --c-secondary:      #0b1f4d;
-  --c-accent:         #0ea5b7;
-  --c-accent-soft:    #e6f7f9;
+  --c-primary-soft:   #e7edf8;
+  --c-primary-soft2:  #c9d6ef;
+  --c-secondary:      #111a33;
+  --c-accent:         #0e7490;
+  --c-accent-soft:    #e4f1f5;
 
-  --c-ink:        #0b1220;
-  --c-text:       #1e2a3d;
-  --c-muted:      #5b6b82;
-  --c-muted-soft: #93a0b3;
+  --c-ink:        #1d232b;
+  --c-text:       #2a323c;
+  --c-muted:      #59646f;
+  --c-muted-soft: #8b97a3;
 
-  --c-paper:      #ffffff;
-  --c-paper-alt:  #f6f8fc;
-  --c-paper-alt2: #eef2f8;
-  --c-border:     #dde3ee;
-  --c-border-soft:#e9edf4;
+  --c-desk:       #e7ebef;   /* the desk the sheets lie on */
+  --c-desk-deep:  #dfe4e9;
+  --c-paper:      #ffffff;   /* the sheet */
+  --c-paper-alt:  #f2f4f7;
+  --c-paper-alt2: #e7ebef;
+  --c-border:     #c9d2da;   /* sheet rule */
+  --c-border-soft:#dde3e9;
 
   --c-success:        #14804a;
   --c-success-soft:   #e6f4ec;
@@ -53,9 +53,7 @@
   --c-success-strong: #0f6b3d;
   --c-success-bg:     var(--c-success-soft);
   --c-danger-bg:      var(--c-danger-soft);
-  --c-danger-border:  var(--c-danger-border);
   --c-warning-bg:     var(--c-warning-soft);
-  --c-warning-border: var(--c-warning-border);
 
   /* --- Spacing scale -------------------------------------- */
   --sp-1: 4px;
@@ -68,35 +66,35 @@
   --sp-8: 64px;
   --sp-9: 96px;
 
-  /* --- Radii ---------------------------------------------- */
-  --r-xs:   4px;
-  --r-sm:   8px;
-  --r-md:   12px;
-  --r-lg:   16px;
-  --r-xl:   24px;
-  --r-pill: 999px;
+  /* --- Radii (documents are rectangular) ------------------ */
+  --r-xs:   2px;
+  --r-sm:   2px;
+  --r-md:   3px;
+  --r-lg:   3px;
+  --r-xl:   4px;
+  --r-pill: 2px;
 
   /* Aliases */
   --radius-sm: var(--r-sm);
   --radius:    var(--r-md);
   --radius-lg: var(--r-lg);
 
-  /* --- Shadows (tinted navy, never neutral grey) ---------- */
+  /* --- Shadows: one crisp paper edge, nothing soft --------- */
   --sh-0: none;
-  --sh-1: 0 1px 2px rgba(11, 18, 32, .04), 0 0 0 1px rgba(11, 18, 32, .04);
-  --sh-2: 0 2px 6px rgba(11, 18, 32, .05), 0 8px 24px rgba(30, 64, 175, .06);
-  --sh-3: 0 10px 30px rgba(11, 18, 32, .08), 0 2px 6px rgba(11, 18, 32, .04);
-  --sh-focus: 0 0 0 3px rgba(30, 64, 175, .22);
-  --sh-result: 0 24px 60px -20px rgba(30, 64, 175, .25);
+  --sh-1: 0 2px 0 rgba(29, 35, 43, .08);
+  --sh-2: 0 2px 0 rgba(29, 35, 43, .10);
+  --sh-3: 0 2px 0 rgba(29, 35, 43, .12);
+  --sh-focus: 0 0 0 3px rgba(30, 64, 175, .25);
+  --sh-result: 0 2px 0 rgba(29, 35, 43, .12);
 
   --shadow-sm: var(--sh-1);
   --shadow:    var(--sh-2);
   --shadow-lg: var(--sh-3);
 
-  /* --- Typography ----------------------------------------- */
-  --font-heading: 'Inter', 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-mono:    'JetBrains Mono', 'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace;
+  /* --- Typography (system fonts only) ---------------------- */
+  --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-body:    -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:    ui-monospace, 'Cascadia Mono', Consolas, 'SF Mono', Menlo, 'Liberation Mono', monospace;
   --font:         var(--font-body);
 
   /* --- Layout --------------------------------------------- */
@@ -133,7 +131,7 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--c-text);
-  background: var(--c-paper);
+  background: var(--c-desk);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -222,6 +220,20 @@ table.data td, table.data th,
   font-feature-settings: 'tnum' on, 'lnum' on;
 }
 
+/* Payslip rule: every figure is set in the ledger monospace. */
+[data-num], .num, .tabular, .pct,
+.metric__value, .result__big, .result-card__big, .topskat-result__big,
+.legend__val, .cmp-summary__value, .cmp-toplist__net, .cmp-toplist__rank,
+.sticky-cta__value, .big, .chip strong,
+.breakdown-table td:nth-child(2), .breakdown-table td:nth-child(3),
+.breakdown-table tfoot td,
+.cmp-table td.num, .tier-table td.num, table.data td.num,
+.range-hint, .input-suffix, .input-affix__unit,
+input[type="number"] {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
 /* ============================================================
    Layout primitives
    ============================================================ */
@@ -239,8 +251,8 @@ table.data td, table.data th,
 @media (min-width: 860px) {
   .section { padding-block: var(--sp-8); }
 }
-.section--soft, .section--alt { background: var(--c-paper-alt); }
-.section--tint { background: var(--c-primary-soft); }
+.section--soft, .section--alt { background: var(--c-desk-deep); }
+.section--tint { background: var(--c-desk-deep); }
 .section--calc { padding-block: var(--sp-6) var(--sp-7); }
 @media (min-width: 860px) {
   .section--calc { padding-block: var(--sp-7) var(--sp-8); }
@@ -267,9 +279,8 @@ table.data td, table.data th,
   position: sticky;
   top: 0;
   z-index: 100;
-  background: color-mix(in srgb, var(--c-paper) 92%, transparent);
-  backdrop-filter: saturate(180%) blur(10px);
-  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  background: var(--c-paper);
+  border-top: 4px solid var(--c-primary); /* letterhead band */
   border-bottom: 1px solid var(--c-border);
 }
 .site-header__inner {
@@ -299,14 +310,18 @@ table.data td, table.data th,
 }
 .brand__name span { color: var(--c-primary); }
 
-/* Header right-side info chip (hidden on mobile per spec) */
+/* Header right-side info chip (hidden on mobile per spec) —
+   stamped outline, like an ink stamp on the letterhead. */
 .header-badge {
   display: none;
-  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--c-primary-dark);
-  background: var(--c-primary-soft);
+  background: transparent;
+  border: 1px solid var(--c-primary-soft2);
   padding: var(--sp-1) var(--sp-3);
   border-radius: var(--r-pill);
   white-space: nowrap;
@@ -444,8 +459,7 @@ table.data td, table.data th,
    Hero
    ============================================================ */
 .hero {
-  background: var(--c-paper-alt);
-  border-bottom: 1px solid var(--c-border);
+  background: transparent; /* headline sits straight on the desk */
   padding-block: var(--sp-7) var(--sp-6);
 }
 @media (min-width: 860px) {
@@ -457,12 +471,14 @@ table.data td, table.data th,
   display: inline-flex;
   align-items: center;
   gap: var(--sp-2);
-  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--c-primary-dark);
-  background: var(--c-primary-soft);
+  background: var(--c-paper);
+  border: 1px solid var(--c-primary-soft2);
   padding: var(--sp-1) var(--sp-3);
   border-radius: var(--r-pill);
   margin-bottom: var(--sp-4);
@@ -470,7 +486,7 @@ table.data td, table.data th,
 .hero__eyebrow::before {
   content: '';
   width: 6px; height: 6px;
-  border-radius: 50%;
+  border-radius: 1px;
   background: var(--c-success);
 }
 .hero h1 {
@@ -530,8 +546,7 @@ table.data td, table.data th,
    Page head (internal pages)
    ============================================================ */
 .page-head {
-  background: var(--c-paper-alt);
-  border-bottom: 1px solid var(--c-border);
+  background: transparent;
   padding-block: var(--sp-6) var(--sp-7);
 }
 .page-head h1 {
@@ -603,13 +618,11 @@ table.data td, table.data th,
   background: var(--c-primary);
   color: #fff;
   border-color: var(--c-primary);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, var(--sh-1);
 }
 .btn--primary:hover {
   background: var(--c-primary-hover);
   border-color: var(--c-primary-hover);
   color: #fff;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.12) inset, var(--sh-2);
 }
 
 .btn--ghost {
@@ -675,10 +688,14 @@ input[type="search"], input[type="tel"], input[type="url"], select, textarea {
 select {
   appearance: none;
   -webkit-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235b6b82' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231e40af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 12px center;
   padding-right: 38px;
+  /* kommune select is the key control — make it read as such */
+  border-color: var(--c-muted-soft);
+  font-weight: 600;
+  min-height: 48px;
 }
 textarea {
   min-height: 130px;
@@ -749,20 +766,20 @@ input[type="range"]::-moz-range-track {
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px; height: 20px;
-  border-radius: 50%;
+  width: 18px; height: 18px;
+  border-radius: 2px;
   background: var(--c-primary);
   border: 2px solid #fff;
-  box-shadow: var(--sh-1);
-  margin-top: -7px;
+  box-shadow: 0 0 0 1px var(--c-border);
+  margin-top: -6px;
   transition: transform var(--t-fast) var(--ease-out);
 }
 input[type="range"]::-moz-range-thumb {
-  width: 20px; height: 20px;
-  border-radius: 50%;
+  width: 18px; height: 18px;
+  border-radius: 2px;
   background: var(--c-primary);
   border: 2px solid #fff;
-  box-shadow: var(--sh-1);
+  box-shadow: 0 0 0 1px var(--c-border);
 }
 input[type="range"]:hover::-webkit-slider-thumb { transform: scale(1.08); }
 input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: var(--sh-focus); }
@@ -872,12 +889,12 @@ input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: var(--sh-f
   right: 12px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--c-muted);
   pointer-events: none;
-  background: linear-gradient(to right, transparent, var(--c-paper) 30%);
-  padding-left: var(--sp-3);
+  background: var(--c-paper);
+  padding-left: var(--sp-2);
   font-variant-numeric: tabular-nums;
 }
 
@@ -915,16 +932,17 @@ input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: var(--sh-f
 }
 .check-row span { line-height: 1.4; }
 
-/* Soft badge inside legends */
+/* Value badge inside legends — small stamped outline */
 .badge-soft {
   display: inline-flex;
   align-items: center;
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--c-primary-dark);
-  background: var(--c-primary-soft);
-  padding: 2px 8px;
+  background: transparent;
+  border: 1px solid var(--c-primary-soft2);
+  padding: 1px 8px;
   border-radius: var(--r-pill);
   font-variant-numeric: tabular-nums;
   margin-left: var(--sp-2);
@@ -1013,9 +1031,24 @@ input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: var(--sh-f
 .calculator {
   background: var(--c-paper);
   border: 1px solid var(--c-border);
-  border-radius: var(--r-lg);
-  box-shadow: var(--sh-1);
+  border-top: 1px dashed var(--c-muted-soft); /* perforation — torn off the pay run */
+  border-radius: 0 0 var(--r-lg) var(--r-lg);
+  box-shadow: var(--sh-2);
   padding: var(--sp-5);
+}
+/* Document reference line printed at the top of the sheet */
+.calc-form::before,
+.calculator::before {
+  content: 'LØNSEDDEL · SKATTEÅR 2026 · LONBEREGNING.DK';
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--c-muted);
+  padding-bottom: var(--sp-3);
+  margin-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--c-border-soft);
 }
 @media (min-width: 860px) {
   .calc-form,
@@ -1026,8 +1059,12 @@ input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: var(--sh-f
 }
 .calc-form__head { margin-bottom: var(--sp-5); }
 .calc-form__head h2 {
-  font-size: 1.2rem;
-  letter-spacing: -0.01em;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  padding-bottom: var(--sp-2);
+  border-bottom: 1px solid var(--c-border);
 }
 .calc-form__head p {
   color: var(--c-muted);
@@ -1048,8 +1085,12 @@ input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: var(--sh-f
   display: flex;
   align-items: center;
   gap: var(--sp-2);
-  font-size: 1.18rem;
-  margin-bottom: var(--sp-1);
+  font-size: 0.98rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  padding-bottom: var(--sp-2);
+  border-bottom: 1px solid var(--c-border);
+  margin-bottom: var(--sp-2);
 }
 .calculator__title svg { width: 22px; height: 22px; color: var(--c-primary); }
 .calculator__hint {
@@ -2638,18 +2679,12 @@ input.cmp-multiselect__input:focus { box-shadow: none; outline: none; border: 0;
 .hero h1 { text-wrap: balance; }
 .hero p.lead, .hero .lead { text-wrap: pretty; }
 
-/* Button hover consistency: every variant gets the same subtle lift
-   the cards already have; :active still presses back down. */
+/* Payslip identity: buttons are stamped flat — no hover lift.
+   :active still presses down like a stamp. */
 .btn--primary:hover,
 .btn--ghost:hover,
 .btn--light:hover {
-  transform: translateY(-1px);
-}
-.btn--ghost:hover,
-.btn--light:hover {
-  box-shadow: var(--sh-1);
+  transform: none;
+  box-shadow: none;
 }
 .btn:active { transform: translateY(1px); }
-@media (prefers-reduced-motion: reduce) {
-  .btn--primary:hover, .btn--ghost:hover, .btn--light:hover { transform: none; }
-}
