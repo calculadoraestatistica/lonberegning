@@ -686,6 +686,13 @@ textarea {
   line-height: 1.55;
 }
 input::placeholder, textarea::placeholder { color: var(--c-muted-soft); }
+.input:hover:not(:focus),
+input[type="text"]:hover:not(:focus),
+input[type="number"]:hover:not(:focus),
+select:hover:not(:focus),
+textarea:hover:not(:focus) {
+  border-color: var(--c-primary-soft2);
+}
 .input:focus,
 input:focus, select:focus, textarea:focus {
   outline: none;
@@ -704,6 +711,17 @@ input[type="checkbox"], input[type="radio"] {
   accent-color: var(--c-primary);
   flex: none;
   cursor: pointer;
+}
+
+/* Cleaner numeric fields: hide the tiny native spin buttons */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 /* Range slider */
@@ -804,7 +822,7 @@ input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: var(--sh-f
   gap: var(--sp-2);
 }
 .field label, .field > span {
-  font-weight: 500;
+  font-weight: 600;
   color: var(--c-ink);
   font-size: 0.9rem;
 }
@@ -1064,6 +1082,11 @@ input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: var(--sh-f
   user-select: none;
 }
 .adv summary::-webkit-details-marker { display: none; }
+.adv summary:hover { color: var(--c-primary); }
+.adv summary:hover::before {
+  border-color: var(--c-primary);
+  background: var(--c-primary-soft);
+}
 .adv summary::before {
   content: '+';
   display: inline-flex;
@@ -1322,6 +1345,11 @@ table.data td {
 .cmp-table tbody tr:nth-child(even),
 table.data tbody tr:nth-child(even) {
   background: var(--c-paper-alt);
+}
+.cmp-table tbody tr:hover,
+.tier-table tbody tr:hover,
+table.data tbody tr:hover {
+  background: var(--c-primary-soft);
 }
 .breakdown-table tbody tr:last-child td,
 .cmp-table tbody tr:last-child td,
@@ -1701,9 +1729,15 @@ a.card:hover .card__cta::after { transform: translateX(3px); }
   background: var(--c-paper);
   transition: border-color var(--t-fast) var(--ease-out), box-shadow var(--t-fast) var(--ease-out);
 }
-.faq details[open] {
+.faq details:hover {
+  border-color: var(--c-primary-soft2);
+  background: var(--c-paper-alt);
+}
+.faq details[open],
+.faq details[open]:hover {
   border-color: var(--c-primary-soft2);
   box-shadow: var(--sh-1);
+  background: var(--c-paper);
 }
 .faq summary {
   cursor: pointer;
@@ -2564,4 +2598,58 @@ input.cmp-multiselect__input:focus { box-shadow: none; outline: none; border: 0;
      does not clobber the navy on darker UIs. */
   select { color-scheme: light; }
   input, textarea { color-scheme: light; }
+}
+
+/* === Completion pass 2026-07-05: field errors, form focus, table scroll, hero polish === */
+/* Inline validation reads as a proper message, not a bare red line. */
+.field-error {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-top: var(--sp-2);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--c-danger-bg);
+  border-left: 3px solid var(--c-danger);
+  border-radius: var(--r-sm);
+  line-height: 1.4;
+}
+
+/* Form ergonomics: fields stay in their grid track, active field's label tints. */
+.field { min-width: 0; }
+.field:focus-within > label,
+.field:focus-within > span { color: var(--c-primary-dark); }
+
+/* Breakdown/comparison tables on mobile: contained scroll + slim scrollbar. */
+.table-wrap,
+.cmp-table-wrap {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  max-width: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-border) var(--c-soft);
+}
+.table-wrap::-webkit-scrollbar,
+.cmp-table-wrap::-webkit-scrollbar { height: 8px; }
+.table-wrap::-webkit-scrollbar-thumb,
+.cmp-table-wrap::-webkit-scrollbar-thumb { background: var(--c-border); border-radius: 4px; }
+.table-wrap::-webkit-scrollbar-track,
+.cmp-table-wrap::-webkit-scrollbar-track { background: var(--c-soft); }
+
+/* Hero polish: balanced headline ragging, no orphan words in the lead. */
+.hero h1 { text-wrap: balance; }
+.hero p.lead, .hero .lead { text-wrap: pretty; }
+
+/* Button hover consistency: every variant gets the same subtle lift
+   the cards already have; :active still presses back down. */
+.btn--primary:hover,
+.btn--ghost:hover,
+.btn--light:hover {
+  transform: translateY(-1px);
+}
+.btn--ghost:hover,
+.btn--light:hover {
+  box-shadow: var(--sh-1);
+}
+.btn:active { transform: translateY(1px); }
+@media (prefers-reduced-motion: reduce) {
+  .btn--primary:hover, .btn--ghost:hover, .btn--light:hover { transform: none; }
 }
