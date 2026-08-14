@@ -29,6 +29,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/css/style.css">
 <script src="/js/cookie-consent.js" defer></script>
+<script src="/js/nav.js" defer></script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Kommuneskat Odense 2026","url":"https://lonberegning.dk/kommune/odense.html","inLanguage":"da","description":"Kommuneskat, kirkeskat og samlet skat for Odense Kommune 2026, med eksempler på nettoløn ved forskellige bruttoløn.","isPartOf":{"@type":"WebSite","name":"lonberegning.dk","url":"https://lonberegning.dk/"},"publisher":{"@type":"Organization","name":"Lønberegning","url":"https://lonberegning.dk/","logo":{"@type":"ImageObject","url":"https://lonberegning.dk/favicon-512.png","width":512,"height":512}}}</script>
 
@@ -130,6 +131,49 @@
       </div>
     </div>
   </section>
+
+  <!-- =====================================================================
+       Mini-calculator embedded (kommune lockad em Odense)
+       ===================================================================== -->
+  <section class="section section--calc" id="mini-beregner">
+    <div class="container">
+      <div class="section-title">
+        <h2>Mini-beregner — netto i Odense</h2>
+        <p>Indtast din bruttoløn, og se din nettoløn beregnet med Odenses faktiske satser. Kommunen er låst — vil du sammenligne, så brug <a href="/sammenlign-kommuner.html">sammenligningsværktøjet</a>.</p>
+      </div>
+
+      <form class="card" id="odenseMiniForm" autocomplete="off" novalidate>
+        <div class="kom-mini-form">
+          <div>
+            <label for="miniBrutto">Bruttoløn / md.</label>
+            <input type="number" id="miniBrutto" min="0" step="500" value="45000" inputmode="numeric">
+          </div>
+          <div>
+            <label for="miniPension">Egen pension</label>
+            <input type="number" id="miniPension" min="0" max="25" step="0.5" value="0" inputmode="decimal">
+          </div>
+          <div>
+            <label>Kommune</label>
+            <div class="kom-locked" aria-label="Kommune låst til Odense">Odense (25,50 % + 0,68 %)</div>
+          </div>
+          <div>
+            <label class="check-row" style="margin-top:1.6rem;">
+              <input type="checkbox" id="miniFolkekirke">
+              <span>Medlem af folkekirken</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="kom-mini-result" aria-live="polite" aria-atomic="true">
+          <p class="kom-mini-result__sub">Din nettoløn i Odense</p>
+          <p class="kom-mini-result__big"><span id="miniNetto">—</span> <span style="font-size:1rem;font-weight:600;">kr./md.</span></p>
+          <p class="kom-mini-result__sub">Skat i alt: <span id="miniSkat">—</span> kr./md. · Effektiv skat: <span id="miniEffektiv">—</span> · Marginalskat: <span id="miniMarginal">—</span></p>
+        </div>
+      <button type="submit" hidden aria-hidden="true">Beregn</button>
+    </form>
+    </div>
+  </section>
+
 
   <!-- =====================================================================
        Boxes: kommuneskat, kirkeskat, samlet skat
@@ -255,48 +299,6 @@
   </section>
 
   <div class="container"><div class="ad-slot" data-ad-slot=""></div></div>
-
-  <!-- =====================================================================
-       Mini-calculator embedded (kommune lockad em Odense)
-       ===================================================================== -->
-  <section class="section section--calc" id="mini-beregner">
-    <div class="container">
-      <div class="section-title">
-        <h2>Mini-beregner — netto i Odense</h2>
-        <p>Indtast din bruttoløn, og se din nettoløn beregnet med Odenses faktiske satser. Kommunen er låst — vil du sammenligne, så brug <a href="/sammenlign-kommuner.html">sammenligningsværktøjet</a>.</p>
-      </div>
-
-      <form class="card" id="odenseMiniForm" autocomplete="off" novalidate>
-        <div class="kom-mini-form">
-          <div>
-            <label for="miniBrutto">Bruttoløn / md.</label>
-            <input type="number" id="miniBrutto" min="0" step="500" value="45000" inputmode="numeric">
-          </div>
-          <div>
-            <label for="miniPension">Egen pension</label>
-            <input type="number" id="miniPension" min="0" max="25" step="0.5" value="0" inputmode="decimal">
-          </div>
-          <div>
-            <label>Kommune</label>
-            <div class="kom-locked" aria-label="Kommune låst til Odense">Odense (25,50 % + 0,68 %)</div>
-          </div>
-          <div>
-            <label class="check-row" style="margin-top:1.6rem;">
-              <input type="checkbox" id="miniFolkekirke">
-              <span>Medlem af folkekirken</span>
-            </label>
-          </div>
-        </div>
-
-        <div class="kom-mini-result" aria-live="polite" aria-atomic="true">
-          <p class="kom-mini-result__sub">Din nettoløn i Odense</p>
-          <p class="kom-mini-result__big"><span id="miniNetto">—</span> <span style="font-size:1rem;font-weight:600;">kr./md.</span></p>
-          <p class="kom-mini-result__sub">Skat i alt: <span id="miniSkat">—</span> kr./md. · Effektiv skat: <span id="miniEffektiv">—</span> · Marginalskat: <span id="miniMarginal">—</span></p>
-        </div>
-      <button type="submit" hidden aria-hidden="true">Beregn</button>
-    </form>
-    </div>
-  </section>
 
   <!-- =====================================================================
        FAQ

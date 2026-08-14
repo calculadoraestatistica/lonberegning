@@ -109,6 +109,29 @@
   footer { background:#1a1f2e; color:#cfd5e0; padding:30px 20px; margin-top:40px; }
   footer .wrap { max-width:960px; margin:0 auto; font-size:.9rem; }
   footer a { color:#9fc1ff; }
+
+  /* Mobilmenu (hamburger) */
+  .nav-toggle { display:none; background:#fff; border:1px solid var(--border); border-radius:6px; width:44px; height:44px; align-items:center; justify-content:center; cursor:pointer; color:var(--text); padding:0; }
+  .nav-toggle svg { width:22px; height:22px; }
+  .nav-toggle:hover { background:var(--accent); }
+  .nav-toggle:focus-visible { outline:3px solid rgba(11,95,255,.35); outline-offset:2px; }
+  @media (max-width:720px) {
+    .nav-toggle { display:inline-flex; }
+    header nav ul { display:none; flex-basis:100%; width:100%; flex-direction:column; gap:4px; }
+    header nav ul.nav-open { display:flex; padding-top:10px; border-top:1px solid var(--border); }
+    header nav ul.nav-open a { display:block; padding:12px 8px; border-radius:6px; }
+    header nav ul.nav-open a:hover { background:var(--accent); }
+  }
+
+  /* Polish: touch-venlige inputs og fremhævet resultat */
+  .calc-box input { min-height:48px; font-size:16px; }
+  .calc-box button { min-height:48px; font-size:16px; }
+  .calc-box button:focus-visible, .calc-box input:focus-visible { outline:3px solid rgba(11,95,255,.35); outline-offset:2px; }
+  .result { border:1px solid var(--border); border-left:5px solid var(--primary); }
+
+  /* Tabeller scroller vandret på smalle skærme */
+  .table-scroll { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:14px 0 24px; }
+  .table-scroll table { margin:0; min-width:560px; }
 </style>
 
 <!-- schema-enhanced -->
@@ -125,7 +148,10 @@
 <header>
   <nav>
     <a href="/" class="logo">lonberegning.dk</a>
-    <ul>
+    <button id="navToggle" class="nav-toggle" type="button" aria-label="Åbn menu" aria-expanded="false" aria-controls="hovedNav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul id="hovedNav">
       <li><a href="/">Forside</a></li>
       <li><a href="/">Lønberegner 2026</a></li>
       <li><a href="/topskat-2026.html">Skattesatser 2026</a></li>
@@ -140,36 +166,6 @@
 <h1>Personfradrag 2026 — hvor meget tjener du skattefrit?</h1>
 
 <p><strong>Personfradraget</strong> er det beløb af din personlige indkomst, som du IKKE skal betale bund-, kommune- eller kirkeskat af. I 2026 er personfradraget <strong>54.100 kr. om året</strong> for både voksne og unge under 18 år — en vigtig ændring fra tidligere år, hvor børn havde et lavere fradrag.</p>
-
-<p>Det er dog ikke helt det samme som at sige, at du kan tjene 54.100 kr. fuldstændig skattefrit. Du betaler altid 8 % AM-bidrag fra første krone (medmindre du er under 18 år i 2026), og først DEREFTER bruges personfradraget mod bundskat, kommuneskat og kirkeskat. Reelt giver det dig ca. <strong>58.804 kr. brutto skattefrit</strong>, fordi 54.100 / 0,92 ≈ 58.804.</p>
-
-<p>Personfradraget er det vigtigste fradrag for stort set alle danskere — det udgør grundlaget for, at de første tusinder af kroner i din løn ikke beskattes ud over AM-bidraget. Du skal ikke selv ansøge om det: Skat trækker det automatisk i dit skattekort og på din årsopgørelse.</p>
-
-<div class="ad-slot">
-  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7516029395999799" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-<h2>Personfradrag 2026 — nøgletal og tærskler</h2>
-
-<table>
-  <thead>
-    <tr><th>Parameter</th><th>Værdi 2026</th><th>Bemærkning</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Personfradrag (alle aldre)</td><td><strong>54.100 kr./år</strong></td><td>Ca. 4.508 kr./mdr.</td></tr>
-    <tr><td>Personfradrag, under 18 år</td><td>54.100 kr./år</td><td>Unificeret med voksensats fra 2026</td></tr>
-    <tr><td>AM-bidrag</td><td>8 %</td><td>Trækkes FØR personfradrag bruges</td></tr>
-    <tr><td>Bundskat</td><td>12,01 %</td><td>Betales af indkomst over personfradraget</td></tr>
-    <tr><td>Effektivt skattefrit beløb (brutto)</td><td>≈ 58.804 kr./år</td><td>= 54.100 / 0,92</td></tr>
-    <tr><td>Aldersgrænse AM-bidrag</td><td>18 år</td><td>Under 18 = fritaget fra 1/1 2026</td></tr>
-    <tr><td>Overførsel til ægtefælle</td><td>Ja</td><td>Sker automatisk på årsopgørelsen</td></tr>
-  </tbody>
-</table>
-
-<div class="callout">
-  <strong>Vigtigt:</strong> Personfradraget bruges også mod kommuneskat og kirkeskat — IKKE kun bundskat. Det betyder, at den reelle skattebesparelse pr. krone personfradrag er ca. <strong>37-38 %</strong> (bundskat 12,01 % + gennemsnitlig kommuneskat 25,43 % = 37,44 %). Hver krone i personfradrag sparer dig altså ca. 0,37 kr. i skat.
-</div>
 
 <h2>Hurtig beregner: hvor meget tjener DU skattefrit?</h2>
 
@@ -208,6 +204,39 @@ function beregnFradrag() {
   div.style.display = 'block';
 }
 </script>
+
+<div class="ad-slot">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7516029395999799" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<h2>Personfradrag 2026 — nøgletal og tærskler</h2>
+
+<div class="table-scroll">
+
+<table>
+  <thead>
+    <tr><th>Parameter</th><th>Værdi 2026</th><th>Bemærkning</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Personfradrag (alle aldre)</td><td><strong>54.100 kr./år</strong></td><td>Ca. 4.508 kr./mdr.</td></tr>
+    <tr><td>Personfradrag, under 18 år</td><td>54.100 kr./år</td><td>Unificeret med voksensats fra 2026</td></tr>
+    <tr><td>AM-bidrag</td><td>8 %</td><td>Trækkes FØR personfradrag bruges</td></tr>
+    <tr><td>Bundskat</td><td>12,01 %</td><td>Betales af indkomst over personfradraget</td></tr>
+    <tr><td>Effektivt skattefrit beløb (brutto)</td><td>≈ 58.804 kr./år</td><td>= 54.100 / 0,92</td></tr>
+    <tr><td>Aldersgrænse AM-bidrag</td><td>18 år</td><td>Under 18 = fritaget fra 1/1 2026</td></tr>
+    <tr><td>Overførsel til ægtefælle</td><td>Ja</td><td>Sker automatisk på årsopgørelsen</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="callout">
+  <strong>Vigtigt:</strong> Personfradraget bruges også mod kommuneskat og kirkeskat — IKKE kun bundskat. Det betyder, at den reelle skattebesparelse pr. krone personfradrag er ca. <strong>37-38 %</strong> (bundskat 12,01 % + gennemsnitlig kommuneskat 25,43 % = 37,44 %). Hver krone i personfradrag sparer dig altså ca. 0,37 kr. i skat.
+</div>
+
+<p>Det er dog ikke helt det samme som at sige, at du kan tjene 54.100 kr. fuldstændig skattefrit. Du betaler altid 8 % AM-bidrag fra første krone (medmindre du er under 18 år i 2026), og først DEREFTER bruges personfradraget mod bundskat, kommuneskat og kirkeskat. Reelt giver det dig ca. <strong>58.804 kr. brutto skattefrit</strong>, fordi 54.100 / 0,92 ≈ 58.804.</p>
+
+<p>Personfradraget er det vigtigste fradrag for stort set alle danskere — det udgør grundlaget for, at de første tusinder af kroner i din løn ikke beskattes ud over AM-bidraget. Du skal ikke selv ansøge om det: Skat trækker det automatisk i dit skattekort og på din årsopgørelse.</p>
 
 <h2>3 eksempler — sådan virker personfradraget i praksis</h2>
 
@@ -267,6 +296,8 @@ Netto årligt: ca. 506.000 kr. (~42.200 kr./mdr.)</div>
 
 <h2>Sådan har personfradraget ændret sig 2023–2026</h2>
 
+<div class="table-scroll">
+
 <table>
   <thead>
     <tr>
@@ -283,6 +314,7 @@ Netto årligt: ca. 506.000 kr. (~42.200 kr./mdr.)</div>
     <tr><td><strong>2026</strong></td><td><strong>54.100 kr.</strong></td><td><strong>54.100 kr.</strong></td><td>Unificeret. Børn også fritaget for AM-bidrag.</td></tr>
   </tbody>
 </table>
+</div>
 
 <p>2026 markerer en historisk forandring: for første gang i moderne dansk skattehistorie er personfradraget ens uanset alder. Sammen med fritagelsen fra AM-bidrag for under 18-årige er det en målrettet lettelse for unge i fritids- og studiejob — i tråd med Forårspakke 2026.</p>
 
@@ -340,6 +372,19 @@ Netto årligt: ca. 506.000 kr. (~42.200 kr./mdr.)</div>
   </div>
 <p style="text-align:center;color:#94a3b8;font-size:0.85rem;margin:1rem 0;">Lavet i Danmark 🇩🇰</p>
 </footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('navToggle');
+  var nav = document.getElementById('hovedNav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('nav-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Luk menu' : 'Åbn menu');
+  });
+})();
+</script>
 
 </body>
 </html>

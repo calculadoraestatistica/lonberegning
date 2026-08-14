@@ -29,6 +29,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/css/style.css">
 <script src="/js/cookie-consent.js" defer></script>
+<script src="/js/nav.js" defer></script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Kommuneskat i København 2026","url":"https://lonberegning.dk/kommune/kobenhavn.html","inLanguage":"da","description":"Officiel kommuneskat for København 2026, eksempler på nettoløn, og sammenligning med nabokommuner.","isPartOf":{"@type":"WebSite","name":"lonberegning.dk","url":"https://lonberegning.dk/"},"about":{"@type":"AdministrativeArea","name":"København Kommune","containedInPlace":{"@type":"AdministrativeArea","name":"Region Hovedstaden"}},"publisher":{"@type":"Organization","name":"Lønberegning","url":"https://lonberegning.dk/","logo":{"@type":"ImageObject","url":"https://lonberegning.dk/favicon-512.png","width":512,"height":512}}}</script>
 
@@ -111,6 +112,72 @@
       </div>
     </div>
   </section>
+
+  <!-- =====================================================================
+       MINI-CALCULATOR (kommune låst til København)
+       ===================================================================== -->
+  <section class="section section--calc" id="mini-beregner">
+    <div class="container">
+      <div class="section-title">
+        <h2>Mini-beregner: din nettoløn i København</h2>
+        <p>Kommunen er fastlåst til København — vi bruger den nøjagtige sats på 23,39 %.</p>
+      </div>
+
+      <form class="calc-form card" id="miniForm" autocomplete="off" novalidate>
+        <header class="calc-form__head">
+          <h3>Indtast din løn</h3>
+          <p>Resultatet opdateres automatisk.</p>
+        </header>
+
+        <div class="cmp-form__grid">
+          <fieldset class="field-group">
+            <legend>Bruttoløn (kr./md.)</legend>
+            <div class="input-row">
+              <input type="number" id="miniBruttoMd" min="0" step="500" value="45000" inputmode="numeric" aria-label="Bruttoløn pr. måned">
+              <span class="input-suffix">kr./md.</span>
+            </div>
+            <input type="range" id="miniSlider" min="10000" max="150000" step="500" value="45000" aria-label="Bruttoløn slider">
+            <div class="range-hint"><span>10.000</span><span>150.000 kr./md.</span></div>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend>Egen pension <span class="badge-soft" id="miniPensionLabel">5 %</span></legend>
+            <input type="range" id="miniPension" min="0" max="25" step="0.5" value="5" aria-label="Egen pension procent">
+            <div class="range-hint"><span>0 %</span><span>25 %</span></div>
+            <p class="field-help">Trækkes før AM-bidrag.</p>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend>Folkekirken</legend>
+            <label class="check-row">
+              <input type="checkbox" id="miniKirke">
+              <span>Medlem (0,65 % kirkeskat)</span>
+            </label>
+            <p class="field-help">Kun for folkekirkemedlemmer.</p>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend>ATP-bidrag</legend>
+            <label class="check-row">
+              <input type="checkbox" id="miniAtp" checked>
+              <span>ATP (99 kr./md.)</span>
+            </label>
+            <p class="field-help">Standardvalg for lønmodtagere.</p>
+          </fieldset>
+        </div>
+      <button type="submit" hidden aria-hidden="true">Beregn</button>
+    </form>
+
+      <div class="card" id="miniResult">
+        <h3 class="result-h3">Dit resultat i København</h3>
+        <div class="cmp-summary" id="miniSummary">
+          <p>Indlæser …</p>
+        </div>
+        <p class="cmp-hint" style="margin-top:.8rem;">Vil du se den fulde breakdown — bund-, mellem- og topskat, fradrag og marginalskat? <a href="/">Åbn den fulde lønberegner</a> (kommunen er gemt automatisk).</p>
+      </div>
+    </div>
+  </section>
+
 
   <!-- =====================================================================
        SATS-BOXE — kommuneskat / kirkeskat / samlet
@@ -201,71 +268,6 @@
           </table>
         </div>
         <p class="cmp-hint" style="margin-top:.7rem;">Vil du sammenligne andre kommuner — eller bytte løn ud? <a href="/sammenlign-kommuner.html">Åbn sammenligningsværktøjet</a>.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       MINI-CALCULATOR (kommune låst til København)
-       ===================================================================== -->
-  <section class="section section--calc" id="mini-beregner">
-    <div class="container">
-      <div class="section-title">
-        <h2>Mini-beregner: din nettoløn i København</h2>
-        <p>Kommunen er fastlåst til København — vi bruger den nøjagtige sats på 23,39 %.</p>
-      </div>
-
-      <form class="calc-form card" id="miniForm" autocomplete="off" novalidate>
-        <header class="calc-form__head">
-          <h3>Indtast din løn</h3>
-          <p>Resultatet opdateres automatisk.</p>
-        </header>
-
-        <div class="cmp-form__grid">
-          <fieldset class="field-group">
-            <legend>Bruttoløn (kr./md.)</legend>
-            <div class="input-row">
-              <input type="number" id="miniBruttoMd" min="0" step="500" value="45000" inputmode="numeric" aria-label="Bruttoløn pr. måned">
-              <span class="input-suffix">kr./md.</span>
-            </div>
-            <input type="range" id="miniSlider" min="10000" max="150000" step="500" value="45000" aria-label="Bruttoløn slider">
-            <div class="range-hint"><span>10.000</span><span>150.000 kr./md.</span></div>
-          </fieldset>
-
-          <fieldset class="field-group">
-            <legend>Egen pension <span class="badge-soft" id="miniPensionLabel">5 %</span></legend>
-            <input type="range" id="miniPension" min="0" max="25" step="0.5" value="5" aria-label="Egen pension procent">
-            <div class="range-hint"><span>0 %</span><span>25 %</span></div>
-            <p class="field-help">Trækkes før AM-bidrag.</p>
-          </fieldset>
-
-          <fieldset class="field-group">
-            <legend>Folkekirken</legend>
-            <label class="check-row">
-              <input type="checkbox" id="miniKirke">
-              <span>Medlem (0,65 % kirkeskat)</span>
-            </label>
-            <p class="field-help">Kun for folkekirkemedlemmer.</p>
-          </fieldset>
-
-          <fieldset class="field-group">
-            <legend>ATP-bidrag</legend>
-            <label class="check-row">
-              <input type="checkbox" id="miniAtp" checked>
-              <span>ATP (99 kr./md.)</span>
-            </label>
-            <p class="field-help">Standardvalg for lønmodtagere.</p>
-          </fieldset>
-        </div>
-      <button type="submit" hidden aria-hidden="true">Beregn</button>
-    </form>
-
-      <div class="card" id="miniResult">
-        <h3 class="result-h3">Dit resultat i København</h3>
-        <div class="cmp-summary" id="miniSummary">
-          <p>Indlæser …</p>
-        </div>
-        <p class="cmp-hint" style="margin-top:.8rem;">Vil du se den fulde breakdown — bund-, mellem- og topskat, fradrag og marginalskat? <a href="/">Åbn den fulde lønberegner</a> (kommunen er gemt automatisk).</p>
       </div>
     </div>
   </section>

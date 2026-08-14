@@ -162,6 +162,31 @@ footer a:hover{color:var(--accent)}
   table{font-size:13px}
   th,td{padding:6px 7px}
 }
+
+/* Mobilmenu (hamburger) */
+header.top{flex-wrap:wrap}
+.nav-toggle{display:none;background:var(--card);border:1px solid var(--border);border-radius:6px;width:44px;height:44px;align-items:center;justify-content:center;cursor:pointer;color:var(--text);padding:0;margin-left:auto}
+.nav-toggle svg{width:22px;height:22px}
+.nav-toggle:hover{background:#eef3f9}
+.nav-toggle:focus-visible{outline:3px solid rgba(10,95,190,.35);outline-offset:2px}
+@media (max-width:720px){
+  .nav-toggle{display:inline-flex}
+  header.top nav{display:none;flex-basis:100%;width:100%}
+  header.top nav.nav-open{display:flex;flex-direction:column;gap:4px;padding-top:10px;border-top:1px solid var(--border);margin-top:10px}
+  header.top nav.nav-open a{margin-left:0;padding:12px 8px;border-radius:6px;font-size:16px}
+  header.top nav.nav-open a:hover{background:#eef3f9}
+}
+
+/* Polish: touch-venlige inputs og fremhaevet resultat */
+.calc input,.calc select{min-height:48px;font-size:16px}
+.calc button{min-height:48px;font-size:16px}
+.calc button:focus-visible,.calc input:focus-visible{outline:3px solid rgba(10,95,190,.35);outline-offset:2px}
+.result{border:1px solid var(--border);border-left:5px solid var(--accent2)}
+.result.over{border-left-color:var(--warn)}
+
+/* Tabeller scroller vandret paa smalle skaerme */
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
+.table-scroll table{margin:0;min-width:560px}
 </style>
 
 <!-- schema-enhanced -->
@@ -179,7 +204,10 @@ footer a:hover{color:var(--accent)}
 
 <header class="top">
   <a href="/" class="logo">lonberegning.dk</a>
-  <nav>
+  <button id="navToggle" class="nav-toggle" type="button" aria-label="Åbn menu" aria-expanded="false" aria-controls="hovedNav">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <nav id="hovedNav">
     <a href="/">Forside</a>
     <a href="/">Lønberegner</a>
     <a href="/topskat-2026.html">Topskat</a>
@@ -195,59 +223,8 @@ footer a:hover{color:var(--accent)}
   Med Forårspakken 2026 indførte regeringen en helt ny skattesats kaldet
   <strong>toptopskat</strong>. Den lægger yderligere <strong>5%</strong> oven i
   topskatten for den del af den personlige indkomst der overstiger
-  <strong>2.592.700 kr.</strong> om året efter AM-bidrag. Det svarer til ca.
-  2,82 mio. kr. i bruttoløn — altså langt over almindelig topledelsesløn.
+  <strong>2.592.700 kr.</strong> om året efter AM-bidrag.
 </p>
-
-<p>
-  Skatteministeriet anslår at omkring <strong>0,5% af de danske skatteydere</strong>
-  — i alt ca. 15.000 personer — kommer over grænsen i 2026. Det er typisk
-  topchefer i de største virksomheder, partnere i advokat- og konsulenthuse,
-  investorer med stor lønindkomst, professionelle sportsfolk og enkelte
-  iværksættere der modtager deres overskud som A-indkomst frem for udbytte.
-</p>
-
-<p>
-  Toptopskatten er en del af det <strong>skråt skatteloft</strong>, som i 2026
-  hæves fra 52,07% til <strong>57,07%</strong> for indkomst over grænsen.
-  Det betyder at staten plus kommunen tilsammen ikke må tage mere end 57,07%
-  af en ekstra optjent krone (eksklusive AM-bidrag og kirkeskat). Den reelle
-  marginalskat på en brutto-krone over 2,59 mio. ligger derfor på ca.
-  <strong>60,5%</strong> — du beholder ca. 39,5 øre af hver ekstra krone.
-</p>
-
-<div class="callout info">
-  <strong>Kort sagt:</strong> Tjener du mindre end ca. 2,8 mio. kr. brutto om året,
-  rammes du <em>ikke</em> af toptopskat. Først når lønnen kommer over det niveau,
-  begynder de ekstra 5% at gælde — og kun på den del der ligger over grænsen.
-</div>
-
-<h2>Satser og grænseværdier 2026</h2>
-
-<table>
-  <thead>
-    <tr><th>Skattetype</th><th class="num">Sats</th><th class="num">Grænse (efter AM-bidrag)</th><th class="num">Svarer til brutto ca.</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>AM-bidrag</td><td class="num">8,00%</td><td class="num">fra første krone</td><td class="num">—</td></tr>
-    <tr><td>Bundskat</td><td class="num">12,01%</td><td class="num">over personfradrag 54.100 kr.</td><td class="num">58.800 kr.</td></tr>
-    <tr><td>Mellemskat</td><td class="num">7,50%</td><td class="num">over 641.200 kr.</td><td class="num">697.000 kr.</td></tr>
-    <tr><td>Topskat</td><td class="num">7,50%</td><td class="num">over 777.900 kr.</td><td class="num">845.500 kr.</td></tr>
-    <tr style="background:#fff4e6"><td><strong>Toptopskat</strong></td><td class="num"><strong>5,00%</strong></td><td class="num"><strong>over 2.592.700 kr.</strong></td><td class="num"><strong>2.818.000 kr.</strong></td></tr>
-    <tr><td>Skråt skatteloft m. toptopskat</td><td class="num">57,07%</td><td class="num">samme grænse</td><td class="num">—</td></tr>
-  </tbody>
-</table>
-
-<p style="font-size:13.5px; color:var(--muted)">
-  Grænserne gælder den <em>personlige indkomst efter AM-bidrag</em>. Bruttoværdierne
-  i tabellen er omregnet med faktoren 1/0,92 og forudsætter ingen pensionsindbetaling.
-</p>
-
-<div class="ad-slot">
-  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7516029395999799"
-       data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
 
 <h2>Beregn selv: rammer toptopskatten dig?</h2>
 
@@ -308,6 +285,61 @@ function beregnToptop(){
   Brug den komplette <a href="/">lønberegner 2026</a>.
 </p>
 
+<div class="ad-slot">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7516029395999799"
+       data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<h2>Satser og grænseværdier 2026</h2>
+
+<div class="table-scroll">
+
+<table>
+  <thead>
+    <tr><th>Skattetype</th><th class="num">Sats</th><th class="num">Grænse (efter AM-bidrag)</th><th class="num">Svarer til brutto ca.</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>AM-bidrag</td><td class="num">8,00%</td><td class="num">fra første krone</td><td class="num">—</td></tr>
+    <tr><td>Bundskat</td><td class="num">12,01%</td><td class="num">over personfradrag 54.100 kr.</td><td class="num">58.800 kr.</td></tr>
+    <tr><td>Mellemskat</td><td class="num">7,50%</td><td class="num">over 641.200 kr.</td><td class="num">697.000 kr.</td></tr>
+    <tr><td>Topskat</td><td class="num">7,50%</td><td class="num">over 777.900 kr.</td><td class="num">845.500 kr.</td></tr>
+    <tr style="background:#fff4e6"><td><strong>Toptopskat</strong></td><td class="num"><strong>5,00%</strong></td><td class="num"><strong>over 2.592.700 kr.</strong></td><td class="num"><strong>2.818.000 kr.</strong></td></tr>
+    <tr><td>Skråt skatteloft m. toptopskat</td><td class="num">57,07%</td><td class="num">samme grænse</td><td class="num">—</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p style="font-size:13.5px; color:var(--muted)">
+  Grænserne gælder den <em>personlige indkomst efter AM-bidrag</em>. Bruttoværdierne
+  i tabellen er omregnet med faktoren 1/0,92 og forudsætter ingen pensionsindbetaling.
+</p>
+
+<p>Det svarer til ca. 2,82 mio. kr. i bruttoløn — altså langt over almindelig topledelsesløn.</p>
+
+<p>
+  Skatteministeriet anslår at omkring <strong>0,5% af de danske skatteydere</strong>
+  — i alt ca. 15.000 personer — kommer over grænsen i 2026. Det er typisk
+  topchefer i de største virksomheder, partnere i advokat- og konsulenthuse,
+  investorer med stor lønindkomst, professionelle sportsfolk og enkelte
+  iværksættere der modtager deres overskud som A-indkomst frem for udbytte.
+</p>
+
+<p>
+  Toptopskatten er en del af det <strong>skråt skatteloft</strong>, som i 2026
+  hæves fra 52,07% til <strong>57,07%</strong> for indkomst over grænsen.
+  Det betyder at staten plus kommunen tilsammen ikke må tage mere end 57,07%
+  af en ekstra optjent krone (eksklusive AM-bidrag og kirkeskat). Den reelle
+  marginalskat på en brutto-krone over 2,59 mio. ligger derfor på ca.
+  <strong>60,5%</strong> — du beholder ca. 39,5 øre af hver ekstra krone.
+</p>
+
+<div class="callout info">
+  <strong>Kort sagt:</strong> Tjener du mindre end ca. 2,8 mio. kr. brutto om året,
+  rammes du <em>ikke</em> af toptopskat. Først når lønnen kommer over det niveau,
+  begynder de ekstra 5% at gælde — og kun på den del der ligger over grænsen.
+</div>
+
 <h2>Tre regnede eksempler</h2>
 
 <div class="example">
@@ -357,6 +389,8 @@ function beregnToptop(){
 
 <h2>Sådan ændres toptopskat sig over årene (2023–2026)</h2>
 
+<div class="table-scroll">
+
 <table>
   <thead>
     <tr><th>År</th><th>Topskat</th><th>Mellemskat</th><th>Toptopskat</th><th class="num">Skatteloft</th><th>Bemærkning</th></tr>
@@ -396,6 +430,7 @@ function beregnToptop(){
     </tr>
   </tbody>
 </table>
+</div>
 
 <p>
   Den store ændring i 2026 er, at den oprindelige topskat på <strong>15%</strong>
@@ -486,6 +521,19 @@ function beregnToptop(){
 </footer>
 
 </div>
+
+<script>
+(function () {
+  var btn = document.getElementById('navToggle');
+  var nav = document.getElementById('hovedNav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('nav-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Luk menu' : 'Åbn menu');
+  });
+})();
+</script>
 
 </body>
 </html>

@@ -29,6 +29,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/css/style.css">
 <script src="/js/cookie-consent.js" defer></script>
+<script src="/js/nav.js" defer></script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Kommuneskat Aalborg 2026","url":"https://lonberegning.dk/kommune/aalborg.html","inLanguage":"da","description":"Kommuneskat for Aalborg i 2026, eksempler på nettoløn ved forskellige bruttoløn, sammenligning med nabokommuner og mini-lønberegner.","isPartOf":{"@type":"WebSite","name":"lonberegning.dk","url":"https://lonberegning.dk/"},"about":{"@type":"Place","name":"Aalborg Kommune","addressRegion":"Nordjylland","addressCountry":"DK"},"publisher":{"@type":"Organization","name":"Lønberegning","url":"https://lonberegning.dk/","logo":{"@type":"ImageObject","url":"https://lonberegning.dk/favicon-512.png","width":512,"height":512}}}</script>
 
@@ -163,6 +164,55 @@
   </section>
 
   <!-- =====================================================================
+       Mini-beregner låst til Aalborg
+       ===================================================================== -->
+  <section class="section section--alt" id="mini">
+    <div class="container">
+      <div class="section-title">
+        <h2>Mini-lønberegner — låst til Aalborg</h2>
+        <p>Skriv din bruttoløn og se din nettoløn med Aalborgs satser. Vil du tilpasse fradrag, pension og pendling i detaljer? Brug den <a href="/">fulde lønberegner</a>.</p>
+      </div>
+
+      <div class="card">
+        <p><span class="kmn-locked-pill">Kommune: Aalborg (25,60 % / 0,95 %)</span></p>
+        <div class="kmn-mini">
+          <form class="kmn-mini__form" id="miniForm" autocomplete="off" novalidate>
+            <div class="kmn-mini__row">
+              <label for="miniBrutto">Bruttoløn (kr./md.)</label>
+              <input type="number" id="miniBrutto" min="0" step="500" value="40000" inputmode="numeric">
+            </div>
+            <div class="kmn-mini__row">
+              <label for="miniPension">Egen pension (% af bruttoløn)</label>
+              <input type="number" id="miniPension" min="0" max="25" step="0.5" value="5" inputmode="decimal">
+            </div>
+            <div class="kmn-mini__row">
+              <label class="kmn-mini__check">
+                <input type="checkbox" id="miniKirke">
+                Medlem af folkekirken (betaler 0,95 % kirkeskat)
+              </label>
+              <label class="kmn-mini__check">
+                <input type="checkbox" id="miniAtp" checked>
+                Betaler ATP (99 kr./md.)
+              </label>
+            </div>
+      <button type="submit" hidden aria-hidden="true">Beregn</button>
+    </form>
+
+          <div class="kmn-mini__result" aria-live="polite">
+            <h4>Netto pr. måned i Aalborg</h4>
+            <p class="kmn-mini__big" id="miniNettoMd">— kr.</p>
+            <p class="kmn-mini__sub">Netto pr. år: <strong id="miniNettoAr">—</strong></p>
+            <p class="kmn-mini__sub">AM-bidrag: <strong id="miniAm">—</strong>/år · Kommuneskat: <strong id="miniKomm">—</strong>/år</p>
+            <p class="kmn-mini__sub">Effektiv skat: <strong id="miniEff">—</strong></p>
+            <p class="kmn-mini__lock">Aalborg er låst som kommune — brug <a href="/" style="color:#fff;text-decoration:underline;">den fulde lønberegner</a> for andre kommuner.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
        Tabel: nettoløn ved forskellige bruttoløn i Aalborg
        ===================================================================== -->
   <section class="section section--calc">
@@ -227,54 +277,6 @@
           Vil du sammenligne med andre kommuner — eller op til 5 du selv vælger? Brug
           <a href="/sammenlign-kommuner.html">sammenlign-kommuner-værktøjet</a>.
         </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       Mini-beregner låst til Aalborg
-       ===================================================================== -->
-  <section class="section section--alt" id="mini">
-    <div class="container">
-      <div class="section-title">
-        <h2>Mini-lønberegner — låst til Aalborg</h2>
-        <p>Skriv din bruttoløn og se din nettoløn med Aalborgs satser. Vil du tilpasse fradrag, pension og pendling i detaljer? Brug den <a href="/">fulde lønberegner</a>.</p>
-      </div>
-
-      <div class="card">
-        <p><span class="kmn-locked-pill">Kommune: Aalborg (25,60 % / 0,95 %)</span></p>
-        <div class="kmn-mini">
-          <form class="kmn-mini__form" id="miniForm" autocomplete="off" novalidate>
-            <div class="kmn-mini__row">
-              <label for="miniBrutto">Bruttoløn (kr./md.)</label>
-              <input type="number" id="miniBrutto" min="0" step="500" value="40000" inputmode="numeric">
-            </div>
-            <div class="kmn-mini__row">
-              <label for="miniPension">Egen pension (% af bruttoløn)</label>
-              <input type="number" id="miniPension" min="0" max="25" step="0.5" value="5" inputmode="decimal">
-            </div>
-            <div class="kmn-mini__row">
-              <label class="kmn-mini__check">
-                <input type="checkbox" id="miniKirke">
-                Medlem af folkekirken (betaler 0,95 % kirkeskat)
-              </label>
-              <label class="kmn-mini__check">
-                <input type="checkbox" id="miniAtp" checked>
-                Betaler ATP (99 kr./md.)
-              </label>
-            </div>
-      <button type="submit" hidden aria-hidden="true">Beregn</button>
-    </form>
-
-          <div class="kmn-mini__result" aria-live="polite">
-            <h4>Netto pr. måned i Aalborg</h4>
-            <p class="kmn-mini__big" id="miniNettoMd">— kr.</p>
-            <p class="kmn-mini__sub">Netto pr. år: <strong id="miniNettoAr">—</strong></p>
-            <p class="kmn-mini__sub">AM-bidrag: <strong id="miniAm">—</strong>/år · Kommuneskat: <strong id="miniKomm">—</strong>/år</p>
-            <p class="kmn-mini__sub">Effektiv skat: <strong id="miniEff">—</strong></p>
-            <p class="kmn-mini__lock">Aalborg er låst som kommune — brug <a href="/" style="color:#fff;text-decoration:underline;">den fulde lønberegner</a> for andre kommuner.</p>
-          </div>
-        </div>
       </div>
     </div>
   </section>

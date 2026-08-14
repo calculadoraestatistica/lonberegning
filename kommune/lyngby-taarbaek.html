@@ -29,6 +29,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/css/style.css">
 <script src="/js/cookie-consent.js" defer></script>
+<script src="/js/nav.js" defer></script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Kommuneskat Lyngby-Taarbæk 2026","url":"https://lonberegning.dk/kommune/lyngby-taarbaek.html","inLanguage":"da","description":"Kommuneskat, kirkeskat og nettoløn-eksempler for Lyngby-Taarbæk Kommune 2026 — med sammenligning af nabokommuner.","isPartOf":{"@type":"WebSite","name":"lonberegning.dk","url":"https://lonberegning.dk/"},"about":{"@type":"Place","name":"Lyngby-Taarbæk Kommune","addressRegion":"Hovedstaden","addressCountry":"DK"},"publisher":{"@type":"Organization","name":"Lønberegning","url":"https://lonberegning.dk/","logo":{"@type":"ImageObject","url":"https://lonberegning.dk/favicon-512.png","width":512,"height":512}}}</script>
 
@@ -156,6 +157,64 @@
       </div>
     </div>
   </section>
+
+  <!-- =====================================================================
+       MINI-BEREGNER (kommune låst til Lyngby-Taarbæk)
+       ===================================================================== -->
+  <section class="section" id="mini-beregner">
+    <div class="container">
+      <div class="section-title">
+        <h2>Mini-beregner — Lyngby-Taarbæk</h2>
+        <p>Skriv din bruttoløn og se hvad du får udbetalt med Lyngby-Taarbæks satser. Kommunen er låst — vil du sammenligne flere, så hop til <a href="/sammenlign-kommuner.html">sammenligningsværktøjet</a>.</p>
+      </div>
+
+      <form class="kom-mini" id="miniForm" autocomplete="off" novalidate>
+        <div class="kom-mini__grid">
+          <fieldset class="field-group">
+            <legend>Bruttoløn (kr./md.)</legend>
+            <div class="input-row">
+              <input type="number" id="miniBruttoMnd" min="0" step="500" value="45000" inputmode="numeric" aria-label="Bruttoløn pr. måned">
+              <span class="input-suffix">kr./md.</span>
+            </div>
+            <input type="range" id="miniBruttoSlider" min="10000" max="150000" step="500" value="45000" aria-label="Bruttoløn slider">
+            <div class="range-hint"><span>10.000</span><span>150.000 kr.</span></div>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend>Egen pension <span class="badge-soft" id="miniPensionLabel">0 %</span></legend>
+            <input type="range" id="miniPensionPct" min="0" max="25" step="0.5" value="0" aria-label="Egen pension procent">
+            <div class="range-hint"><span>0 %</span><span>25 %</span></div>
+            <p class="field-help">Trækkes før AM-bidrag (bortseelsesret).</p>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend>Folkekirken</legend>
+            <label class="check-row">
+              <input type="checkbox" id="miniFolkekirke">
+              <span>Medlem (betaler 0,65 % kirkeskat)</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend>ATP-bidrag</legend>
+            <label class="check-row">
+              <input type="checkbox" id="miniAtp" checked>
+              <span>ATP (99 kr./md.)</span>
+            </label>
+          </fieldset>
+        </div>
+
+        <div class="kom-mini__result" aria-live="polite">
+          <span>Netto pr. måned i Lyngby-Taarbæk</span>
+          <strong id="miniNettoMd">—</strong>
+          <span id="miniNettoAr">—</span>
+        </div>
+        <p class="kom-mini__hint">Kommuneskat 23,70 % og kirkeskat 0,65 % er låst. Beregningen sker i din browser — ingen tal sendes til en server.</p>
+      <button type="submit" hidden aria-hidden="true">Beregn</button>
+    </form>
+    </div>
+  </section>
+
 
   <!-- =====================================================================
        NETTOLØN-EKSEMPLER
@@ -295,63 +354,6 @@
         </div>
         <p class="cmp-hint" style="margin-top:.75rem;">Vil du sammenligne med andre kommuner og se den årlige forskel? Brug <a href="/sammenlign-kommuner.html">det fulde sammenligningsværktøj</a>, hvor du kan vælge op til 5 kommuner ad gangen.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       MINI-BEREGNER (kommune låst til Lyngby-Taarbæk)
-       ===================================================================== -->
-  <section class="section" id="mini-beregner">
-    <div class="container">
-      <div class="section-title">
-        <h2>Mini-beregner — Lyngby-Taarbæk</h2>
-        <p>Skriv din bruttoløn og se hvad du får udbetalt med Lyngby-Taarbæks satser. Kommunen er låst — vil du sammenligne flere, så hop til <a href="/sammenlign-kommuner.html">sammenligningsværktøjet</a>.</p>
-      </div>
-
-      <form class="kom-mini" id="miniForm" autocomplete="off" novalidate>
-        <div class="kom-mini__grid">
-          <fieldset class="field-group">
-            <legend>Bruttoløn (kr./md.)</legend>
-            <div class="input-row">
-              <input type="number" id="miniBruttoMnd" min="0" step="500" value="45000" inputmode="numeric" aria-label="Bruttoløn pr. måned">
-              <span class="input-suffix">kr./md.</span>
-            </div>
-            <input type="range" id="miniBruttoSlider" min="10000" max="150000" step="500" value="45000" aria-label="Bruttoløn slider">
-            <div class="range-hint"><span>10.000</span><span>150.000 kr.</span></div>
-          </fieldset>
-
-          <fieldset class="field-group">
-            <legend>Egen pension <span class="badge-soft" id="miniPensionLabel">0 %</span></legend>
-            <input type="range" id="miniPensionPct" min="0" max="25" step="0.5" value="0" aria-label="Egen pension procent">
-            <div class="range-hint"><span>0 %</span><span>25 %</span></div>
-            <p class="field-help">Trækkes før AM-bidrag (bortseelsesret).</p>
-          </fieldset>
-
-          <fieldset class="field-group">
-            <legend>Folkekirken</legend>
-            <label class="check-row">
-              <input type="checkbox" id="miniFolkekirke">
-              <span>Medlem (betaler 0,65 % kirkeskat)</span>
-            </label>
-          </fieldset>
-
-          <fieldset class="field-group">
-            <legend>ATP-bidrag</legend>
-            <label class="check-row">
-              <input type="checkbox" id="miniAtp" checked>
-              <span>ATP (99 kr./md.)</span>
-            </label>
-          </fieldset>
-        </div>
-
-        <div class="kom-mini__result" aria-live="polite">
-          <span>Netto pr. måned i Lyngby-Taarbæk</span>
-          <strong id="miniNettoMd">—</strong>
-          <span id="miniNettoAr">—</span>
-        </div>
-        <p class="kom-mini__hint">Kommuneskat 23,70 % og kirkeskat 0,65 % er låst. Beregningen sker i din browser — ingen tal sendes til en server.</p>
-      <button type="submit" hidden aria-hidden="true">Beregn</button>
-    </form>
     </div>
   </section>
 

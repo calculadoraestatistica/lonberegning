@@ -68,6 +68,19 @@ header nav ul { list-style: none; display: flex; gap: 1.5rem; flex-wrap: wrap; }
 header nav a { color: white; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
 header nav a:hover { text-decoration: underline; }
 
+/* Mobilmenu (hamburger) */
+.nav-toggle { display: none; background: transparent; border: 1px solid rgba(255,255,255,0.55); border-radius: 6px; width: 44px; height: 44px; align-items: center; justify-content: center; cursor: pointer; color: #fff; padding: 0; }
+.nav-toggle svg { width: 22px; height: 22px; }
+.nav-toggle:hover { background: rgba(255,255,255,0.12); }
+.nav-toggle:focus-visible { outline: 3px solid rgba(255,255,255,0.6); outline-offset: 2px; }
+@media (max-width: 720px) {
+  .nav-toggle { display: inline-flex; }
+  header nav ul { display: none; flex-basis: 100%; width: 100%; flex-direction: column; gap: 0.25rem; }
+  header nav ul.nav-open { display: flex; padding-top: 0.6rem; border-top: 1px solid rgba(255,255,255,0.25); }
+  header nav ul.nav-open a { display: block; padding: 12px 8px; border-radius: 6px; }
+  header nav ul.nav-open a:hover { background: rgba(255,255,255,0.12); text-decoration: none; }
+}
+
 main {
   max-width: 900px;
   margin: 2rem auto;
@@ -330,7 +343,10 @@ footer .legal {
 <header>
   <nav>
     <a href="/" class="logo">lonberegning.dk</a>
-    <ul>
+    <button id="navToggle" class="nav-toggle" type="button" aria-label="Åbn menu" aria-expanded="false" aria-controls="hovedNav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul id="hovedNav">
       <li><a href="/">Forside</a></li>
       <li><a href="/">Lønberegner</a></li>
       <li><a href="/topskat-2026.html">Skat 2026</a></li>
@@ -612,6 +628,19 @@ footer .legal {
     <p>&copy; 2026 lonberegning.dk — Beregningerne er vejledende. For bindende skatteoplysninger henvises til <a href="https://skat.dk" rel="nofollow">skat.dk</a>. Lavet i Danmark.</p>
   </div>
 </footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('navToggle');
+  var nav = document.getElementById('hovedNav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('nav-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Luk menu' : 'Åbn menu');
+  });
+})();
+</script>
 
 </body>
 </html>

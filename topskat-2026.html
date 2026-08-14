@@ -82,6 +82,30 @@ tr:nth-child(even) td{background:#fafcfa}
 .cross-links a:hover{text-decoration:underline}
 .note{background:var(--warn);padding:.7rem 1rem;border-left:4px solid #d80;border-radius:0 4px 4px 0;margin:1rem 0;font-size:.95rem}
 .muted{color:var(--muted);font-size:.9rem}
+
+/* Mobilmenu (hamburger) */
+.nav-toggle{display:none;background:#fff;border:1px solid var(--bdr);border-radius:6px;width:44px;height:44px;align-items:center;justify-content:center;cursor:pointer;color:var(--fg);padding:0}
+.nav-toggle svg{width:22px;height:22px}
+.nav-toggle:hover{background:#f0f5f0}
+.nav-toggle:focus-visible{outline:3px solid rgba(0,170,85,.4);outline-offset:2px}
+@media (max-width:720px){
+  .nav-toggle{display:inline-flex}
+  header nav{display:none}
+  header nav.nav-open{display:flex;flex-direction:column;gap:4px;margin-top:10px}
+  header nav.nav-open a{margin-right:0;padding:12px 8px;border-radius:6px}
+  header nav.nav-open a:hover{background:#f0f5f0;text-decoration:none}
+}
+
+/* Polish: touch-venlige inputs og fremhaevet resultat */
+.calc-box input{min-height:48px;font-size:16px}
+.calc-box button{min-height:48px;font-size:16px}
+.calc-box button:focus-visible,.calc-box input:focus-visible{outline:3px solid rgba(0,170,85,.4);outline-offset:2px}
+.result{border:1px solid var(--bdr);border-left:5px solid var(--acc)}
+.result strong{font-size:1.15rem}
+
+/* Tabeller scroller vandret paa smalle skaerme */
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1rem 0}
+.table-scroll table{margin:0;min-width:560px}
 </style>
 
 <!-- schema-enhanced -->
@@ -97,7 +121,10 @@ tr:nth-child(even) td{background:#fafcfa}
 
 <header>
   <div class="wrap">
-    <nav>
+    <button id="navToggle" class="nav-toggle" type="button" aria-label="Åbn menu" aria-expanded="false" aria-controls="hovedNav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav id="hovedNav">
       <a href="/">Forside</a>
       <a href="/">Lønberegner</a>
       <a href="/topskat-2026.html">Topskat</a>
@@ -112,11 +139,23 @@ tr:nth-child(even) td{background:#fafcfa}
   <h1>Topskat 2026 — sats, grænser, hvem betaler?</h1>
   <p class="muted">Opdateret juni 2026 · Kilde: Skatteministeriet, skat.dk</p>
 
-  <p>I 2026 er <strong>topskat</strong> et af tre statslige indkomstskattetrin oven på bundskatten. Som led i Forårspakke 2026 blev satsen halveret fra 15 % til <strong>7,5 %</strong>, mens man til gengæld genindførte en mellemskat på 7,5 % og indførte en helt ny <strong>toptopskat</strong> på 5 % for de allerhøjeste indkomster. Det betyder, at topskat ikke længere er det øverste trin på skatteskalaen — men det rammer stadig en betydelig gruppe danske lønmodtagere.</p>
+  <p>I 2026 er <strong>topskat</strong> et af tre statslige indkomstskattetrin oven på bundskatten. Som led i Forårspakke 2026 blev satsen halveret fra 15 % til <strong>7,5 %</strong>, mens man til gengæld genindførte en mellemskat på 7,5 % og indførte en helt ny <strong>toptopskat</strong> på 5 % for de allerhøjeste indkomster.</p>
 
-  <p>Topskat betales af personlig indkomst (løn, overskud fra virksomhed, dagpenge mv.) der overstiger <strong>777.900 kr. om året</strong> opgjort efter AM-bidrag. Det svarer typisk til en bruttoløn omkring 846.000 kr. for en lønmodtager uden pensionsindbetaling, eller mere hvis du indbetaler til pension via arbejdsgiver.</p>
+  <h2>Beregn din topskat 2026</h2>
 
-  <p>Skattens vigtigste effekt mærkes på <strong>marginalskatten</strong>: hver ekstra krone du tjener i topskat-zonen koster ca. 52 % i samlet skat (AM-bidrag + bund + topskat + kommune). Det skrå skatteloft sikrer, at den samlede statslige + kommunale skat (ekskl. kirkeskat) ikke overstiger 52,07 % i topskat-zonen og 57,07 % i toptopskat-zonen.</p>
+  <div class="calc-box">
+    <label for="brutto">Bruttoløn pr. år (kr.)</label>
+    <input type="number" id="brutto" value="900000" min="0" step="10000">
+
+    <label for="pension">Pension egen indbetaling (%)</label>
+    <input type="number" id="pension" value="0" min="0" max="30" step="0.5">
+
+    <button onclick="beregnTopskat()">Beregn topskat</button>
+
+    <div id="result" class="result" style="display:none"></div>
+  </div>
+
+  <p class="muted">Vil du have hele lønsedlen beregnet med kommuneskat, kirkeskat og fradrag? Brug <a href="/">den fulde lønberegner 2026</a>.</p>
 
   <div class="ad-slot">
     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7516029395999799" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -124,6 +163,8 @@ tr:nth-child(even) td{background:#fafcfa}
   </div>
 
   <h2>Topskat 2026 — officielle værdier</h2>
+
+  <div class="table-scroll">
 
   <table>
     <thead>
@@ -142,26 +183,17 @@ tr:nth-child(even) td{background:#fafcfa}
       <tr><td>Skrå skatteloft (toptopskat)</td><td>57,07 %</td><td>Maks. samlet med toptopskat</td></tr>
     </tbody>
   </table>
+  </div>
 
   <div class="note">
     <strong>Vigtigt:</strong> Topskattegrænsen på 777.900 kr. opgøres efter AM-bidrag. Hvis du har en bruttoløn på 900.000 kr. og ingen pension, er din personlige indkomst ca. 828.000 kr., dvs. du betaler topskat af 50.100 kr.
   </div>
 
-  <h2>Beregn din topskat 2026</h2>
+  <p>Det betyder, at topskat ikke længere er det øverste trin på skatteskalaen — men det rammer stadig en betydelig gruppe danske lønmodtagere.</p>
 
-  <div class="calc-box">
-    <label for="brutto">Bruttoløn pr. år (kr.)</label>
-    <input type="number" id="brutto" value="900000" min="0" step="10000">
+  <p>Topskat betales af personlig indkomst (løn, overskud fra virksomhed, dagpenge mv.) der overstiger <strong>777.900 kr. om året</strong> opgjort efter AM-bidrag. Det svarer typisk til en bruttoløn omkring 846.000 kr. for en lønmodtager uden pensionsindbetaling, eller mere hvis du indbetaler til pension via arbejdsgiver.</p>
 
-    <label for="pension">Pension egen indbetaling (%)</label>
-    <input type="number" id="pension" value="0" min="0" max="30" step="0.5">
-
-    <button onclick="beregnTopskat()">Beregn topskat</button>
-
-    <div id="result" class="result" style="display:none"></div>
-  </div>
-
-  <p class="muted">Vil du have hele lønsedlen beregnet med kommuneskat, kirkeskat og fradrag? Brug <a href="/">den fulde lønberegner 2026</a>.</p>
+  <p>Skattens vigtigste effekt mærkes på <strong>marginalskatten</strong>: hver ekstra krone du tjener i topskat-zonen koster ca. 52 % i samlet skat (AM-bidrag + bund + topskat + kommune). Det skrå skatteloft sikrer, at den samlede statslige + kommunale skat (ekskl. kirkeskat) ikke overstiger 52,07 % i topskat-zonen og 57,07 % i toptopskat-zonen.</p>
 
   <h2>3 eksempler — så meget betaler du i topskat</h2>
 
@@ -210,6 +242,8 @@ tr:nth-child(even) td{background:#fafcfa}
 
   <h2>Sådan har topskatten ændret sig 2023-2026</h2>
 
+  <div class="table-scroll">
+
   <table>
     <thead>
       <tr><th>År</th><th>Topskattesats</th><th>Grænse (efter AM)</th><th>Andre trin</th><th>Note</th></tr>
@@ -245,6 +279,7 @@ tr:nth-child(even) td{background:#fafcfa}
       </tr>
     </tbody>
   </table>
+  </div>
 
   <p>Den store reform i 2026 er, at <strong>topskattesatsen blev halveret</strong>, men samtidig blev der indført to nye trin: mellemskat (som tidligere fandtes 2010-2009) og toptopskat. Nettoeffekten er, at typiske topskatteydere betaler lidt mindre, mens de allerhøjeste indkomster (over 2,6 mio. kr.) betaler en smule mere end før.</p>
 
@@ -353,6 +388,19 @@ function beregnTopskat() {
   resDiv.innerHTML = html;
   resDiv.style.display = 'block';
 }
+</script>
+
+<script>
+(function () {
+  var btn = document.getElementById('navToggle');
+  var nav = document.getElementById('hovedNav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('nav-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Luk menu' : 'Åbn menu');
+  });
+})();
 </script>
 
 </body>

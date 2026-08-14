@@ -29,6 +29,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/css/style.css">
 <script src="/js/cookie-consent.js" defer></script>
+<script src="/js/nav.js" defer></script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Kommuneskat Aarhus 2026","url":"https://lonberegning.dk/kommune/aarhus.html","inLanguage":"da","description":"Kommuneskat og kirkeskat for Aarhus Kommune i 2026, med nettoløn-eksempler og sammenligning med nabokommuner.","publisher":{"@type":"Organization","name":"Lønberegning","url":"https://lonberegning.dk/","logo":{"@type":"ImageObject","url":"https://lonberegning.dk/favicon-512.png","width":512,"height":512}},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Forside","item":"https://lonberegning.dk/"},{"@type":"ListItem","position":2,"name":"Kommuner","item":"https://lonberegning.dk/sammenlign-kommuner.html"},{"@type":"ListItem","position":3,"name":"Aarhus","item":"https://lonberegning.dk/kommune/aarhus.html"}]}}</script>
 
@@ -135,6 +136,72 @@
   </section>
 
   <!-- =====================================================================
+       Mini-beregner (kommune låst til Aarhus)
+       ===================================================================== -->
+  <section class="section section--alt" id="mini-beregner">
+    <div class="container">
+      <div class="section-title">
+        <h2>Mini-beregner — din nettoløn i Aarhus</h2>
+        <p>Skriv din bruttoløn og se nettolønnen med Aarhus-satserne. Vil du have det fulde billede med pension, fagforening og kørselsfradrag — så brug den <a href="/">store lønberegner</a>.</p>
+      </div>
+      <form class="mini-calc" id="aarhusMiniForm" autocomplete="off" novalidate>
+        <div class="mini-calc__grid">
+          <fieldset class="field-group">
+            <legend>Bruttoløn (kr./md.)</legend>
+            <div class="input-row">
+              <input type="number" id="miniBruttoMd" min="0" step="500" value="45000" inputmode="numeric" aria-label="Bruttoløn pr. måned">
+              <span class="input-suffix">kr./md.</span>
+            </div>
+            <input type="range" id="miniBruttoSlider" min="15000" max="120000" step="500" value="45000" aria-label="Bruttoløn slider">
+            <div class="range-hint"><span>15.000</span><span>120.000 kr.</span></div>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend>Folkekirken</legend>
+            <label class="check-row">
+              <input type="checkbox" id="miniFolkekirke">
+              <span>Medlem (betaler 0,74 % kirkeskat)</span>
+            </label>
+            <p class="field-help">Kun medlemmer af folkekirken betaler kirkeskat.</p>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend>ATP-bidrag</legend>
+            <label class="check-row">
+              <input type="checkbox" id="miniAtp" checked>
+              <span>ATP (99 kr./md.)</span>
+            </label>
+            <p class="field-help">Trækkes af alle lønmodtagere.</p>
+          </fieldset>
+        </div>
+
+        <p class="mini-calc__locked">Kommune: <strong>Aarhus</strong> (24,52 % kommuneskat, 0,74 % kirkeskat) — låst på denne side.</p>
+
+        <div class="mini-calc__result" id="miniResult">
+          <div class="mini-calc__chip">
+            <p class="mini-calc__chip-label">AM-bidrag/md.</p>
+            <p class="mini-calc__chip-value" data-out="amBidrag">—</p>
+          </div>
+          <div class="mini-calc__chip">
+            <p class="mini-calc__chip-label">A-skat/md.</p>
+            <p class="mini-calc__chip-value" data-out="askat">—</p>
+          </div>
+          <div class="mini-calc__chip mini-calc__chip--accent">
+            <p class="mini-calc__chip-label">Nettoløn/md.</p>
+            <p class="mini-calc__chip-value" data-out="nettoMd">—</p>
+          </div>
+          <div class="mini-calc__chip mini-calc__chip--accent">
+            <p class="mini-calc__chip-label">Nettoløn/år</p>
+            <p class="mini-calc__chip-value" data-out="nettoAr">—</p>
+          </div>
+        </div>
+      <button type="submit" hidden aria-hidden="true">Beregn</button>
+    </form>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
        Satsboxes
        ===================================================================== -->
   <section class="section" id="satser">
@@ -227,71 +294,6 @@
         </div>
         <p class="cmp-hint" style="margin-top:.8rem;">Aarhus er fremhævet. Vil du sammenligne med andre end nabokommuner, så brug <a href="/sammenlign-kommuner.html">sammenlign kommuner-værktøjet</a> — der kan du vælge op til 5 kommuner ad gangen blandt alle 98.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       Mini-beregner (kommune låst til Aarhus)
-       ===================================================================== -->
-  <section class="section section--alt" id="mini-beregner">
-    <div class="container">
-      <div class="section-title">
-        <h2>Mini-beregner — din nettoløn i Aarhus</h2>
-        <p>Skriv din bruttoløn og se nettolønnen med Aarhus-satserne. Vil du have det fulde billede med pension, fagforening og kørselsfradrag — så brug den <a href="/">store lønberegner</a>.</p>
-      </div>
-      <form class="mini-calc" id="aarhusMiniForm" autocomplete="off" novalidate>
-        <div class="mini-calc__grid">
-          <fieldset class="field-group">
-            <legend>Bruttoløn (kr./md.)</legend>
-            <div class="input-row">
-              <input type="number" id="miniBruttoMd" min="0" step="500" value="45000" inputmode="numeric" aria-label="Bruttoløn pr. måned">
-              <span class="input-suffix">kr./md.</span>
-            </div>
-            <input type="range" id="miniBruttoSlider" min="15000" max="120000" step="500" value="45000" aria-label="Bruttoløn slider">
-            <div class="range-hint"><span>15.000</span><span>120.000 kr.</span></div>
-          </fieldset>
-
-          <fieldset class="field-group">
-            <legend>Folkekirken</legend>
-            <label class="check-row">
-              <input type="checkbox" id="miniFolkekirke">
-              <span>Medlem (betaler 0,74 % kirkeskat)</span>
-            </label>
-            <p class="field-help">Kun medlemmer af folkekirken betaler kirkeskat.</p>
-          </fieldset>
-
-          <fieldset class="field-group">
-            <legend>ATP-bidrag</legend>
-            <label class="check-row">
-              <input type="checkbox" id="miniAtp" checked>
-              <span>ATP (99 kr./md.)</span>
-            </label>
-            <p class="field-help">Trækkes af alle lønmodtagere.</p>
-          </fieldset>
-        </div>
-
-        <p class="mini-calc__locked">Kommune: <strong>Aarhus</strong> (24,52 % kommuneskat, 0,74 % kirkeskat) — låst på denne side.</p>
-
-        <div class="mini-calc__result" id="miniResult">
-          <div class="mini-calc__chip">
-            <p class="mini-calc__chip-label">AM-bidrag/md.</p>
-            <p class="mini-calc__chip-value" data-out="amBidrag">—</p>
-          </div>
-          <div class="mini-calc__chip">
-            <p class="mini-calc__chip-label">A-skat/md.</p>
-            <p class="mini-calc__chip-value" data-out="askat">—</p>
-          </div>
-          <div class="mini-calc__chip mini-calc__chip--accent">
-            <p class="mini-calc__chip-label">Nettoløn/md.</p>
-            <p class="mini-calc__chip-value" data-out="nettoMd">—</p>
-          </div>
-          <div class="mini-calc__chip mini-calc__chip--accent">
-            <p class="mini-calc__chip-label">Nettoløn/år</p>
-            <p class="mini-calc__chip-value" data-out="nettoAr">—</p>
-          </div>
-        </div>
-      <button type="submit" hidden aria-hidden="true">Beregn</button>
-    </form>
     </div>
   </section>
 

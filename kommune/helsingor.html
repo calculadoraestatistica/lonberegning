@@ -29,6 +29,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/css/style.css">
 <script src="/js/cookie-consent.js" defer></script>
+<script src="/js/nav.js" defer></script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Kommuneskat Helsingør 2026","url":"https://lonberegning.dk/kommune/helsingor.html","inLanguage":"da","description":"Kommuneskat for Helsingør 2026: 25,82 %. Eksempler på nettoløn, sammenligning med nabokommuner og mini-beregner.","publisher":{"@type":"Organization","name":"Lønberegning","url":"https://lonberegning.dk/","logo":{"@type":"ImageObject","url":"https://lonberegning.dk/favicon-512.png","width":512,"height":512}}}</script>
 
@@ -99,6 +100,68 @@
       </div>
     </div>
   </section>
+
+  <!-- =====================================================================
+       Mini-beregner (kommune låst til Helsingør)
+       ===================================================================== -->
+  <section class="section section--calc" id="mini-beregner">
+    <div class="container">
+
+      <form class="calc-form card" id="helsForm" autocomplete="off" novalidate>
+        <header class="calc-form__head">
+          <h2>Beregn din nettoløn i Helsingør</h2>
+          <p>Mini-beregner med kommune låst til <strong>Helsingør (25,82 %)</strong>. For fuld breakdown og alle fradrag, brug <a href="/">den fulde lønberegner</a>.</p>
+        </header>
+
+        <div class="cmp-form__grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
+          <fieldset class="field-group">
+            <legend>Bruttoløn (kr./md.)</legend>
+            <div class="input-row">
+              <input type="number" id="helsBrutto" min="0" step="500" value="45000" inputmode="numeric" aria-label="Bruttoløn pr. måned">
+              <span class="input-suffix">kr./md.</span>
+            </div>
+            <input type="range" id="helsBruttoSlider" min="10000" max="150000" step="500" value="45000" aria-label="Bruttoløn slider">
+            <div class="range-hint"><span>10.000</span><span>150.000 kr./md.</span></div>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend>Egen pension <span class="badge-soft" id="helsPensionLabel">0 %</span></legend>
+            <input type="range" id="helsPension" min="0" max="25" step="0.5" value="0" aria-label="Egen pension procent">
+            <div class="range-hint"><span>0 %</span><span>25 %</span></div>
+            <p class="field-help">Trækkes før AM-bidrag.</p>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend>Folkekirken</legend>
+            <label class="check-row">
+              <input type="checkbox" id="helsKirke">
+              <span>Medlem (0,63 % kirkeskat)</span>
+            </label>
+            <p class="field-help">Kun medlemmer betaler.</p>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend>ATP-bidrag</legend>
+            <label class="check-row">
+              <input type="checkbox" id="helsAtp" checked>
+              <span>ATP (99 kr./md.)</span>
+            </label>
+            <p class="field-help">Standard for lønmodtagere.</p>
+          </fieldset>
+        </div>
+      <button type="submit" hidden aria-hidden="true">Beregn</button>
+    </form>
+
+      <div class="card" id="helsResult" style="margin-top:1rem;">
+        <h3 class="result-h3">Dit resultat i Helsingør</h3>
+        <div class="cmp-summary" id="helsSummary" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
+          <p>Indtast en bruttoløn for at se resultatet.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
 
   <!-- =====================================================================
        Sats-bokse
@@ -279,67 +342,6 @@
   </section>
 
   <div class="container"><div class="ad-slot" data-ad-slot=""></div></div>
-
-  <!-- =====================================================================
-       Mini-beregner (kommune låst til Helsingør)
-       ===================================================================== -->
-  <section class="section section--calc" id="mini-beregner">
-    <div class="container">
-
-      <form class="calc-form card" id="helsForm" autocomplete="off" novalidate>
-        <header class="calc-form__head">
-          <h2>Beregn din nettoløn i Helsingør</h2>
-          <p>Mini-beregner med kommune låst til <strong>Helsingør (25,82 %)</strong>. For fuld breakdown og alle fradrag, brug <a href="/">den fulde lønberegner</a>.</p>
-        </header>
-
-        <div class="cmp-form__grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
-          <fieldset class="field-group">
-            <legend>Bruttoløn (kr./md.)</legend>
-            <div class="input-row">
-              <input type="number" id="helsBrutto" min="0" step="500" value="45000" inputmode="numeric" aria-label="Bruttoløn pr. måned">
-              <span class="input-suffix">kr./md.</span>
-            </div>
-            <input type="range" id="helsBruttoSlider" min="10000" max="150000" step="500" value="45000" aria-label="Bruttoløn slider">
-            <div class="range-hint"><span>10.000</span><span>150.000 kr./md.</span></div>
-          </fieldset>
-
-          <fieldset class="field-group">
-            <legend>Egen pension <span class="badge-soft" id="helsPensionLabel">0 %</span></legend>
-            <input type="range" id="helsPension" min="0" max="25" step="0.5" value="0" aria-label="Egen pension procent">
-            <div class="range-hint"><span>0 %</span><span>25 %</span></div>
-            <p class="field-help">Trækkes før AM-bidrag.</p>
-          </fieldset>
-
-          <fieldset class="field-group">
-            <legend>Folkekirken</legend>
-            <label class="check-row">
-              <input type="checkbox" id="helsKirke">
-              <span>Medlem (0,63 % kirkeskat)</span>
-            </label>
-            <p class="field-help">Kun medlemmer betaler.</p>
-          </fieldset>
-
-          <fieldset class="field-group">
-            <legend>ATP-bidrag</legend>
-            <label class="check-row">
-              <input type="checkbox" id="helsAtp" checked>
-              <span>ATP (99 kr./md.)</span>
-            </label>
-            <p class="field-help">Standard for lønmodtagere.</p>
-          </fieldset>
-        </div>
-      <button type="submit" hidden aria-hidden="true">Beregn</button>
-    </form>
-
-      <div class="card" id="helsResult" style="margin-top:1rem;">
-        <h3 class="result-h3">Dit resultat i Helsingør</h3>
-        <div class="cmp-summary" id="helsSummary" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
-          <p>Indtast en bruttoløn for at se resultatet.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
 
   <!-- =====================================================================
        FAQ

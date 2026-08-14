@@ -56,6 +56,16 @@ tr:nth-child(even) td { background: #fafafa; }
 .ad-slot { background: #f9f9f9; border: 1px dashed #ccc; padding: 12px; text-align: center; margin: 25px 0; color: #888; font-size: 0.9em; }
 footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 0.9em; color: #666; }
 footer a { color: #c8102e; }
+
+/* Polish: touch-venlige inputs og fremhævet resultat */
+.calc-box input { min-height: 48px; font-size: 16px; }
+.calc-box button { min-height: 48px; font-size: 16px; }
+.calc-box button:focus-visible, .calc-box input:focus-visible { outline: 3px solid rgba(200,16,46,0.35); outline-offset: 2px; }
+.result { border: 1px solid #e5e5e5; border-left: 5px solid #c8102e; background: #fff; font-size: 15px; }
+
+/* Tabeller scroller vandret på smalle skærme */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1em 0; }
+.table-scroll table { margin: 0; min-width: 560px; }
 </style>
 
 <!-- schema-enhanced -->
@@ -78,46 +88,6 @@ footer a { color: #c8102e; }
 <h1>Bundskat 2026 — sats, beregning og personfradrag</h1>
 
 <p class="lead">Bundskatten er den grundlæggende statslige indkomstskat, som stort set alle skattepligtige i Danmark betaler. I 2026 er satsen <strong>12,01 %</strong>, og personfradraget er <strong>54.100 kr.</strong> for både voksne og personer under 18 år.</p>
-
-<p>Bundskatten beregnes af den personlige indkomst, efter at AM-bidraget på 8 % er trukket fra. Det betyder, at hvis du tjener 400.000 kr. om året, så er det ikke hele beløbet, som bundskatten lægges oven på — først ryger ATP og eventuel egenpension fra, derefter 8 % AM-bidrag, og først dér bliver bundskatten regnet ud af det, der er tilbage. Personfradraget på 54.100 kr. trækkes så fra, og 12,01 % beregnes af resten.</p>
-
-<p>Bundskatten er den samme i hele landet — i modsætning til kommuneskatten, som varierer fra kommune til kommune. Sammen med kommuneskatten udgør bundskatten kernen i de fleste danskeres skattebillede, og er en af de tre statsskatter (sammen med mellemskat og topskat) som dækkes af det skrå skatteloft på 52,07 %.</p>
-
-<div class="ad-slot">
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7516029395999799" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-<h2>Bundskat 2026 — officielle værdier</h2>
-
-<table>
-<thead>
-<tr><th>Parameter</th><th>Værdi 2026</th><th>Note</th></tr>
-</thead>
-<tbody>
-<tr><td>Bundskatsats</td><td><strong>12,01 %</strong></td><td>Samme sats i hele landet</td></tr>
-<tr><td>Personfradrag (voksne)</td><td>54.100 kr./år</td><td>Trækkes fra inden bundskatten beregnes</td></tr>
-<tr><td>Personfradrag (under 18)</td><td>54.100 kr./år</td><td>Unificeret med voksne fra 2026</td></tr>
-<tr><td>Beregningsgrundlag</td><td>Personlig indkomst</td><td>Efter AM-bidrag på 8 %</td></tr>
-<tr><td>AM-bidrag (forud)</td><td>8 %</td><td>Personer under 18 år er fritaget i 2026</td></tr>
-<tr><td>Skrå skatteloft</td><td>52,07 %</td><td>Inkl. bundskat + kommuneskat + topskat</td></tr>
-</tbody>
-</table>
-
-<h3>Eksempel-tabel: bundskat ved typiske lønninger</h3>
-
-<table>
-<thead>
-<tr><th>Bruttoløn/år</th><th>Efter AM-bidrag</th><th>Grundlag (efter personfradrag)</th><th>Bundskat 12,01 %</th></tr>
-</thead>
-<tbody>
-<tr><td>300.000 kr.</td><td>276.000 kr.</td><td>221.900 kr.</td><td>26.650 kr.</td></tr>
-<tr><td>450.000 kr.</td><td>414.000 kr.</td><td>359.900 kr.</td><td>43.224 kr.</td></tr>
-<tr><td>600.000 kr.</td><td>552.000 kr.</td><td>497.900 kr.</td><td>59.798 kr.</td></tr>
-<tr><td>800.000 kr.</td><td>736.000 kr.</td><td>681.900 kr.</td><td>81.896 kr.</td></tr>
-</tbody>
-</table>
-<p style="font-size: 0.9em; color: #666;">Beløbene er afrundede og ekskl. ATP-bidrag og egenpension for overskuelighedens skyld.</p>
 
 <div class="calc-box">
 <h2 style="margin-top:0; border:none;">Mini-beregner: bundskat 2026</h2>
@@ -156,6 +126,52 @@ function beregnBundskat() {
 <p style="text-align:center; margin: 20px 0;">
 For den fulde beregning med kommuneskat, mellemskat og topskat: <a href="/" style="color:#c8102e; font-weight:600;">brug hovedlønberegneren &rarr;</a>
 </p>
+
+<div class="ad-slot">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7516029395999799" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<h2>Bundskat 2026 — officielle værdier</h2>
+
+<div class="table-scroll">
+
+<table>
+<thead>
+<tr><th>Parameter</th><th>Værdi 2026</th><th>Note</th></tr>
+</thead>
+<tbody>
+<tr><td>Bundskatsats</td><td><strong>12,01 %</strong></td><td>Samme sats i hele landet</td></tr>
+<tr><td>Personfradrag (voksne)</td><td>54.100 kr./år</td><td>Trækkes fra inden bundskatten beregnes</td></tr>
+<tr><td>Personfradrag (under 18)</td><td>54.100 kr./år</td><td>Unificeret med voksne fra 2026</td></tr>
+<tr><td>Beregningsgrundlag</td><td>Personlig indkomst</td><td>Efter AM-bidrag på 8 %</td></tr>
+<tr><td>AM-bidrag (forud)</td><td>8 %</td><td>Personer under 18 år er fritaget i 2026</td></tr>
+<tr><td>Skrå skatteloft</td><td>52,07 %</td><td>Inkl. bundskat + kommuneskat + topskat</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Eksempel-tabel: bundskat ved typiske lønninger</h3>
+
+<div class="table-scroll">
+
+<table>
+<thead>
+<tr><th>Bruttoløn/år</th><th>Efter AM-bidrag</th><th>Grundlag (efter personfradrag)</th><th>Bundskat 12,01 %</th></tr>
+</thead>
+<tbody>
+<tr><td>300.000 kr.</td><td>276.000 kr.</td><td>221.900 kr.</td><td>26.650 kr.</td></tr>
+<tr><td>450.000 kr.</td><td>414.000 kr.</td><td>359.900 kr.</td><td>43.224 kr.</td></tr>
+<tr><td>600.000 kr.</td><td>552.000 kr.</td><td>497.900 kr.</td><td>59.798 kr.</td></tr>
+<tr><td>800.000 kr.</td><td>736.000 kr.</td><td>681.900 kr.</td><td>81.896 kr.</td></tr>
+</tbody>
+</table>
+</div>
+<p style="font-size: 0.9em; color: #666;">Beløbene er afrundede og ekskl. ATP-bidrag og egenpension for overskuelighedens skyld.</p>
+
+<p>Bundskatten beregnes af den personlige indkomst, efter at AM-bidraget på 8 % er trukket fra. Det betyder, at hvis du tjener 400.000 kr. om året, så er det ikke hele beløbet, som bundskatten lægges oven på — først ryger ATP og eventuel egenpension fra, derefter 8 % AM-bidrag, og først dér bliver bundskatten regnet ud af det, der er tilbage. Personfradraget på 54.100 kr. trækkes så fra, og 12,01 % beregnes af resten.</p>
+
+<p>Bundskatten er den samme i hele landet — i modsætning til kommuneskatten, som varierer fra kommune til kommune. Sammen med kommuneskatten udgør bundskatten kernen i de fleste danskeres skattebillede, og er en af de tre statsskatter (sammen med mellemskat og topskat) som dækkes af det skrå skatteloft på 52,07 %.</p>
 
 <div class="ad-slot">
 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7516029395999799" data-ad-slot="2345678901" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -202,6 +218,8 @@ For den fulde beregning med kommuneskat, mellemskat og topskat: <a href="/" styl
 
 <h2>Sådan ændres bundskat, sats og personfradrag sig over årene</h2>
 
+<div class="table-scroll">
+
 <table>
 <thead>
 <tr><th>År</th><th>Bundskatsats</th><th>Personfradrag (voksne)</th><th>Bemærkninger</th></tr>
@@ -213,6 +231,7 @@ For den fulde beregning med kommuneskat, mellemskat og topskat: <a href="/" styl
 <tr><td><strong>2026</strong></td><td><strong>12,01 %</strong></td><td><strong>54.100 kr.</strong></td><td>Forårspakke 2026: personfradrag unificeret for under 18 år</td></tr>
 </tbody>
 </table>
+</div>
 
 <p>Den største ændring i 2026 er, at personfradraget for personer under 18 år er hævet til samme niveau som voksne — 54.100 kr. — i forbindelse med Forårspakken. Selve bundskatsatsen er uændret fra 2025 til 2026 på 12,01 %, men selve skattetrykket på topindkomster er ændret markant, fordi mellemskatten er genindført og topskatten reduceret.</p>
 

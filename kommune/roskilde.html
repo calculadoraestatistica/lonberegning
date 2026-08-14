@@ -29,6 +29,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/css/style.css">
 <script src="/js/cookie-consent.js" defer></script>
+<script src="/js/nav.js" defer></script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Kommuneskat Roskilde 2026","url":"https://lonberegning.dk/kommune/roskilde.html","inLanguage":"da","description":"Kommuneskat, kirkeskat og nettoløn-eksempler for Roskilde Kommune på 2026-satser.","isPartOf":{"@type":"WebSite","name":"lonberegning.dk","url":"https://lonberegning.dk/"},"about":{"@type":"Place","name":"Roskilde Kommune","address":{"@type":"PostalAddress","addressRegion":"Sjælland","addressCountry":"DK"}},"publisher":{"@type":"Organization","name":"Lønberegning","url":"https://lonberegning.dk/","logo":{"@type":"ImageObject","url":"https://lonberegning.dk/favicon-512.png","width":512,"height":512}}}</script>
 
@@ -133,6 +134,71 @@
     </div>
   </section>
 
+  <!-- ============== Mini-calculadora ============== -->
+  <section class="section section--calc" id="mini-calc">
+    <div class="container">
+      <div class="section-title">
+        <h2>Beregn din nettoløn i Roskilde</h2>
+        <p>Mini-beregner med Roskilde-satsen låst fast — skriv din bruttoløn og se nettolønnen med det samme.</p>
+      </div>
+      <form class="calc-form card" id="roskildeForm" autocomplete="off" novalidate>
+        <div class="mini-calc__grid">
+          <fieldset class="field-group">
+            <legend>Bruttoløn (kr./md)</legend>
+            <div class="input-row">
+              <input type="number" id="roskildeBrutto" min="0" step="500" value="45000" inputmode="numeric" aria-label="Bruttoløn pr. måned">
+              <span class="input-suffix">kr./md</span>
+            </div>
+            <input type="range" id="roskildeBruttoSlider" min="15000" max="150000" step="500" value="45000" aria-label="Bruttoløn slider">
+            <div class="range-hint"><span>15.000</span><span>150.000 kr./md</span></div>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend>Egen pension <span class="badge-soft" id="roskildePensionLabel">0 %</span></legend>
+            <input type="range" id="roskildePension" min="0" max="25" step="0.5" value="0" aria-label="Egen pension procent">
+            <div class="range-hint"><span>0 %</span><span>25 %</span></div>
+            <p class="field-help">Trækkes før AM-bidrag (bortseelsesret).</p>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend>Folkekirken</legend>
+            <label class="check-row">
+              <input type="checkbox" id="roskildeKirke">
+              <span>Medlem (betaler 0,80 % kirkeskat)</span>
+            </label>
+          </fieldset>
+
+          <div class="mini-calc__locked" aria-label="Låste satser">
+            <p>Kommune låst som:</p>
+            <strong>Roskilde (25,20 %)</strong>
+            <p style="margin-top:.4rem;">ATP og 35 års alder antages. Ændr antagelser i <a href="/">hovedberegneren</a>.</p>
+          </div>
+        </div>
+
+        <div class="mini-result" id="roskildeResult" role="status" aria-live="polite">
+          <div>
+            <p class="mini-result__label">Nettoløn/md</p>
+            <p class="mini-result__value" id="resNettoMd">—</p>
+          </div>
+          <div>
+            <p class="mini-result__label">Nettoløn/år</p>
+            <p class="mini-result__value" id="resNettoAr">—</p>
+          </div>
+          <div>
+            <p class="mini-result__label">Samlet skat/år</p>
+            <p class="mini-result__value" id="resSkat">—</p>
+          </div>
+          <div>
+            <p class="mini-result__label">Effektiv skat</p>
+            <p class="mini-result__value" id="resEff">—</p>
+          </div>
+        </div>
+      <button type="submit" hidden aria-hidden="true">Beregn</button>
+    </form>
+    </div>
+  </section>
+
+
   <!-- ============== Skattesatser i Roskilde ============== -->
   <section class="section" id="satser">
     <div class="container">
@@ -232,70 +298,6 @@
   </section>
 
   <div class="container"><div class="ad-slot" data-ad-slot=""></div></div>
-
-  <!-- ============== Mini-calculadora ============== -->
-  <section class="section section--calc" id="mini-calc">
-    <div class="container">
-      <div class="section-title">
-        <h2>Beregn din nettoløn i Roskilde</h2>
-        <p>Mini-beregner med Roskilde-satsen låst fast — skriv din bruttoløn og se nettolønnen med det samme.</p>
-      </div>
-      <form class="calc-form card" id="roskildeForm" autocomplete="off" novalidate>
-        <div class="mini-calc__grid">
-          <fieldset class="field-group">
-            <legend>Bruttoløn (kr./md)</legend>
-            <div class="input-row">
-              <input type="number" id="roskildeBrutto" min="0" step="500" value="45000" inputmode="numeric" aria-label="Bruttoløn pr. måned">
-              <span class="input-suffix">kr./md</span>
-            </div>
-            <input type="range" id="roskildeBruttoSlider" min="15000" max="150000" step="500" value="45000" aria-label="Bruttoløn slider">
-            <div class="range-hint"><span>15.000</span><span>150.000 kr./md</span></div>
-          </fieldset>
-
-          <fieldset class="field-group">
-            <legend>Egen pension <span class="badge-soft" id="roskildePensionLabel">0 %</span></legend>
-            <input type="range" id="roskildePension" min="0" max="25" step="0.5" value="0" aria-label="Egen pension procent">
-            <div class="range-hint"><span>0 %</span><span>25 %</span></div>
-            <p class="field-help">Trækkes før AM-bidrag (bortseelsesret).</p>
-          </fieldset>
-
-          <fieldset class="field-group">
-            <legend>Folkekirken</legend>
-            <label class="check-row">
-              <input type="checkbox" id="roskildeKirke">
-              <span>Medlem (betaler 0,80 % kirkeskat)</span>
-            </label>
-          </fieldset>
-
-          <div class="mini-calc__locked" aria-label="Låste satser">
-            <p>Kommune låst som:</p>
-            <strong>Roskilde (25,20 %)</strong>
-            <p style="margin-top:.4rem;">ATP og 35 års alder antages. Ændr antagelser i <a href="/">hovedberegneren</a>.</p>
-          </div>
-        </div>
-
-        <div class="mini-result" id="roskildeResult" role="status" aria-live="polite">
-          <div>
-            <p class="mini-result__label">Nettoløn/md</p>
-            <p class="mini-result__value" id="resNettoMd">—</p>
-          </div>
-          <div>
-            <p class="mini-result__label">Nettoløn/år</p>
-            <p class="mini-result__value" id="resNettoAr">—</p>
-          </div>
-          <div>
-            <p class="mini-result__label">Samlet skat/år</p>
-            <p class="mini-result__value" id="resSkat">—</p>
-          </div>
-          <div>
-            <p class="mini-result__label">Effektiv skat</p>
-            <p class="mini-result__value" id="resEff">—</p>
-          </div>
-        </div>
-      <button type="submit" hidden aria-hidden="true">Beregn</button>
-    </form>
-    </div>
-  </section>
 
   <!-- ============== FAQ ============== -->
   <section class="section section--alt">

@@ -69,6 +69,33 @@
     .calc-row{grid-template-columns:1fr}
     h1{font-size:1.55rem}
   }
+
+  /* Mobilmenu (hamburger) */
+  header .wrap{display:flex;flex-wrap:wrap;align-items:center}
+  header .wrap > a{flex:0 0 auto}
+  header nav{flex-basis:100%}
+  .nav-toggle{display:none;margin-left:auto;background:transparent;border:1px solid rgba(255,255,255,.45);border-radius:6px;width:44px;height:44px;align-items:center;justify-content:center;cursor:pointer;color:#fff;padding:0}
+  .nav-toggle svg{width:22px;height:22px}
+  .nav-toggle:hover{background:rgba(255,255,255,.12)}
+  .nav-toggle:focus-visible{outline:3px solid rgba(255,255,255,.6);outline-offset:2px}
+  @media (max-width:720px){
+    .nav-toggle{display:inline-flex}
+    header nav{display:none}
+    header nav.nav-open{display:flex;flex-direction:column;gap:.25rem;border-top:1px solid rgba(255,255,255,.25);padding-top:.6rem}
+    header nav.nav-open a{margin-right:0;padding:12px 8px;border-radius:6px}
+    header nav.nav-open a:hover{background:rgba(255,255,255,.12);text-decoration:none}
+  }
+
+  /* Polish: touch-venlige inputs og fremhævet resultat */
+  .calc input{min-height:48px;font-size:16px}
+  .calc button{min-height:48px;font-size:16px}
+  .calc button:focus-visible,.calc input:focus-visible{outline:3px solid rgba(10,108,255,.35);outline-offset:2px}
+  .result{border-left:5px solid var(--accent);background:#fff}
+  .result strong{font-size:1.15rem}
+
+  /* Tabeller scroller vandret paa smalle skaerme */
+  .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.75rem 0}
+  .table-scroll table{margin:0;min-width:560px}
 </style>
 
 <script type="application/ld+json">
@@ -117,7 +144,10 @@
 <header>
   <div class="wrap">
     <a href="/">lonberegning.dk</a>
-    <nav style="margin-top:.5rem">
+    <button id="navToggle" class="nav-toggle" type="button" aria-label="Åbn menu" aria-expanded="false" aria-controls="hovedNav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav id="hovedNav" style="margin-top:.5rem">
       <a href="/">Forside</a>
       <a href="/">Skatteberegner 2026</a>
       <a href="/topskat-2026.html">Topskat 2026</a>
@@ -135,61 +165,8 @@
 <p class="lede">
 Fra 1. januar 2026 er <strong>mellemskat</strong> genindført som en del af Forårspakken 2026.
 Det betyder en statslig skat på <strong>7,5 %</strong> af den personlige indkomst, der overstiger
-<strong>641.200 kr.</strong> efter AM-bidrag. For mange funktionærer og specialister er det
-første gang siden 2009, at man møder denne ekstra skat på lønsedlen.
+<strong>641.200 kr.</strong> efter AM-bidrag.
 </p>
-
-<p>
-Mellemskat lægger sig oven på bundskat (12,01 %) og kommuneskat — men den erstatter <em>ikke</em>
-topskat. Tværtimod er topskatten 2026 sat ned fra 15 % til 7,5 %, så de to satser nu er ens.
-Forskellen ligger i grænsen: mellemskat starter ved 641.200 kr., mens topskat først rammer ved
-777.900 kr. (begge tal efter 8 % AM-bidrag).
-</p>
-
-<p>
-Politisk er mellemskat tænkt som en målrettet skat på den øvre middelklasse. I praksis betyder
-det, at en lønstigning fra fx 650.000 til 700.000 kr. nu beskattes hårdere end før, mens
-indkomster under ca. 697.000 kr. brutto fortsat slipper. Nedenfor finder du de officielle satser,
-beregningseksempler og en lille indlejret beregner.
-</p>
-
-<div class="ad">
-  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7516029395999799"
-       data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-<h2>Satser og grænser for mellemskat 2026</h2>
-
-<div class="card">
-<table>
-  <thead>
-    <tr><th>Parameter</th><th class="num">Værdi 2026</th><th>Kommentar</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Mellemskat-sats</td><td class="num">7,5 %</td><td>Statslig skat</td></tr>
-    <tr><td>Grænse (efter AM-bidrag)</td><td class="num">641.200 kr.</td><td>Personlig indkomst pr. år</td></tr>
-    <tr><td>Tilsvarende bruttoløn</td><td class="num">~696.957 kr.</td><td>641.200 / 0,92</td></tr>
-    <tr><td>Tilsvarende månedsløn</td><td class="num">~58.080 kr.</td><td>Brutto pr. måned</td></tr>
-    <tr><td>AM-bidrag (fratrækkes først)</td><td class="num">8 %</td><td>Beregnes før mellemskat</td></tr>
-    <tr><td>Skråt skatteloft (inkl. topskat)</td><td class="num">52,07 %</td><td>Samlet loft excl. kirkeskat</td></tr>
-  </tbody>
-</table>
-</div>
-
-<h3>Eksempler på årlig mellemskat</h3>
-<table>
-  <thead>
-    <tr><th>Bruttoløn (år)</th><th class="num">Indkomst efter AM</th><th class="num">Over 641.200 kr.</th><th class="num">Mellemskat 7,5 %</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>650.000 kr.</td><td class="num">598.000 kr.</td><td class="num">0 kr.</td><td class="num">0 kr.</td></tr>
-    <tr><td>750.000 kr.</td><td class="num">690.000 kr.</td><td class="num">48.800 kr.</td><td class="num">3.660 kr.</td></tr>
-    <tr><td>850.000 kr.</td><td class="num">782.000 kr.</td><td class="num">140.800 kr.</td><td class="num">10.560 kr.</td></tr>
-    <tr><td>1.000.000 kr.</td><td class="num">920.000 kr.</td><td class="num">278.800 kr.</td><td class="num">20.910 kr.</td></tr>
-    <tr><td>1.500.000 kr.</td><td class="num">1.380.000 kr.</td><td class="num">738.800 kr.</td><td class="num">55.410 kr.</td></tr>
-  </tbody>
-</table>
 
 <h2>Beregn din mellemskat 2026</h2>
 
@@ -242,6 +219,65 @@ function beregnMellem(){
 }
 </script>
 
+<div class="ad">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7516029395999799"
+       data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<h2>Satser og grænser for mellemskat 2026</h2>
+
+<div class="card">
+<div class="table-scroll">
+<table>
+  <thead>
+    <tr><th>Parameter</th><th class="num">Værdi 2026</th><th>Kommentar</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Mellemskat-sats</td><td class="num">7,5 %</td><td>Statslig skat</td></tr>
+    <tr><td>Grænse (efter AM-bidrag)</td><td class="num">641.200 kr.</td><td>Personlig indkomst pr. år</td></tr>
+    <tr><td>Tilsvarende bruttoløn</td><td class="num">~696.957 kr.</td><td>641.200 / 0,92</td></tr>
+    <tr><td>Tilsvarende månedsløn</td><td class="num">~58.080 kr.</td><td>Brutto pr. måned</td></tr>
+    <tr><td>AM-bidrag (fratrækkes først)</td><td class="num">8 %</td><td>Beregnes før mellemskat</td></tr>
+    <tr><td>Skråt skatteloft (inkl. topskat)</td><td class="num">52,07 %</td><td>Samlet loft excl. kirkeskat</td></tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+<h3>Eksempler på årlig mellemskat</h3>
+<div class="table-scroll">
+<table>
+  <thead>
+    <tr><th>Bruttoløn (år)</th><th class="num">Indkomst efter AM</th><th class="num">Over 641.200 kr.</th><th class="num">Mellemskat 7,5 %</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>650.000 kr.</td><td class="num">598.000 kr.</td><td class="num">0 kr.</td><td class="num">0 kr.</td></tr>
+    <tr><td>750.000 kr.</td><td class="num">690.000 kr.</td><td class="num">48.800 kr.</td><td class="num">3.660 kr.</td></tr>
+    <tr><td>850.000 kr.</td><td class="num">782.000 kr.</td><td class="num">140.800 kr.</td><td class="num">10.560 kr.</td></tr>
+    <tr><td>1.000.000 kr.</td><td class="num">920.000 kr.</td><td class="num">278.800 kr.</td><td class="num">20.910 kr.</td></tr>
+    <tr><td>1.500.000 kr.</td><td class="num">1.380.000 kr.</td><td class="num">738.800 kr.</td><td class="num">55.410 kr.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>For mange funktionærer og specialister er det
+første gang siden 2009, at man møder denne ekstra skat på lønsedlen.</p>
+
+<p>
+Mellemskat lægger sig oven på bundskat (12,01 %) og kommuneskat — men den erstatter <em>ikke</em>
+topskat. Tværtimod er topskatten 2026 sat ned fra 15 % til 7,5 %, så de to satser nu er ens.
+Forskellen ligger i grænsen: mellemskat starter ved 641.200 kr., mens topskat først rammer ved
+777.900 kr. (begge tal efter 8 % AM-bidrag).
+</p>
+
+<p>
+Politisk er mellemskat tænkt som en målrettet skat på den øvre middelklasse. I praksis betyder
+det, at en lønstigning fra fx 650.000 til 700.000 kr. nu beskattes hårdere end før, mens
+indkomster under ca. 697.000 kr. brutto fortsat slipper. Ovenfor finder du beregneren og de officielle satser —
+nedenfor fulde beregningseksempler trin for trin.
+</p>
+
 <h2>Tre regneeksempler med fuld udregning</h2>
 
 <h3>Eksempel 1 — Sygeplejerske, 520.000 kr./år</h3>
@@ -284,6 +320,8 @@ function beregnMellem(){
 
 <h2>Sådan ændres Mellemskat 2026 — den nye skat fra 1. januar sig over årene</h2>
 
+<div class="table-scroll">
+
 <table>
   <thead>
     <tr><th>År</th><th class="num">Sats</th><th class="num">Grænse (efter AM)</th><th>Status</th></tr>
@@ -295,6 +333,7 @@ function beregnMellem(){
     <tr><td><strong>2026</strong></td><td class="num"><strong>7,5 %</strong></td><td class="num"><strong>641.200 kr.</strong></td><td><strong>Genindført pr. 1. januar (Forårspakke 2026)</strong></td></tr>
   </tbody>
 </table>
+</div>
 
 <p style="font-size:.92rem;color:var(--muted)">
 Historisk note: mellemskat eksisterede oprindeligt fra 1994 til 2009 med en sats på 6 %. Den blev
@@ -373,6 +412,19 @@ Beregningerne er vejledende — for officielle tal, se din forskudsopgørelse p�
  · Lavet i Danmark.</p>
   </div>
 </footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('navToggle');
+  var nav = document.getElementById('hovedNav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('nav-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Luk menu' : 'Åbn menu');
+  });
+})();
+</script>
 
 </body>
 </html>

@@ -286,6 +286,30 @@ footer .legal {
   table { font-size: 0.85rem; }
   th, td { padding: 0.5rem; }
 }
+
+/* Mobilmenu (hamburger) */
+.nav-toggle { display: none; background: transparent; border: 1px solid rgba(255,255,255,0.55); border-radius: 6px; width: 44px; height: 44px; align-items: center; justify-content: center; cursor: pointer; color: #fff; padding: 0; }
+.nav-toggle svg { width: 22px; height: 22px; }
+.nav-toggle:hover { background: rgba(255,255,255,0.12); }
+.nav-toggle:focus-visible { outline: 3px solid rgba(255,255,255,0.6); outline-offset: 2px; }
+@media (max-width: 720px) {
+  .nav-toggle { display: inline-flex; }
+  header nav ul { display: none; flex-basis: 100%; width: 100%; flex-direction: column; gap: 0.25rem; }
+  header nav ul.nav-open { display: flex; padding-top: 0.6rem; border-top: 1px solid rgba(255,255,255,0.25); }
+  header nav ul.nav-open a { display: block; padding: 12px 8px; border-radius: 6px; }
+  header nav ul.nav-open a:hover { background: rgba(255,255,255,0.12); text-decoration: none; }
+}
+
+/* Polish: touch-venlige inputs og fremhævet resultat */
+.calc-box input { min-height: 48px; font-size: 16px; }
+.calc-box button { min-height: 48px; }
+.calc-box button:focus-visible, .calc-box input:focus-visible { outline: 3px solid rgba(200,16,46,0.35); outline-offset: 2px; }
+.calc-result { border: 1px solid #f0c9cf; border-left: 5px solid #c8102e; }
+.calc-result .num { font-size: 1.55rem; }
+
+/* Tabeller scroller vandret på smalle skærme */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.2rem 0; }
+.table-scroll table { margin: 0; min-width: 560px; }
 </style>
 
 <!-- schema-enhanced -->
@@ -302,7 +326,10 @@ footer .legal {
 <header>
   <nav>
     <a href="/" class="logo">lonberegning.dk</a>
-    <ul>
+    <button id="navToggle" class="nav-toggle" type="button" aria-label="Åbn menu" aria-expanded="false" aria-controls="hovedNav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul id="hovedNav">
       <li><a href="/">Forside</a></li>
       <li><a href="/">Lønberegner</a></li>
       <li><a href="/topskat-2026.html">Skat 2026</a></li>
@@ -321,9 +348,26 @@ footer .legal {
 
   <p class="lead">Arbejdsmarkedsbidraget (AM-bidrag) er den første og enkleste skat i den danske lønbeskatning: 8% af din arbejdsindkomst, trukket før al anden skat. I 2026 er satsen uændret — men reglerne om unge under 18 år er ændret markant.</p>
 
-  <p>AM-bidrag blev oprindeligt indført i 1994 som en øremærket bidragsbetaling til arbejdsmarkedsformål. I praksis fungerer den i dag som en almindelig bruttoskat: Skat trækker 8% af din lønindkomst, B-indkomst, honorarer og personlige overskud, før beregningen af bundskat, mellemskat, topskat, toptopskat og kommuneskat begynder. Det betyder, at AM-bidraget reducerer dit beregningsgrundlag for alle øvrige skatter.</p>
+  <div class="calc-box">
+    <h3>Mini-beregner: Hvor meget betaler du i AM-bidrag?</h3>
+    <p style="font-size: 0.92rem; color: #555;">Indtast din bruttoløn — vi trækker ATP fra og beregner 8%.</p>
+    <label for="bruttolon">Bruttoløn pr. år (kr.)</label>
+    <input type="number" id="bruttolon" placeholder="fx 450000" value="450000">
+    <label for="pensionpct">Egen pensionsbidrag (% af bruttoløn)</label>
+    <input type="number" id="pensionpct" placeholder="fx 4" value="0" step="0.1">
+    <label for="alder">Alder</label>
+    <input type="number" id="alder" placeholder="fx 30" value="30">
+    <button onclick="beregnAmBidrag()">Beregn AM-bidrag</button>
+    <div class="calc-result" id="result">
+      <p>AM-bidrag pr. år: <span class="num" id="amYear">—</span></p>
+      <p>AM-bidrag pr. måned: <span class="num" id="amMonth">—</span></p>
+      <p id="amNote" style="font-size: 0.9rem; color: #555; margin-top: 0.5rem;"></p>
+    </div>
+  </div>
 
-  <p>Den vigtigste praktiske konsekvens er, at <strong>én krone i lønstigning kun giver dig 92 øre tilbage som personlig indkomst</strong>, inden der overhovedet er talt om bund-, mellem- eller topskat. AM-bidraget er derfor det første "lag" i den danske skattetrappe og en central del af enhver lønberegning. Fra 1. januar 2026 er personer under 18 år dog helt fritaget — en politisk ændring, der skal gøre fritidsjob mere attraktivt for unge.</p>
+  <p style="text-align: center; margin: 1.5rem 0;">
+    <a href="/" style="display: inline-block; background: #c8102e; color: white; padding: 0.7rem 1.4rem; text-decoration: none; border-radius: 4px; font-weight: 600;">→ Komplet lønberegner 2026 (med kommuneskat, topskat og pension)</a>
+  </p>
 
   <div class="ad-slot">
     <ins class="adsbygoogle"
@@ -336,6 +380,8 @@ footer .legal {
   </div>
 
   <h2>Satser og grænser for AM-bidrag 2026</h2>
+
+  <div class="table-scroll">
 
   <table>
     <thead>
@@ -383,27 +429,11 @@ footer .legal {
       </tr>
     </tbody>
   </table>
-
-  <div class="calc-box">
-    <h3>Mini-beregner: Hvor meget betaler du i AM-bidrag?</h3>
-    <p style="font-size: 0.92rem; color: #555;">Indtast din bruttoløn — vi trækker ATP fra og beregner 8%.</p>
-    <label for="bruttolon">Bruttoløn pr. år (kr.)</label>
-    <input type="number" id="bruttolon" placeholder="fx 450000" value="450000">
-    <label for="pensionpct">Egen pensionsbidrag (% af bruttoløn)</label>
-    <input type="number" id="pensionpct" placeholder="fx 4" value="0" step="0.1">
-    <label for="alder">Alder</label>
-    <input type="number" id="alder" placeholder="fx 30" value="30">
-    <button onclick="beregnAmBidrag()">Beregn AM-bidrag</button>
-    <div class="calc-result" id="result">
-      <p>AM-bidrag pr. år: <span class="num" id="amYear">—</span></p>
-      <p>AM-bidrag pr. måned: <span class="num" id="amMonth">—</span></p>
-      <p id="amNote" style="font-size: 0.9rem; color: #555; margin-top: 0.5rem;"></p>
-    </div>
   </div>
 
-  <p style="text-align: center; margin: 1.5rem 0;">
-    <a href="/" style="display: inline-block; background: #c8102e; color: white; padding: 0.7rem 1.4rem; text-decoration: none; border-radius: 4px; font-weight: 600;">→ Komplet lønberegner 2026 (med kommuneskat, topskat og pension)</a>
-  </p>
+  <p>AM-bidrag blev oprindeligt indført i 1994 som en øremærket bidragsbetaling til arbejdsmarkedsformål. I praksis fungerer den i dag som en almindelig bruttoskat: Skat trækker 8% af din lønindkomst, B-indkomst, honorarer og personlige overskud, før beregningen af bundskat, mellemskat, topskat, toptopskat og kommuneskat begynder. Det betyder, at AM-bidraget reducerer dit beregningsgrundlag for alle øvrige skatter.</p>
+
+  <p>Den vigtigste praktiske konsekvens er, at <strong>én krone i lønstigning kun giver dig 92 øre tilbage som personlig indkomst</strong>, inden der overhovedet er talt om bund-, mellem- eller topskat. AM-bidraget er derfor det første "lag" i den danske skattetrappe og en central del af enhver lønberegning. Fra 1. januar 2026 er personer under 18 år dog helt fritaget — en politisk ændring, der skal gøre fritidsjob mere attraktivt for unge.</p>
 
   <h2>Tre eksempler — AM-bidrag trin for trin</h2>
 
@@ -457,6 +487,8 @@ footer .legal {
 
   <p>AM-bidraget har været stabilt på 8% i over et årti, men beregningsgrundlaget og fritagelsesreglerne har ændret sig. Her er udviklingen 2023–2026:</p>
 
+  <div class="table-scroll">
+
   <table>
     <thead>
       <tr>
@@ -498,6 +530,7 @@ footer .legal {
       </tr>
     </tbody>
   </table>
+  </div>
 
   <h2>Ofte stillede spørgsmål om AM-bidrag 2026</h2>
 
@@ -607,6 +640,19 @@ function beregnAmBidrag() {
   }
   result.classList.add('show');
 }
+</script>
+
+<script>
+(function () {
+  var btn = document.getElementById('navToggle');
+  var nav = document.getElementById('hovedNav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('nav-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Luk menu' : 'Åbn menu');
+  });
+})();
 </script>
 
 </body>

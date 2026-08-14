@@ -29,6 +29,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/css/style.css">
 <script src="/js/cookie-consent.js" defer></script>
+<script src="/js/nav.js" defer></script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Kommuneskat Esbjerg 2026","url":"https://lonberegning.dk/kommune/esbjerg.html","inLanguage":"da","description":"Kommuneskat, kirkeskat og nettoløn-eksempler for Esbjerg Kommune i 2026, med sammenligning af nabokommuner og en mini-lønberegner.","isPartOf":{"@type":"WebSite","name":"lonberegning.dk","url":"https://lonberegning.dk/"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Forsiden","item":"https://lonberegning.dk/"},{"@type":"ListItem","position":2,"name":"Kommuner","item":"https://lonberegning.dk/sammenlign-kommuner.html"},{"@type":"ListItem","position":3,"name":"Esbjerg","item":"https://lonberegning.dk/kommune/esbjerg.html"}]},"publisher":{"@type":"Organization","name":"Lønberegning","url":"https://lonberegning.dk/","logo":{"@type":"ImageObject","url":"https://lonberegning.dk/favicon-512.png","width":512,"height":512}}}</script>
 
@@ -122,6 +123,77 @@
       </div>
     </div>
   </section>
+
+  <!-- =====================================================================
+       MINI-CALCULADORA (kommune låst til Esbjerg)
+       ===================================================================== -->
+  <section class="section" id="minicalc">
+    <div class="container">
+      <div class="section-title">
+        <h2>Mini-lønberegner — Esbjerg-satsen er låst</h2>
+        <p>Skriv din bruttoløn og se nettoløn med Esbjergs kommuneskat (26,10 %) direkte indsat.</p>
+      </div>
+
+      <form class="calc-form card" id="esbjergMini" autocomplete="off" novalidate>
+        <header class="calc-form__head">
+          <h3>Din indtjening</h3>
+          <p>Kommune: <span class="kom-locked">Esbjerg · 26,10 %</span></p>
+        </header>
+
+        <div class="kom-minicalc">
+          <fieldset class="field-group">
+            <legend>Bruttoløn (kr./år)</legend>
+            <div class="input-row">
+              <input type="number" id="emBrutto" min="0" step="1000" value="500000" inputmode="numeric" aria-label="Bruttoløn pr. år">
+              <span class="input-suffix">kr./år</span>
+            </div>
+            <input type="range" id="emBruttoSlider" min="100000" max="2000000" step="5000" value="500000" aria-label="Bruttoløn slider">
+            <div class="range-hint"><span>100.000</span><span>2.000.000 kr.</span></div>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend>Egen pension <span class="badge-soft" id="emPensionLabel">0 %</span></legend>
+            <input type="range" id="emPension" min="0" max="25" step="0.5" value="0" aria-label="Egen pension procent">
+            <div class="range-hint"><span>0 %</span><span>25 %</span></div>
+            <p class="field-help">Trækkes før AM-bidrag.</p>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend>Folkekirken</legend>
+            <label class="check-row">
+              <input type="checkbox" id="emKirke">
+              <span>Medlem (0,81 % kirkeskat)</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="field-group">
+            <legend>ATP-bidrag</legend>
+            <label class="check-row">
+              <input type="checkbox" id="emAtp" checked>
+              <span>ATP (99 kr./md.)</span>
+            </label>
+          </fieldset>
+        </div>
+
+        <div class="kom-minicalc__result" id="emResult" aria-live="polite">
+          <div class="kom-minicalc__result-row"><span>Bruttoløn pr. år</span><span id="emOutBrutto">—</span></div>
+          <div class="kom-minicalc__result-row"><span>AM-bidrag (8 %)</span><span id="emOutAm">—</span></div>
+          <div class="kom-minicalc__result-row"><span>Bundskat</span><span id="emOutBund">—</span></div>
+          <div class="kom-minicalc__result-row"><span>Kommuneskat Esbjerg (26,10 %)</span><span id="emOutKom">—</span></div>
+          <div class="kom-minicalc__result-row"><span>Kirkeskat</span><span id="emOutKirke">—</span></div>
+          <div class="kom-minicalc__result-row"><span>Topskat / mellemskat</span><span id="emOutTop">—</span></div>
+          <div class="kom-minicalc__result-row"><span>Netto pr. md.</span><span id="emOutNettoM">—</span></div>
+          <div class="kom-minicalc__result-row"><span>Netto pr. år</span><span id="emOutNettoA">—</span></div>
+        </div>
+      <button type="submit" hidden aria-hidden="true">Beregn</button>
+    </form>
+
+      <p style="text-align:center; margin-top:1rem;">
+        <a class="btn btn--ghost" href="/">Brug den fulde lønberegner →</a>
+      </p>
+    </div>
+  </section>
+
 
   <!-- =====================================================================
        BOXES — satser
@@ -220,76 +292,6 @@
         </div>
         <p class="field-help" style="margin-top:.8rem;">Tallene er afrundede estimater baseret på 2026-satser, personfradrag 54.100 kr., beskæftigelsesfradrag og jobfradrag. Egen pension, kirkeskat og personlige fradrag (fagforening, kørsel, renter) er ikke medregnet — brug mini-lønberegneren herunder for dit konkrete tilfælde.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- =====================================================================
-       MINI-CALCULADORA (kommune låst til Esbjerg)
-       ===================================================================== -->
-  <section class="section" id="minicalc">
-    <div class="container">
-      <div class="section-title">
-        <h2>Mini-lønberegner — Esbjerg-satsen er låst</h2>
-        <p>Skriv din bruttoløn og se nettoløn med Esbjergs kommuneskat (26,10 %) direkte indsat.</p>
-      </div>
-
-      <form class="calc-form card" id="esbjergMini" autocomplete="off" novalidate>
-        <header class="calc-form__head">
-          <h3>Din indtjening</h3>
-          <p>Kommune: <span class="kom-locked">Esbjerg · 26,10 %</span></p>
-        </header>
-
-        <div class="kom-minicalc">
-          <fieldset class="field-group">
-            <legend>Bruttoløn (kr./år)</legend>
-            <div class="input-row">
-              <input type="number" id="emBrutto" min="0" step="1000" value="500000" inputmode="numeric" aria-label="Bruttoløn pr. år">
-              <span class="input-suffix">kr./år</span>
-            </div>
-            <input type="range" id="emBruttoSlider" min="100000" max="2000000" step="5000" value="500000" aria-label="Bruttoløn slider">
-            <div class="range-hint"><span>100.000</span><span>2.000.000 kr.</span></div>
-          </fieldset>
-
-          <fieldset class="field-group">
-            <legend>Egen pension <span class="badge-soft" id="emPensionLabel">0 %</span></legend>
-            <input type="range" id="emPension" min="0" max="25" step="0.5" value="0" aria-label="Egen pension procent">
-            <div class="range-hint"><span>0 %</span><span>25 %</span></div>
-            <p class="field-help">Trækkes før AM-bidrag.</p>
-          </fieldset>
-
-          <fieldset class="field-group">
-            <legend>Folkekirken</legend>
-            <label class="check-row">
-              <input type="checkbox" id="emKirke">
-              <span>Medlem (0,81 % kirkeskat)</span>
-            </label>
-          </fieldset>
-
-          <fieldset class="field-group">
-            <legend>ATP-bidrag</legend>
-            <label class="check-row">
-              <input type="checkbox" id="emAtp" checked>
-              <span>ATP (99 kr./md.)</span>
-            </label>
-          </fieldset>
-        </div>
-
-        <div class="kom-minicalc__result" id="emResult" aria-live="polite">
-          <div class="kom-minicalc__result-row"><span>Bruttoløn pr. år</span><span id="emOutBrutto">—</span></div>
-          <div class="kom-minicalc__result-row"><span>AM-bidrag (8 %)</span><span id="emOutAm">—</span></div>
-          <div class="kom-minicalc__result-row"><span>Bundskat</span><span id="emOutBund">—</span></div>
-          <div class="kom-minicalc__result-row"><span>Kommuneskat Esbjerg (26,10 %)</span><span id="emOutKom">—</span></div>
-          <div class="kom-minicalc__result-row"><span>Kirkeskat</span><span id="emOutKirke">—</span></div>
-          <div class="kom-minicalc__result-row"><span>Topskat / mellemskat</span><span id="emOutTop">—</span></div>
-          <div class="kom-minicalc__result-row"><span>Netto pr. md.</span><span id="emOutNettoM">—</span></div>
-          <div class="kom-minicalc__result-row"><span>Netto pr. år</span><span id="emOutNettoA">—</span></div>
-        </div>
-      <button type="submit" hidden aria-hidden="true">Beregn</button>
-    </form>
-
-      <p style="text-align:center; margin-top:1rem;">
-        <a class="btn btn--ghost" href="/">Brug den fulde lønberegner →</a>
-      </p>
     </div>
   </section>
 

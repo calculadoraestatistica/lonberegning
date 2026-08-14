@@ -29,6 +29,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/css/style.css">
 <script src="/js/cookie-consent.js" defer></script>
+<script src="/js/nav.js" defer></script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Kommuneskat Gentofte 2026","url":"https://lonberegning.dk/kommune/gentofte.html","inLanguage":"da","description":"Kommuneskat for Gentofte 2026 er 24,14 %, kirkeskat 0,38 %. Se eksempler på nettoløn og sammenlign med nabo-kommuner.","isPartOf":{"@type":"WebSite","name":"lonberegning.dk","url":"https://lonberegning.dk/"},"about":{"@type":"AdministrativeArea","name":"Gentofte Kommune"},"publisher":{"@type":"Organization","name":"Lønberegning","url":"https://lonberegning.dk/","logo":{"@type":"ImageObject","url":"https://lonberegning.dk/favicon-512.png","width":512,"height":512}}}</script>
 
@@ -165,6 +166,80 @@
   </section>
 
   <!-- =====================================================================
+       MINI-CALCULADORA
+       ===================================================================== -->
+  <section class="section section--calc" id="beregner">
+    <div class="container">
+      <div class="section-title">
+        <h2>Beregn din egen nettoløn i Gentofte</h2>
+        <p>Skriv din bruttoløn og se nettolønnen for Gentofte med det samme. Kommunen er låst — vil du sammenligne, så brug <a href="/sammenlign-kommuner.html">kommune-sammenligningen</a>.</p>
+      </div>
+
+      <form class="calc-form card mini-calc" id="miniForm" autocomplete="off" novalidate>
+        <div class="mini-calc__grid">
+          <fieldset>
+            <legend>Kommune</legend>
+            <div class="mini-calc__locked" aria-readonly="true">🔒 Gentofte (låst)</div>
+            <p class="mini-calc__hint">Kommuneskat 24,14 % · Kirkeskat 0,38 %.</p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Bruttoløn (kr./md.)</legend>
+            <div class="mini-calc__row">
+              <input type="number" id="miniBruttoMd" min="0" step="500" value="45000" inputmode="numeric" aria-label="Bruttoløn pr. måned">
+              <span class="mini-calc__suffix">kr./md.</span>
+            </div>
+            <p class="mini-calc__hint">Vi ganger med 12 til årsløn.</p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Egen pension</legend>
+            <div class="mini-calc__row">
+              <input type="number" id="miniPension" min="0" max="25" step="0.5" value="0" inputmode="decimal" aria-label="Egen pension i procent">
+              <span class="mini-calc__suffix">%</span>
+            </div>
+            <p class="mini-calc__hint">Trækkes før AM-bidrag.</p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Indstillinger</legend>
+            <label class="mini-calc__check">
+              <input type="checkbox" id="miniFolkekirke">
+              <span>Medlem af folkekirken</span>
+            </label>
+            <label class="mini-calc__check" style="margin-top:.4rem;">
+              <input type="checkbox" id="miniAtp" checked>
+              <span>ATP (99 kr./md.)</span>
+            </label>
+          </fieldset>
+        </div>
+
+        <div class="mini-result" id="miniResult" aria-live="polite">
+          <div class="mini-result__card">
+            <p class="mini-result__label">Nettoløn pr. md.</p>
+            <p class="mini-result__value" id="miniNettoMd">—</p>
+            <p class="mini-result__sub" id="miniNettoArSub">—</p>
+          </div>
+          <div class="mini-result__card mini-result__card--alt">
+            <p class="mini-result__label">Samlet skat</p>
+            <p class="mini-result__value" id="miniSkatPct">—</p>
+            <p class="mini-result__sub" id="miniSkatKr">— pr. år</p>
+          </div>
+          <div class="mini-result__card mini-result__card--muted">
+            <p class="mini-result__label">AM-bidrag</p>
+            <p class="mini-result__value" id="miniAm">—</p>
+            <p class="mini-result__sub">8 % af lønnen efter ATP og pension</p>
+          </div>
+        </div>
+
+        <p class="mini-calc__hint">Vil du have fuld breakdown af bundskat, mellemskat, topskat og fradrag? Brug den <a href="/">store lønberegner</a>.</p>
+      <button type="submit" hidden aria-hidden="true">Beregn</button>
+    </form>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
        SATSER — boxes
        ===================================================================== -->
   <section class="section">
@@ -267,79 +342,6 @@
   </section>
 
   <div class="container"><div class="ad-slot" data-ad-slot=""></div></div>
-
-  <!-- =====================================================================
-       MINI-CALCULADORA
-       ===================================================================== -->
-  <section class="section section--calc" id="beregner">
-    <div class="container">
-      <div class="section-title">
-        <h2>Beregn din egen nettoløn i Gentofte</h2>
-        <p>Skriv din bruttoløn og se nettolønnen for Gentofte med det samme. Kommunen er låst — vil du sammenligne, så brug <a href="/sammenlign-kommuner.html">kommune-sammenligningen</a>.</p>
-      </div>
-
-      <form class="calc-form card mini-calc" id="miniForm" autocomplete="off" novalidate>
-        <div class="mini-calc__grid">
-          <fieldset>
-            <legend>Kommune</legend>
-            <div class="mini-calc__locked" aria-readonly="true">🔒 Gentofte (låst)</div>
-            <p class="mini-calc__hint">Kommuneskat 24,14 % · Kirkeskat 0,38 %.</p>
-          </fieldset>
-
-          <fieldset>
-            <legend>Bruttoløn (kr./md.)</legend>
-            <div class="mini-calc__row">
-              <input type="number" id="miniBruttoMd" min="0" step="500" value="45000" inputmode="numeric" aria-label="Bruttoløn pr. måned">
-              <span class="mini-calc__suffix">kr./md.</span>
-            </div>
-            <p class="mini-calc__hint">Vi ganger med 12 til årsløn.</p>
-          </fieldset>
-
-          <fieldset>
-            <legend>Egen pension</legend>
-            <div class="mini-calc__row">
-              <input type="number" id="miniPension" min="0" max="25" step="0.5" value="0" inputmode="decimal" aria-label="Egen pension i procent">
-              <span class="mini-calc__suffix">%</span>
-            </div>
-            <p class="mini-calc__hint">Trækkes før AM-bidrag.</p>
-          </fieldset>
-
-          <fieldset>
-            <legend>Indstillinger</legend>
-            <label class="mini-calc__check">
-              <input type="checkbox" id="miniFolkekirke">
-              <span>Medlem af folkekirken</span>
-            </label>
-            <label class="mini-calc__check" style="margin-top:.4rem;">
-              <input type="checkbox" id="miniAtp" checked>
-              <span>ATP (99 kr./md.)</span>
-            </label>
-          </fieldset>
-        </div>
-
-        <div class="mini-result" id="miniResult" aria-live="polite">
-          <div class="mini-result__card">
-            <p class="mini-result__label">Nettoløn pr. md.</p>
-            <p class="mini-result__value" id="miniNettoMd">—</p>
-            <p class="mini-result__sub" id="miniNettoArSub">—</p>
-          </div>
-          <div class="mini-result__card mini-result__card--alt">
-            <p class="mini-result__label">Samlet skat</p>
-            <p class="mini-result__value" id="miniSkatPct">—</p>
-            <p class="mini-result__sub" id="miniSkatKr">— pr. år</p>
-          </div>
-          <div class="mini-result__card mini-result__card--muted">
-            <p class="mini-result__label">AM-bidrag</p>
-            <p class="mini-result__value" id="miniAm">—</p>
-            <p class="mini-result__sub">8 % af lønnen efter ATP og pension</p>
-          </div>
-        </div>
-
-        <p class="mini-calc__hint">Vil du have fuld breakdown af bundskat, mellemskat, topskat og fradrag? Brug den <a href="/">store lønberegner</a>.</p>
-      <button type="submit" hidden aria-hidden="true">Beregn</button>
-    </form>
-    </div>
-  </section>
 
   <!-- =====================================================================
        FAQ
