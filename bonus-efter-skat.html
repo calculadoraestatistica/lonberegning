@@ -128,7 +128,7 @@
         <form class="calc-form card" id="bonusForm" autocomplete="off" novalidate>
           <header class="calc-form__head">
             <h2>Din bonus</h2>
-            <p>Udfyld felterne — resultatet opdateres automatisk.</p>
+            <p>Udfyld felterne: resultatet opdateres automatisk.</p>
           </header>
 
           <!-- Bonus brutto ------------------------------------------------- -->
@@ -143,7 +143,7 @@
               <span>0</span>
               <span>500.000 kr.</span>
             </div>
-            <p class="field-help">Skriv bonussen før skat — det tal arbejdsgiveren har lovet dig.</p>
+            <p class="field-help">Skriv bonussen før skat. Det tal arbejdsgiveren har lovet dig.</p>
           </fieldset>
 
           <!-- Månedsløn --------------------------------------------------- -->
@@ -158,7 +158,7 @@
               <span>0</span>
               <span>150.000 kr./md.</span>
             </div>
-            <p class="field-help">Vi bruger din løn til at finde dit marginale skattetrin — det er dér bonussen bliver beskattet.</p>
+            <p class="field-help">Vi bruger din løn til at finde dit marginale skattetrin. Det er dér bonussen bliver beskattet.</p>
           </fieldset>
 
           <!-- Kommune ------------------------------------------------------- -->
@@ -185,7 +185,7 @@
             <legend>Egen pension af lønnen <span class="badge-soft" id="pensionEgenLabel">5 %</span></legend>
             <input type="range" id="pensionEgen" min="0" max="25" step="0.5" value="5" aria-label="Egen pension procent">
             <div class="range-hint"><span>0 %</span><span>25 %</span></div>
-            <p class="field-help">Bruges til at beregne din almindelige nettoløn — påvirker ikke selve bonussen.</p>
+            <p class="field-help">Bruges til at beregne din almindelige nettoløn: påvirker ikke selve bonussen.</p>
           </fieldset>
 
           <!-- Toggle pension ----------------------------------------------- -->
@@ -272,17 +272,17 @@
     <div class="container prose">
       <div class="section-title">
         <h2>Hvorfor er beregningen et estimate?</h2>
-        <p>Beregneren rammer i de fleste tilfælde tæt på det rigtige tal — men der er tre ting, der kan flytte resultatet for dig personligt.</p>
+        <p>Beregneren rammer i de fleste tilfælde tæt på det rigtige tal, men der er tre ting, der kan flytte resultatet for dig personligt.</p>
       </div>
 
       <h3>1. Din forskudsopgørelse styrer dit faktiske skattetræk</h3>
-      <p>Skattestyrelsen kender til dine personlige fradrag — befordring, renter på boliglån, donationer, indbetalinger til private pensioner og så videre. Det er din forskudsopgørelse, der bestemmer den trækprocent, arbejdsgiveren bruger på bonussen. Vi går ud fra en gennemsnitsdansker uden særlige fradrag, så hvis du har store renter eller pendler langt, vil dit faktiske træk være lidt lavere end her.</p>
+      <p>Skattestyrelsen kender til dine personlige fradrag: befordring, renter på boliglån, donationer, indbetalinger til private pensioner og så videre. Det er din forskudsopgørelse, der bestemmer den trækprocent, arbejdsgiveren bruger på bonussen. Vi går ud fra en gennemsnitsdansker uden særlige fradrag, så hvis du har store renter eller pendler langt, vil dit faktiske træk være lidt lavere end her.</p>
 
       <h3>2. Bonussen rammer dit marginale skattetrin</h3>
-      <p>Bonus beskattes ikke isoleret — den lægges oven på din almindelige årsløn. Hvis din løn i forvejen ligger lige under topskattegrænsen, kan en stor bonus skubbe dele af beløbet over grænsen og dermed blive ramt af 7,5 % topskat oven i bundskat og kommuneskat. Beregneren tager højde for dette, men kun ud fra din månedsløn — har du anden indkomst (frynsegoder, aktieløn, bijob), kan dit reelle marginale trin være højere.</p>
+      <p>Bonus beskattes ikke isoleret. Den lægges oven på din almindelige årsløn. Hvis din løn i forvejen ligger lige under topskattegrænsen, kan en stor bonus skubbe dele af beløbet over grænsen og dermed blive ramt af 7,5 % topskat oven i bundskat og kommuneskat. Beregneren tager højde for dette, men kun ud fra din månedsløn: har du anden indkomst (frynsegoder, aktieløn, bijob), kan dit reelle marginale trin være højere.</p>
 
       <h3>3. Pensionsindbetalinger og særordninger</h3>
-      <p>Hvis du indbetaler en del af bonussen til pension (bortseelsesret), undgår du både AM-bidrag og A-skat nu, men beløbet beskattes ved udbetaling. Beregneren viser sammenligningen "i hånden nu", ikke nutidsværdien af pensionen om 20 år — den effektive gevinst afhænger af din skat som pensionist og af afkastet undervejs. Forskerordningen (27 %-ordningen), §7P-aktieløn og særlige bonusprogrammer følger andre regler. Læs mere på vores <a href="/kilder.html">kilder og metode-side</a>.</p>
+      <p>Hvis du indbetaler en del af bonussen til pension (bortseelsesret), undgår du både AM-bidrag og A-skat nu, men beløbet beskattes ved udbetaling. Beregneren viser sammenligningen "i hånden nu", ikke nutidsværdien af pensionen om 20 år. Den effektive gevinst afhænger af din skat som pensionist og af afkastet undervejs. Forskerordningen (27 %-ordningen), §7P-aktieløn og særlige bonusprogrammer følger andre regler. Læs mere på vores <a href="/kilder.html">kilder og metode-side</a>.</p>
     </div>
   </section>
 
@@ -293,7 +293,7 @@
     <div class="container">
       <div class="section-title">
         <h2>Sådan beregnes skatten af din bonus</h2>
-        <p>Bonus beskattes som almindelig løn — men fordi den rammer toppen af din indkomst, bliver effekten ofte hårdere end på din månedsløn.</p>
+        <p>Bonus beskattes som almindelig løn, men fordi den rammer toppen af din indkomst, bliver effekten ofte hårdere end på din månedsløn.</p>
       </div>
       <div class="card-grid card-grid--3">
 
@@ -306,13 +306,13 @@
         <article class="card feature">
           <div class="feature__num">2</div>
           <h3>AM-bidrag + A-skat på toppen</h3>
-          <p>Først trækkes <strong>8 % AM-bidrag</strong>. På resten beregnes <strong>bundskat (12,01 %)</strong>, <strong>kommuneskat</strong> og — afhængigt af din samlede løn — <strong>mellemskat (7,5 %)</strong> fra 641.200 kr., <strong>topskat (7,5 %)</strong> fra 777.900 kr. og <strong>toptopskat (5 %)</strong> over 2.592.700 kr.</p>
+          <p>Først trækkes <strong>8 % AM-bidrag</strong>. På resten beregnes <strong>bundskat (12,01 %)</strong>, <strong>kommuneskat</strong> og, afhængigt af din samlede løn, <strong>mellemskat (7,5 %)</strong> fra 641.200 kr., <strong>topskat (7,5 %)</strong> fra 777.900 kr. og <strong>toptopskat (5 %)</strong> over 2.592.700 kr.</p>
         </article>
 
         <article class="card feature">
           <div class="feature__num">3</div>
           <h3>Pension = udskudt skat</h3>
-          <p>Sender arbejdsgiveren bonussen direkte til din pensionsordning, betaler du <strong>0 kr.</strong> i skat nu. Du beskattes først ved udbetaling som pensionist — typisk uden topskat, og uden AM-bidrag. På den måde kan du flytte 50 kr. fra "i hånden" til 100 kr. i pension.</p>
+          <p>Sender arbejdsgiveren bonussen direkte til din pensionsordning, betaler du <strong>0 kr.</strong> i skat nu. Du beskattes først ved udbetaling som pensionist, typisk uden topskat, og uden AM-bidrag. På den måde kan du flytte 50 kr. fra "i hånden" til 100 kr. i pension.</p>
         </article>
 
       </div>
@@ -333,7 +333,7 @@
       <div class="faq">
         <details>
           <summary>Hvor meget skat betaler jeg af en bonus?</summary>
-          <p>En bonus beskattes som almindelig løn — først AM-bidrag på 8 %, derefter A-skat (bundskat, kommuneskat og evt. mellem- og topskat) på resten. I praksis betyder det, at hvis du i forvejen er i topskattefeltet, beholder du kun cirka 45-48 % af bonusbeløbet. Er du under mellemskattegrænsen, beholder du typisk 55-62 %.</p>
+          <p>En bonus beskattes som almindelig løn: først AM-bidrag på 8 %, derefter A-skat (bundskat, kommuneskat og evt. mellem- og topskat) på resten. I praksis betyder det, at hvis du i forvejen er i topskattefeltet, beholder du kun cirka 45-48 % af bonusbeløbet. Er du under mellemskattegrænsen, beholder du typisk 55-62 %.</p>
         </details>
         <details>
           <summary>Hvorfor er skatten på min bonus så høj?</summary>
@@ -341,7 +341,7 @@
         </details>
         <details>
           <summary>Kan jeg slippe billigere ved at indbetale bonus til pension?</summary>
-          <p>Ja. Hvis din arbejdsgiver indbetaler bonussen direkte til en pensionsordning, slipper du for at betale både AM-bidrag og A-skat nu — det kaldes bortseelsesret. Du beskattes først, når du senere får pensionen udbetalt, ofte til en lavere sats. Det er især fordelagtigt, hvis du i dag betaler topskat og forventer at være under topskat som pensionist. Brug vores <a href="/pensionsfradrag.html">pensionsberegner</a> for at se den langsigtede effekt.</p>
+          <p>Ja. Hvis din arbejdsgiver indbetaler bonussen direkte til en pensionsordning, slipper du for at betale både AM-bidrag og A-skat nu. Det kaldes bortseelsesret. Du beskattes først, når du senere får pensionen udbetalt, ofte til en lavere sats. Det er især fordelagtigt, hvis du i dag betaler topskat og forventer at være under topskat som pensionist. Brug vores <a href="/pensionsfradrag.html">pensionsberegner</a> for at se den langsigtede effekt.</p>
         </details>
         <details>
           <summary>Hvad er marginalskatten på en bonus?</summary>
@@ -353,7 +353,7 @@
         </details>
         <details>
           <summary>Gemmer I mine tal?</summary>
-          <p>Nej. Alle beregninger sker lokalt i din browser. Vi sender ingen tal til en server. Dine seneste indtastninger gemmes i din egen browser (localStorage), så formularen er udfyldt næste gang du besøger siden — du kan rydde det med "Nulstil"-knappen.</p>
+          <p>Nej. Alle beregninger sker lokalt i din browser. Vi sender ingen tal til en server. Dine seneste indtastninger gemmes i din egen browser (localStorage), så formularen er udfyldt næste gang du besøger siden. Du kan rydde det med "Nulstil"-knappen.</p>
         </details>
       </div>
     </div>
@@ -391,7 +391,7 @@
         </a>
         <a class="card link-card" href="/feriepenge.html">
           <h3>Feriepenge efter skat</h3>
-          <p>12,5 % af lønnen — men hvad bliver det efter skat? Se din feriepenge-udbetaling før den lander.</p>
+          <p>12,5 % af lønnen, men hvad bliver det efter skat? Se din feriepenge-udbetaling før den lander.</p>
         </a>
       </div>
     </div>
@@ -401,7 +401,7 @@
     <div class="container">
       <div class="cta-band">
         <h2>Vil du vide, hvor meget du får udbetalt af lønnen?</h2>
-        <p>Brug lønberegneren — gratis, uden logind og opdateret med 2026-satserne.</p>
+        <p>Brug lønberegneren: gratis, uden logind og opdateret med 2026-satserne.</p>
         <a class="btn btn--light btn--lg" href="/">Åbn lønberegneren</a>
       </div>
     </div>

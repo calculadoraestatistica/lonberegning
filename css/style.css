@@ -2688,3 +2688,53 @@ input.cmp-multiselect__input:focus { box-shadow: none; outline: none; border: 0;
   box-shadow: none;
 }
 .btn:active { transform: translateY(1px); }
+
+
+/* Mídia explicativa (clipes e ilustrações) */
+.media-figure{margin:2.25rem 0;}
+.media-figure video,.media-figure img{display:block;width:100%;height:auto;border-radius:10px;
+  border:1px solid rgba(0,0,0,.09);background:rgba(0,0,0,.02);}
+.media-figure figcaption{margin-top:.65rem;font-size:.9rem;line-height:1.6;opacity:.75;}
+.media-hero{margin:.5rem 0 1.5rem;}
+.media-hero img{display:block;width:100%;height:220px;object-fit:cover;object-position:center 62%;
+  border-radius:12px;}
+@media (max-width:640px){.media-hero img{height:150px;}}
+@media (max-width:640px){.media-figure{margin:1.5rem 0;}}
+
+
+/* ── Polimento de interação ───────────────────────────────────────────────
+   As curvas embutidas do CSS são fracas demais para parecerem intencionais;
+   estas são as fortes. Nada aqui anima layout (só transform e opacity, que
+   rodam na GPU), e tudo some para quem pede menos movimento. */
+:root{
+  --ease-out:cubic-bezier(.23,1,.32,1);
+  --ease-in-out:cubic-bezier(.77,0,.175,1);
+}
+
+/* Botão tem de responder ao toque na hora: sem isso a interface parece surda. */
+button,.btn,[role="button"],input[type="submit"],input[type="button"],.button{
+  transition:transform 160ms var(--ease-out),background-color 160ms var(--ease-out),
+             border-color 160ms var(--ease-out),box-shadow 160ms var(--ease-out);
+}
+button:active,.btn:active,[role="button"]:active,
+input[type="submit"]:active,input[type="button"]:active,.button:active{
+  transform:scale(.97);
+}
+
+/* Hover só onde existe ponteiro de verdade: no toque ele "gruda" depois do tap. */
+@media (hover:hover) and (pointer:fine){
+  a.card:hover,.card a:hover,.calculator-card:hover{transform:translateY(-2px);}
+  a.card,.card a,.calculator-card{transition:transform 180ms var(--ease-out),box-shadow 180ms var(--ease-out);}
+}
+
+/* Foco visível para quem navega no teclado, sem poluir o clique do mouse. */
+:focus-visible{outline:2px solid currentColor;outline-offset:2px;border-radius:3px;}
+
+/* Campos: transição curta e previsível em vez de transition:all. */
+input,select,textarea{transition:border-color 140ms var(--ease-out),box-shadow 140ms var(--ease-out);}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
+    transition-duration:.01ms!important;scroll-behavior:auto!important;}
+  button:active,.btn:active,.button:active{transform:none;}
+}

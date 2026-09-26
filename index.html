@@ -103,7 +103,7 @@
     <div class="container">
       <span class="hero__eyebrow">100% gratis · Uden logind · Direkte i browseren</span>
       <h1>Lønberegner 2026 — brutto til netto</h1>
-      <p class="lead">Skriv din bruttoløn, vælg din kommune og se med det samme hvad du får udbetalt. Vi bruger de officielle skattesatser for 2026 — AM-bidrag, bundskat, mellemskat, topskat og kommuneskat — og viser dig hele opdelingen i kroner og ører.</p>
+      <p class="lead">Skriv din bruttoløn, vælg din kommune og se med det samme hvad du får udbetalt. Vi bruger de officielle skattesatser for 2026 (AM-bidrag, bundskat, mellemskat, topskat og kommuneskat) og viser dig hele opdelingen i kroner og ører.</p>
       <div class="hero__actions">
         <a class="btn btn--primary btn--lg" href="#beregner">Beregn netto-løn</a>
         <a class="btn btn--ghost btn--lg" href="/sammenlign-kommuner.html">Sammenlign kommuner</a>
@@ -116,6 +116,11 @@
       </div>
     </div>
   </section>
+  <div class="container media-hero">
+    <img src="/img/hero-lonberegning.jpg" width="1200" height="675" alt="En lønseddel set skråt ovenfra, en linje fremhævet"
+         loading="lazy" decoding="async">
+  </div>
+
 
   <!-- =====================================================================
        BEREGNER (form + resultat)
@@ -128,7 +133,7 @@
         <form class="calc-form card" id="lonForm" autocomplete="off" novalidate>
           <header class="calc-form__head">
             <h2>Din løn</h2>
-            <p>Udfyld felterne — resultatet opdateres automatisk.</p>
+            <p>Udfyld felterne: resultatet opdateres automatisk.</p>
           </header>
 
           <!-- Bruttoløn ----------------------------------------------------- -->
@@ -183,7 +188,7 @@
             <legend>Arbejdsgivers pension <span class="badge-soft" id="pensionArbLabel">10 %</span></legend>
             <input type="range" id="pensionArb" min="0" max="15" step="0.5" value="10" aria-label="Arbejdsgivers pension procent">
             <div class="range-hint"><span>0 %</span><span>15 %</span></div>
-            <p class="field-help">Påvirker ikke din nettoløn — vises som information.</p>
+            <p class="field-help">Påvirker ikke din nettoløn: vises som information.</p>
           </fieldset>
 
           <!-- ATP + alder --------------------------------------------------- -->
@@ -287,10 +292,10 @@
       </div>
 
       <h3>1. Din forskudsopgørelse er ikke gennemsnitlig</h3>
-      <p>Hver dansker har en personlig <strong>forskudsopgørelse</strong> hos Skattestyrelsen, der bestemmer hvor meget A-skat din arbejdsgiver trækker hver måned. Den indeholder dine individuelle fradrag — for eksempel renteudgifter på boliglån, befordring til og fra arbejde, donationer, indbetalinger til private pensioner og håndværkerfradrag. Vi bruger nul som standard for de fleste af disse poster, så hvis du har dem, vil dit faktiske skattetræk være lidt lavere, end beregneren viser. Tilføj dem i "Avanceret" for et tættere bud.</p>
+      <p>Hver dansker har en personlig <strong>forskudsopgørelse</strong> hos Skattestyrelsen, der bestemmer hvor meget A-skat din arbejdsgiver trækker hver måned. Den indeholder dine individuelle fradrag, for eksempel renteudgifter på boliglån, befordring til og fra arbejde, donationer, indbetalinger til private pensioner og håndværkerfradrag. Vi bruger nul som standard for de fleste af disse poster, så hvis du har dem, vil dit faktiske skattetræk være lidt lavere, end beregneren viser. Tilføj dem i "Avanceret" for et tættere bud.</p>
 
       <h3>2. Arbejdsgiver-pensionen er ikke en del af din løn</h3>
-      <p>Mange lønsedler viser <strong>pensionsbidrag fra arbejdsgiver</strong> som en separat linje oven på bruttoløn — typisk 8-12 % af lønnen. De penge er ikke skattepligtige for dig, men de er heller ikke en del af det beløb, du skal indtaste her som bruttoløn. Skriv kun din egen aftalte løn (det tal, der beskattes), ellers overvurderer du både skat og udbetaling. Du kan justere arbejdsgivers procent i formularen — det vises kun til information.</p>
+      <p>Mange lønsedler viser <strong>pensionsbidrag fra arbejdsgiver</strong> som en separat linje oven på bruttoløn, typisk 8-12 % af lønnen. De penge er ikke skattepligtige for dig, men de er heller ikke en del af det beløb, du skal indtaste her som bruttoløn. Skriv kun din egen aftalte løn (det tal, der beskattes), ellers overvurderer du både skat og udbetaling. Du kan justere arbejdsgivers procent i formularen. Det vises kun til information.</p>
 
       <h3>3. ATP, pensionsfradrag og særlige ordninger</h3>
       <p>ATP-bidraget på 99 kr./md. trækkes <em>før</em> AM-bidrag og A-skat, hvilket sænker din skattepligtige indkomst med 1.188 kr./år. Det samme gælder din egen pension via lønnen (bortseelsesret). Hvis du har <strong>frikort</strong>, er på <strong>seniornedslag</strong>, kører efter <strong>forskerskatteordningen</strong> (27 %-ordningen), modtager <strong>SU</strong> eller arbejder under en <strong>særordning</strong>, gælder andre regler, som denne beregner ikke dækker. Læs mere på vores <a href="/kilder.html">kilder og metode-side</a>.</p>
@@ -342,11 +347,11 @@
       <div class="faq">
         <details>
           <summary>Hvor præcis er lønberegneren?</summary>
-          <p>Beregneren bruger de officielle skattesatser for 2026 fra Skattestyrelsen — AM-bidrag, bundskat, mellemskat, topskat, toptopskat og din kommuneskat. Resultatet er typisk inden for få hundrede kroner pr. måned i forhold til din lønseddel, men din egen forskudsopgørelse kan have specifikke fradrag, der gør tallene afviger.</p>
+          <p>Beregneren bruger de officielle skattesatser for 2026 fra Skattestyrelsen. AM-bidrag, bundskat, mellemskat, topskat, toptopskat og din kommuneskat. Resultatet er typisk inden for få hundrede kroner pr. måned i forhold til din lønseddel, men din egen forskudsopgørelse kan have specifikke fradrag, der gør tallene afviger.</p>
         </details>
         <details>
           <summary>Hvad er forskellen mellem bruttoløn og nettoløn?</summary>
-          <p>Bruttoløn er din aftalte løn før skat og bidrag. Nettoløn — også kaldet udbetalt løn — er det, der lander på din konto, efter ATP, eventuel egen pension, AM-bidrag (8 %) og A-skat (bundskat + kommuneskat + evt. mellem-/topskat) er trukket.</p>
+          <p>Bruttoløn er din aftalte løn før skat og bidrag. Nettoløn, også kaldet udbetalt løn, er det, der lander på din konto, efter ATP, eventuel egen pension, AM-bidrag (8 %) og A-skat (bundskat + kommuneskat + evt. mellem-/topskat) er trukket.</p>
         </details>
         <details>
           <summary>Skal jeg inkludere arbejdsgiverpension i bruttoløn?</summary>
@@ -358,11 +363,11 @@
         </details>
         <details>
           <summary>Hvornår betaler man topskat i 2026?</summary>
-          <p>Topskat (7,5 % i 2026) betales af personlig indkomst over 777.900 kr. om året efter AM-bidrag. Det svarer til omkring 846.000 kr. i bruttoløn. Tjener du mere end 2.592.700 kr. efter AM-bidrag, betaler du yderligere 5 % i toptopskat — den såkaldte toptopskat. Brug <a href="/topskat-tjek.html">topskat-tjekker</a> for at se, hvor tæt du er på grænsen.</p>
+          <p>Topskat (7,5 % i 2026) betales af personlig indkomst over 777.900 kr. om året efter AM-bidrag. Det svarer til omkring 846.000 kr. i bruttoløn. Tjener du mere end 2.592.700 kr. efter AM-bidrag, betaler du yderligere 5 % i toptopskat. Den såkaldte toptopskat. Brug <a href="/topskat-tjek.html">topskat-tjekker</a> for at se, hvor tæt du er på grænsen.</p>
         </details>
         <details>
           <summary>Gemmer I mine tal?</summary>
-          <p>Nej. Alle beregninger sker lokalt i din browser. Vi sender ingen tal til en server. Dine seneste indtastninger gemmes i din egen browser (localStorage), så formularen er udfyldt, næste gang du besøger siden — du kan rydde det med "Nulstil"-knappen.</p>
+          <p>Nej. Alle beregninger sker lokalt i din browser. Vi sender ingen tal til en server. Dine seneste indtastninger gemmes i din egen browser (localStorage), så formularen er udfyldt, næste gang du besøger siden. Du kan rydde det med "Nulstil"-knappen.</p>
         </details>
       </div>
     </div>
@@ -404,7 +409,7 @@
         </a>
         <a class="card link-card" href="/feriepenge.html">
           <h3>Feriepenge</h3>
-          <p>12,5 % af lønnen — men hvad bliver det efter skat? Se din feriepenge-udbetaling før den lander.</p>
+          <p>12,5 % af lønnen, men hvad bliver det efter skat? Se din feriepenge-udbetaling før den lander.</p>
         </a>
       </div>
     </div>
@@ -414,7 +419,7 @@
     <div class="container">
       <div class="cta-band">
         <h2>Vil du vide, hvor meget du får udbetalt?</h2>
-        <p>Brug lønberegneren — gratis, uden logind og opdateret med 2026-satserne.</p>
+        <p>Brug lønberegneren: gratis, uden logind og opdateret med 2026-satserne.</p>
         <a class="btn btn--light btn--lg" href="#beregner">Åbn lønberegneren</a>
       </div>
     </div>

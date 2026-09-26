@@ -103,7 +103,7 @@
     <div class="container">
       <span class="hero__eyebrow">100% gratis · Uden logind · Direkte i browseren</span>
       <h1>Lønforhøjelse-beregner — hvad får du reelt udbetalt?</h1>
-      <p class="lead">Du fik tilbudt en stigning på 2.000 kr. om måneden — men hvor mange af dem ender på din konto? Indtast din nuværende månedsløn og forhøjelsen, og se den reelle netto-effekt sammen med marginalskatten pr. krone af stigningen. Opdateret med 2026-satserne.</p>
+      <p class="lead">Du fik tilbudt en stigning på 2.000 kr. om måneden, men hvor mange af dem ender på din konto? Indtast din nuværende månedsløn og forhøjelsen, og se den reelle netto-effekt sammen med marginalskatten pr. krone af stigningen. Opdateret med 2026-satserne.</p>
       <div class="hero__actions">
         <a class="btn btn--primary btn--lg" href="#beregner">Beregn lønforhøjelse</a>
         <a class="btn btn--ghost btn--lg" href="/topskat-tjek.html">Læs om topskat</a>
@@ -128,7 +128,7 @@
         <form class="calc-form card" id="raiseForm" autocomplete="off" novalidate>
           <header class="calc-form__head">
             <h2>Din lønforhøjelse</h2>
-            <p>Udfyld felterne — resultatet opdateres automatisk.</p>
+            <p>Udfyld felterne: resultatet opdateres automatisk.</p>
           </header>
 
           <!-- Nuværende månedsløn -->
@@ -151,7 +151,7 @@
             </div>
             <input type="range" id="raiseSlider" min="0" max="20000" step="100" value="2000" aria-label="Forhøjelse slider">
             <div class="range-hint"><span>0</span><span>20.000 kr./md.</span></div>
-            <p class="field-help" id="raisePctHelp">— af nuværende løn</p>
+            <p class="field-help" id="raisePctHelp">, af nuværende løn</p>
           </fieldset>
 
           <!-- Kommune -->
@@ -178,7 +178,7 @@
             <legend>Egen pension <span class="badge-soft" id="pensionEgenLabel">5 %</span></legend>
             <input type="range" id="pensionEgen" min="0" max="25" step="0.5" value="5" aria-label="Egen pension procent">
             <div class="range-hint"><span>0 %</span><span>25 %</span></div>
-            <p class="field-help">Trækkes af din bruttoløn før AM-bidrag og skat — gælder for både nuværende løn og forhøjelse.</p>
+            <p class="field-help">Trækkes af din bruttoløn før AM-bidrag og skat: gælder for både nuværende løn og forhøjelse.</p>
           </fieldset>
 
           <div class="calc-form__foot">
@@ -203,7 +203,7 @@
 
           <div class="card" id="topskatWarning" hidden>
             <h3 class="result-h3" style="color:#b91c1c;">Pas på — du krydser topskattegrænsen</h3>
-            <p id="topskatWarningText">Med denne forhøjelse rammer du topskat. Det betyder, at marginalskatten på den del af stigningen, der ligger over grænsen, er markant højere. Overvej at lægge dele af stigningen ind i pensionsordningen via bortseelsesret — så undgår du både AM-bidrag og A-skat på den del.</p>
+            <p id="topskatWarningText">Med denne forhøjelse rammer du topskat. Det betyder, at marginalskatten på den del af stigningen, der ligger over grænsen, er markant højere. Overvej at lægge dele af stigningen ind i pensionsordningen via bortseelsesret: så undgår du både AM-bidrag og A-skat på den del.</p>
           </div>
 
           <div class="card">
@@ -248,13 +248,13 @@
       </div>
 
       <h3>1. Din forskudsopgørelse indeholder dine personlige fradrag</h3>
-      <p>Skattestyrelsen kender dine renteudgifter, dit kørselsfradrag, dine fagforeningskontingenter og indbetalinger til private pensioner. Vi bruger nul som standard, så hvis du har fradrag, vil din faktiske marginalskat på en lønforhøjelse være en smule lavere, end vi viser. Forskellen er typisk få procentpoint — ikke nok til at ændre den overordnede beslutning, men nok til at flytte et par hundrede kroner om måneden.</p>
+      <p>Skattestyrelsen kender dine renteudgifter, dit kørselsfradrag, dine fagforeningskontingenter og indbetalinger til private pensioner. Vi bruger nul som standard, så hvis du har fradrag, vil din faktiske marginalskat på en lønforhøjelse være en smule lavere, end vi viser. Forskellen er typisk få procentpoint, ikke nok til at ændre den overordnede beslutning, men nok til at flytte et par hundrede kroner om måneden.</p>
 
       <h3>2. Pension og bortseelsesret skubber til marginalskatten</h3>
-      <p>Hvis du sender hele eller dele af lønforhøjelsen direkte ind i din arbejdsgiverpension, betaler du <em>hverken</em> AM-bidrag eller A-skat på den del nu. Det skifter regnestykket markant: en stigning på 3.000 kr./md. kan give 0 kr. ekstra i lønningsposen, men 36.000 kr./år ekstra i pensionsdepot. Beregneren her viser <strong>direkte løn</strong> — ikke pensionsvalget. Læs vores <a href="/pensionsfradrag.html">pensions-side</a> for at sammenligne.</p>
+      <p>Hvis du sender hele eller dele af lønforhøjelsen direkte ind i din arbejdsgiverpension, betaler du <em>hverken</em> AM-bidrag eller A-skat på den del nu. Det skifter regnestykket markant: en stigning på 3.000 kr./md. kan give 0 kr. ekstra i lønningsposen, men 36.000 kr./år ekstra i pensionsdepot. Beregneren her viser <strong>direkte løn</strong>, ikke pensionsvalget. Læs vores <a href="/pensionsfradrag.html">pensions-side</a> for at sammenligne.</p>
 
       <h3>3. Topskattegrænsen flytter alt</h3>
-      <p>I 2026 begynder topskat (7,5 %) ved en personlig indkomst på 777.900 kr. om året <em>efter</em> AM-bidrag — det svarer til ca. 846.000 kr. bruttoløn eller ca. 70.500 kr./md. Lige under grænsen beholder du måske 60 % af en stigning. Lige over beholder du kun ca. 48 %. Beregneren markerer det automatisk, hvis din nye løn krydser grænsen.</p>
+      <p>I 2026 begynder topskat (7,5 %) ved en personlig indkomst på 777.900 kr. om året <em>efter</em> AM-bidrag. Det svarer til ca. 846.000 kr. bruttoløn eller ca. 70.500 kr./md. Lige under grænsen beholder du måske 60 % af en stigning. Lige over beholder du kun ca. 48 %. Beregneren markerer det automatisk, hvis din nye løn krydser grænsen.</p>
 
       <p>For en fuld gennemgang af kilder, antagelser og kendte begrænsninger, se <a href="/kilder.html">kilder og metode</a>.</p>
     </div>
@@ -267,14 +267,14 @@
     <div class="container">
       <div class="section-title">
         <h2>Sådan beskattes en lønforhøjelse</h2>
-        <p>Den vigtigste indsigt: stigningen beskattes ikke som dit gennemsnit, men som din næste krone — altså marginalskat.</p>
+        <p>Den vigtigste indsigt: stigningen beskattes ikke som dit gennemsnit, men som din næste krone, altså marginalskat.</p>
       </div>
       <div class="card-grid card-grid--3">
 
         <article class="card feature">
           <div class="feature__num">1</div>
           <h3>Hver krone af stigningen mødes af AM-bidrag</h3>
-          <p>Først ryger 8 % af stigningen i AM-bidrag (efter ATP og egen pension er trukket). Det sker uanset om du tjener 30.000 eller 90.000 om måneden. Derefter går resten ind i A-skat-trappen — og det er der, det virkelig gør forskel.</p>
+          <p>Først ryger 8 % af stigningen i AM-bidrag (efter ATP og egen pension er trukket). Det sker uanset om du tjener 30.000 eller 90.000 om måneden. Derefter går resten ind i A-skat-trappen, og det er der, det virkelig gør forskel.</p>
         </article>
 
         <article class="card feature">
@@ -309,23 +309,23 @@
         </details>
         <details>
           <summary>Hvad er marginalskat, og hvorfor er den vigtig?</summary>
-          <p>Marginalskatten er det, du betaler af den næste krone, du tjener — ikke gennemsnittet. Den er afgørende ved lønforhandling, fordi en stigning på fx 3.000 kr./md. kan give meget mindre netto, hvis du krydser topskattegrænsen på 777.900 kr. (efter AM-bidrag) i 2026.</p>
+          <p>Marginalskatten er det, du betaler af den næste krone, du tjener, ikke gennemsnittet. Den er afgørende ved lønforhandling, fordi en stigning på fx 3.000 kr./md. kan give meget mindre netto, hvis du krydser topskattegrænsen på 777.900 kr. (efter AM-bidrag) i 2026.</p>
         </details>
         <details>
           <summary>Hvornår krydser jeg topskat i 2026?</summary>
-          <p>Topskat (7,5 % i 2026) betales af personlig indkomst over 777.900 kr./år efter AM-bidrag. Det svarer til ca. 846.000 kr. bruttoløn — eller ca. 70.500 kr./md. Beregneren markerer det automatisk, hvis din lønforhøjelse krydser grænsen. Læs mere på <a href="/topskat-tjek.html">vores topskat-side</a>.</p>
+          <p>Topskat (7,5 % i 2026) betales af personlig indkomst over 777.900 kr./år efter AM-bidrag. Det svarer til ca. 846.000 kr. bruttoløn, eller ca. 70.500 kr./md. Beregneren markerer det automatisk, hvis din lønforhøjelse krydser grænsen. Læs mere på <a href="/topskat-tjek.html">vores topskat-side</a>.</p>
         </details>
         <details>
           <summary>Kan jeg undgå topskat på lønforhøjelsen?</summary>
-          <p>Ja — ved at lægge hele eller dele af stigningen ind i din arbejdsgiverpension (bortseelsesret). Pengene skattes først, når de bliver udbetalt fra pensionen, typisk efter pension hvor marginalskatten er lavere. Tal med HR eller din pensionsrådgiver, før du forhandler. Se også <a href="/pensionsfradrag.html">pensions-beregneren</a>.</p>
+          <p>Ja: ved at lægge hele eller dele af stigningen ind i din arbejdsgiverpension (bortseelsesret). Pengene skattes først, når de bliver udbetalt fra pensionen, typisk efter pension hvor marginalskatten er lavere. Tal med HR eller din pensionsrådgiver, før du forhandler. Se også <a href="/pensionsfradrag.html">pensions-beregneren</a>.</p>
         </details>
         <details>
           <summary>Hvordan påvirker pension lønforhøjelsens netto-effekt?</summary>
-          <p>Egen pension trækkes af bruttoløn før AM-bidrag og skat. Hvis du øger pensionsprocenten samtidig med stigningen, sparer du både AM-bidrag (8 %) og A-skat nu — men din direkte nettoløn stiger mindre. Det er en afvejning mellem cash i dag og opsparing til senere.</p>
+          <p>Egen pension trækkes af bruttoløn før AM-bidrag og skat. Hvis du øger pensionsprocenten samtidig med stigningen, sparer du både AM-bidrag (8 %) og A-skat nu, men din direkte nettoløn stiger mindre. Det er en afvejning mellem cash i dag og opsparing til senere.</p>
         </details>
         <details>
           <summary>Er beregneren præcis nok til lønforhandling?</summary>
-          <p>Beregneren bruger officielle 2026-satser fra Skattestyrelsen og rammer typisk inden for få hundrede kroner pr. måned. Den dækker dog ikke alle individuelle fradrag fra din forskudsopgørelse. Brug den som et solidt estimat — ikke som juridisk grundlag.</p>
+          <p>Beregneren bruger officielle 2026-satser fra Skattestyrelsen og rammer typisk inden for få hundrede kroner pr. måned. Den dækker dog ikke alle individuelle fradrag fra din forskudsopgørelse. Brug den som et solidt estimat, ikke som juridisk grundlag.</p>
         </details>
       </div>
     </div>
@@ -363,7 +363,7 @@
         </a>
         <a class="card link-card" href="/feriepenge.html">
           <h3>Feriepenge</h3>
-          <p>12,5 % af lønnen — men hvad bliver det efter skat? Se din feriepenge-udbetaling før den lander.</p>
+          <p>12,5 % af lønnen, men hvad bliver det efter skat? Se din feriepenge-udbetaling før den lander.</p>
         </a>
       </div>
     </div>
@@ -373,7 +373,7 @@
     <div class="container">
       <div class="cta-band">
         <h2>Klar til lønforhandlingen?</h2>
-        <p>Tag tallene med til samtalen — gratis, uden logind og opdateret med 2026-satserne.</p>
+        <p>Tag tallene med til samtalen: gratis, uden logind og opdateret med 2026-satserne.</p>
         <a class="btn btn--light btn--lg" href="#beregner">Åbn lønforhøjelses-beregneren</a>
       </div>
     </div>
