@@ -2695,8 +2695,10 @@ input.cmp-multiselect__input:focus { box-shadow: none; outline: none; border: 0;
 .media-figure video,.media-figure img{display:block;width:100%;height:auto;border-radius:10px;
   border:1px solid rgba(0,0,0,.09);background:rgba(0,0,0,.02);}
 .media-figure figcaption{margin-top:.65rem;font-size:.9rem;line-height:1.6;opacity:.75;}
-.media-hero{margin:.5rem 0 1.5rem;}
-.media-hero img{display:block;width:100%;height:220px;object-fit:cover;object-position:center 62%;
+/* margin-block, nunca o atalho `margin`: o atalho zera as laterais e mata o
+   margin-inline:auto do .container, jogando a faixa para a esquerda. */
+.media-hero{margin-block:.5rem 1.5rem;}
+.media-hero img{display:block;width:100%;height:220px;object-fit:cover;object-position:center center;
   border-radius:12px;}
 @media (max-width:640px){.media-hero img{height:150px;}}
 @media (max-width:640px){.media-figure{margin:1.5rem 0;}}
