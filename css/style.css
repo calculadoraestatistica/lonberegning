@@ -2740,3 +2740,29 @@ input,select,textarea{transition:border-color 140ms var(--ease-out),box-shadow 1
     transition-duration:.01ms!important;scroll-behavior:auto!important;}
   button:active,.btn:active,.button:active{transform:none;}
 }
+/* afiliado:css:inicio */
+/* Caixa de afiliado (Annonce) */
+.aff{border:1px solid rgba(0,0,0,.12);border-radius:10px;padding:1rem 1.1rem;margin:2.25rem 0;}
+/* A marcação legal da caixa. Estava em .66rem (uns 10,6 px) com opacity .5,
+   que dá 3,4:1 e era o texto mais apagado da caixa: mais apagado que o próprio
+   anúncio que ele encabeça. A orientação exige "en skrifttype, størrelse og
+   farve, som gør reklamemarkeringen tydelig". */
+.aff__mark{display:inline-block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;
+  font-weight:700;opacity:1;margin-bottom:.5rem;}
+.aff__t{font-size:1rem;font-weight:700;margin:0 0 .3rem;}
+.aff__p{margin:0 0 .8rem;font-size:.93rem;opacity:.85;}
+.aff__a{display:inline-block;font-weight:600;font-size:.95rem;text-decoration:none;
+  border-bottom:2px solid currentColor;padding-bottom:1px;}
+.aff__a:hover,.aff__a:focus-visible{opacity:.75;}
+.aff__why{margin:.8rem 0 0;font-size:.9rem;opacity:.9;}
+/* A marcação "Annoncelink" fica logo ACIMA do link, porque a orientação do
+   Forbrugerombudsmanden é literal: "Et reklamelink vil være markeret
+   tilstrækkeligt, hvis der oven over eller i direkte forlængelse af linket
+   tydeligt skrives 'Reklamelink' eller 'Annoncelink'", e a mesma página lista
+   "markere det til sidst i teksten" entre as marcações insuficientes. Antes
+   estava no rodapé da caixa, em .78rem e opacity .58. */
+.aff__d{margin:.7rem 0 .85rem;font-size:.95rem;font-weight:500;opacity:1;border-bottom:1px solid rgba(0,0,0,.12);padding-bottom:.6rem;}
+@media (max-width:640px){.aff{padding:.85rem .95rem;}}
+/* Mesma largura de leitura que o .prose do site, medida na caixa. */
+.section > .container > .aff{max-width:58ch;}
+/* afiliado:css:fim */
