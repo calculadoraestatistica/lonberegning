@@ -1816,25 +1816,6 @@ a.card:hover .card__cta::after { transform: translateX(3px); }
 .faq .faq__answer p { margin-top: var(--sp-3); }
 .faq .faq__answer p:first-child { margin-top: 0; }
 
-/* ============================================================
-   Ad slots
-   ============================================================ */
-.ad-slot {
-  margin-block: var(--sp-5);
-  text-align: center;
-  min-height: 0;
-  color: var(--c-muted);
-}
-.ad-slot:empty { display: none; }
-.ad-slot:not(:empty)::before {
-  content: 'Annonce';
-  display: block;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--c-muted-soft);
-  margin-bottom: var(--sp-2);
-}
 
 /* ============================================================
    Recommend / affiliate box
@@ -2597,9 +2578,7 @@ input.cmp-multiselect__input:focus { box-shadow: none; outline: none; border: 0;
 @media print {
   :root { --header-h: 0px; }
   .site-header, .site-footer, .nav-toggle, .main-nav,
-  .ad-slot, .sticky-cta, .skip-link, .cta-band,
-  .hero__actions, .calc-form__foot { display: none !important; }
-  body { background: #fff; color: #000; }
+    body { background: #fff; color: #000; }
   .container, .wrap { max-width: 100%; padding: 0; }
   .card, .result-card, .calculator, .calc-form, .cmp-summary__card {
     box-shadow: none;
